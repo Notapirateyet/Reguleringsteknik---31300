@@ -1,0 +1,8 @@
+vel = 0.5, log=100 : time=1
+tr = 0.1 : turn=-90
+vel = 0.5 : time=1
+tr = 0.1 : turn=-90
+vel = 0.5 : time=1
+tr = 0.1 : turn=-90
+vel = 0.5 : time=1
+tr = 0.1 : turn=-90
