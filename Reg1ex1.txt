@@ -1,0 +1,5 @@
+cw: X -0.395  Y: -1.67 m
+Run 2
+cw: X 45      Y: -168 cm
+
+ccw: x 12     Y: -1 cm
