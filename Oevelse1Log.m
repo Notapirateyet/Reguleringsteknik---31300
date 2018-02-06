@@ -4,7 +4,7 @@ clear
 dataCV = load('Log1CW1.txt');
 dataCCV = load('Log1CCW1.txt');
 %% logfile from robot Freja (4)
-% Freja (4)
+% Freja min ven (4)
 %  1    time 0.007 sec
 %  2  3  4  5   (mission 0), state 2, entered (thread 1, line 0), events 0x0 (bit-flags)
 %  6  7 Motor voltage [V] left, right: 2.00 2.00
