@@ -1,0 +1,4 @@
+vel = 0.4, log = 5 : dist = 0.4 
+head = 10 : dist = 0.4
+head= 0 : dist = 0.4
+vel = 0 : log = 0
