@@ -1,0 +1,3 @@
+vel = 0.3, log = 5 : time = 1.5
+vel = 0.5 : time = 2.5
+vel = 0 : log = 0
