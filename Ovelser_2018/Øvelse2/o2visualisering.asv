@@ -1,7 +1,7 @@
 close all
 clear
 %%
-data = load('O2D14.txt');
+data = load('O2D1.txt');
 %% logfile from robot Freja (4)
 % Freja (4)
 %  1    time 0.000 sec
@@ -18,23 +18,13 @@ plot(data(:,1), data(:,3), 'r')
 set(gca,'FontSize',12)
 grid on
 grid MINOR
-title('Robot Freja (4), Manual tuning, Kp=5')
+title('Robot Freja (4), Manual tuning')
 xlabel('Time [s]')
 ylabel('Motor voltage [V]')
 legend('Left', 'Right')
-%axis equal
-
+axis equal
+%print('square_no_control','-dpng');
 subplot(2,1,2);
-plot(data(:,1), data(:,4), 'b')
 hold on
-plot(data(:,1), data(:,5), 'r')
-set(gca,'FontSize',12)
-grid on
-grid MINOR
-%title('Robot Freja (5), Manual tuning')
-xlabel('Time [s]')
-ylabel('Motor speed [m/s]')
-legend('Left', 'Right')
-%axis equal
 
-%print('O2D14','-dpng');
+
