@@ -1,30 +1,45 @@
 close all
 clear
-%%
-data = load('O2D14.txt');
+%% Data
+data = load('O2D3_I.txt');
+
 %% logfile from robot Freja (4)
 % Freja (4)
-%  1    time 0.000 sec
-%  2  3 Motor voltage [V] left, right: 1.20 1.20
-%  4  5 Wheel velocity [m/s] left, right: 0.0000 0.0000
-%  6  7  8  9 Pose x,y,h,tilt [m,m,rad,rad]: 0 0 0 -3.11947
+%  1    time 0.026 sec
+%  2  3 Motor voltage [V] left, right: 0.21 0.21
+%  4  5 Wheel velocity [m/s] left, right: -0.0000 -0.0000
+% 6 7 Turnrate [r/s]: 0.0000, steer angle [rad]: 0.0000
+%  8  9 10 11 Pose x,y,h,tilt [m,m,rad,rad]: 0 0 0 -0.776604
 %% Plotting
 
 figure(98)
-subplot(2,1,1);
-plot(data(:,1), data(:,2), 'b')
+subplot(2,2,1);
+plot(data(:,1), data(:,6), 'b')
 hold on
-plot(data(:,1), data(:,3), 'r')
+%plot(data(:,1), data(:,6), 'r')
 set(gca,'FontSize',12)
 grid on
 grid MINOR
-title('Robot Freja (4), Manual tuning, Kp=5')
+title('Robot Freja (4), Manual tuning, floor, square')
 xlabel('Time [s]')
-ylabel('Motor voltage [V]')
-legend('Left', 'Right')
+ylabel('Turnrate [r/s]')
+%legend('Left', 'Right')
 %axis equal
 
-subplot(2,1,2);
+subplot(2,2,2);
+plot(data(:,1), data(:,10)*180/pi, 'b')
+hold on
+%plot(data(:,1), data(:,5), 'r')
+set(gca,'FontSize',12)
+grid on
+grid MINOR
+%title('Robot Freja (5), Manual tuning')
+xlabel('Time [s]')
+ylabel('Heading [deg]')
+%legend('Left', 'Right')
+%axis equal
+
+subplot(2,2,3);
 plot(data(:,1), data(:,4), 'b')
 hold on
 plot(data(:,1), data(:,5), 'r')
@@ -35,6 +50,17 @@ grid MINOR
 xlabel('Time [s]')
 ylabel('Motor speed [m/s]')
 legend('Left', 'Right')
-%axis equal
+
+subplot(2,2,4);
+plot(data(:,8), data(:,9), 'b')
+hold on
+%plot(data(:,1), data(:,3), 'r')
+set(gca,'FontSize',12)
+grid on
+grid MINOR
+%title('Robot Freja (5), Manual tuning')
+xlabel('x [m]')
+ylabel('y [m]')
+%legend('Left', 'Right')
 
 %print('O2D14','-dpng');
