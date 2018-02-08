@@ -36,7 +36,7 @@ grid MINOR
 xlabel('Time [s]')
 ylabel('Heading [deg]')
 %legend('Left', 'Right')
-%axis equal
+axis([0 2.5 -10 10])
 
 %% More plots
 
@@ -63,5 +63,6 @@ grid MINOR
 xlabel('x [m]')
 ylabel('y [m]')
 %legend('Left', 'Right')
+axis equal
 
 %print('O2D14','-dpng');
