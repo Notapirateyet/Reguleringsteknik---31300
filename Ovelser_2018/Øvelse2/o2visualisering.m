@@ -1,29 +1,28 @@
 close all
 clear
 %% Data
-data = load('O2D3_I.txt');
+data = load('O1_line.txt');
 
-%% logfile from robot Freja (4)
-% Freja (4)
-%  1    time 0.026 sec
-%  2  3 Motor voltage [V] left, right: 0.21 0.21
+%% Freja (4)
+%  1    time 0.000 sec
+%  2  3 Motor voltage [V] left, right: 0.00 0.00
 %  4  5 Wheel velocity [m/s] left, right: -0.0000 -0.0000
 % 6 7 Turnrate [r/s]: 0.0000, steer angle [rad]: 0.0000
-%  8  9 10 11 Pose x,y,h,tilt [m,m,rad,rad]: 0 0 0 -0.776604
+%  8  9 10 11 Pose x,y,h,tilt [m,m,rad,rad]: 0 0 0 3.07458
 %% Plotting
 
 figure(98)
 subplot(2,2,1);
-plot(data(:,1), data(:,6), 'b')
+plot(data(:,1), data(:,2), 'b')
 hold on
-%plot(data(:,1), data(:,6), 'r')
+plot(data(:,1), data(:,3), 'r')
 set(gca,'FontSize',12)
 grid on
 grid MINOR
-title('Robot Freja (4), Manual tuning, floor, square')
+title('Robot Freja (4), No tuning, 3 speeds')
 xlabel('Time [s]')
-ylabel('Turnrate [r/s]')
-%legend('Left', 'Right')
+ylabel('Motor voltage [V]')
+legend('Left', 'Right')
 %axis equal
 
 subplot(2,2,2);
