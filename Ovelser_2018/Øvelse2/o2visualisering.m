@@ -1,7 +1,7 @@
 close all
 clear
 %% Data
-data = load('O1_line.txt');
+data = load('O2D1_line.txt');
 
 %% Freja (4)
 %  1    time 0.000 sec
@@ -19,7 +19,7 @@ plot(data(:,1), data(:,3), 'r')
 set(gca,'FontSize',12)
 grid on
 grid MINOR
-title('Robot Freja (4), No tuning, 3 speeds')
+title('Robot Freja (4), Manual tuning, 3 speeds, Kp = 12, Kf = 3.5')
 xlabel('Time [s]')
 ylabel('Motor voltage [V]')
 legend('Left', 'Right')
@@ -37,6 +37,8 @@ xlabel('Time [s]')
 ylabel('Heading [deg]')
 %legend('Left', 'Right')
 %axis equal
+
+%% More plots
 
 subplot(2,2,3);
 plot(data(:,1), data(:,4), 'b')
