@@ -1,7 +1,7 @@
 close all
 clear
 %% Data
-data = load('O2D3_square.txt');
+data = load('O2D3_floor.txt');
 
 %% Freja (4)
 %  1    time 0.000 sec
