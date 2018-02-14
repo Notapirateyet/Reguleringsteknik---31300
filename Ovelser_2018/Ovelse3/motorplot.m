@@ -5,7 +5,7 @@ data = load('data_sutten.txt');
 %  2  3 Motor voltage [V] left, right: 3.00 3.00
 %  4  5 Motor current left, right [A]: 0.150 0.128
 %  6  7 Wheel velocity [m/s] left, right: -0.0000 0.0000
-figure(100) % start figure 100
+figure(99) % start figure 100
 yyaxis left % use left y-axis
 hold off    % repaint plot
 plot(data(:,1), data(:,7),'-g','linewidth',2) %m/s
