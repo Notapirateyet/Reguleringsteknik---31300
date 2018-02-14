@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://learn.inside.dtu.dk/d2l/le/content/13911/viewContent/2475/View -->
+<html lang="en-GB" data-lang-default="en-GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- Shady DOM styles for custom-style --><!-- Shady DOM styles for dom-template --><!-- Shady DOM styles for dom-repeat --><!-- Shady DOM styles for array-selector --><!-- Shady DOM styles for dom-if --><!-- Shady DOM styles for iron-meta --><!-- Shady DOM styles for iron-meta-query --><!-- Shady DOM styles for d2l-icon --><style scope="d2l-icon-0">.d2l-icon-0 {
+  -ms-flex-align:center;-webkit-align-items:center;align-items:center;color:#565a5c;display:-ms-inline-flexbox;display:-webkit-inline-flex;display:inline-flex;fill:currentcolor;height:18px;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;stroke:none;vertical-align:middle;width:18px
+}
+
+.d2l-icon-0[icon*="d2l-tier2:"] {
+  height:24px;width:24px
+}
+
+.d2l-icon-0[icon*="d2l-tier3:"] {
+  height:30px;width:30px
+}</style><!-- Shady DOM styles for iron-iconset-svg --><!-- Shady DOM styles for d2l-button --><!-- Shady DOM styles for iron-request --><!-- Shady DOM styles for iron-ajax --><!-- Shady DOM styles for d2l-alert --><!-- Shady DOM styles for d2l-dropdown --><style scope="d2l-dropdown">d2l-dropdown {
+  display:inline-block;outline:0;overflow:visible;position:relative
+}</style><!-- Shady DOM styles for d2l-menu-item --><style scope="d2l-menu-item">d2l-menu-item {
+  background-color:#fff;box-sizing:border-box;cursor:pointer;display:block;font-size:.8rem;outline:0;width:100%
+}
+
+d2l-menu-item[disabled],d2l-menu-item[disabled]:focus,d2l-menu-item[disabled]:hover {
+  cursor:default;opacity:.75
+}
+
+d2l-menu-item[hidden] {
+  display:none
+}
+
+d2l-menu-item {
+  display:flex;padding:.75rem 1rem
+}
+
+d2l-menu-item>span.d2l-menu-item {
+  flex:auto;line-height:1rem;overflow-x:hidden;overflow-y:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+
+d2l-menu-item>d2l-icon.d2l-menu-item {
+  flex:none;margin-top:.1rem
+}</style><!-- Shady DOM styles for d2l-menu-item-return --><style scope="d2l-menu-item-return">d2l-menu-item-return {
+  background-color:#fff;box-sizing:border-box;cursor:pointer;display:block;font-size:.8rem;outline:0;width:100%
+}
+
+d2l-menu-item-return[disabled],d2l-menu-item-return[disabled]:focus,d2l-menu-item-return[disabled]:hover {
+  cursor:default;opacity:.75
+}
+
+d2l-menu-item-return[hidden] {
+  display:none
+}
+
+d2l-menu-item-return {
+  display:flex;padding:.75rem 1rem
+}
+
+d2l-menu-item-return>span.d2l-menu-item-return {
+  flex:auto;line-height:1rem;overflow-x:hidden;overflow-y:hidden;text-decoration:none;text-overflow:ellipsis;white-space:nowrap
+}
+
+d2l-menu-item-return>d2l-icon.d2l-menu-item-return {
+  flex:none;margin-right:1rem;margin-top:.1rem
+}
+
+[dir=rtl] d2l-menu-item-return>d2l-icon.d2l-menu-item-return, d2l-menu-item-return[dir=rtl]>d2l-icon.d2l-menu-item-return {
+  margin-right:0;margin-left:1rem
+}</style><!-- Shady DOM styles for d2l-menu-item-separator --><style scope="d2l-menu-item-separator">d2l-menu-item-separator {
+  display:block
+}</style><!-- Shady DOM styles for d2l-menu --><style scope="d2l-menu-0">.d2l-menu-0 {
+  box-sizing:border-box;display:inline-block;position:relative;left:0;overflow:hidden;width:100%;-webkit-transition:height .3s linear;transition:height .3s linear
+}
+
+[no-animate-height] .d2l-menu-0, .d2l-menu-0[no-animate-height] {
+  transition:none
+}
+
+.d2l-menu-0[child-view] {
+  display:none;position:absolute;top:0;left:100%
+}
+
+.d2l-menu-0[shown] {
+  display:inline-block
+}
+
+.d2l-menu-0 .d2l-hierarchical-view-content.d2l-child-view-show.d2l-menu {
+  -webkit-animation:show-child-view-animation-d2l-menu-0 forwards .3s linear;animation:show-child-view-animation-d2l-menu-0 .3s forwards linear
+}
+
+.d2l-menu-0 .d2l-hierarchical-view-content.d2l-child-view-hide.d2l-menu {
+  -webkit-animation:hide-child-view-animation-d2l-menu-0 forwards .3s linear;animation:hide-child-view-animation-d2l-menu-0 .3s forwards linear
+}
+
+@keyframes show-child-view-animation-d2l-menu-0 {
+0% {
+  transform:translate(0,0)
+}
+
+100% {
+  transform:translate(-100%,0)
+}
+
+}
+
+@-webkit-keyframes show-child-view-animation-d2l-menu-0 {
+0% {
+  -webkit-transform:translate(0,0)
+}
+
+100% {
+  -webkit-transform:translate(-100%,0)
+}
+
+}
+
+@keyframes hide-child-view-animation-d2l-menu-0 {
+0% {
+  transform:translate(-100%,0)
+}
+
+100% {
+  transform:translate(0,0)
+}
+
+}
+
+@-webkit-keyframes hide-child-view-animation-d2l-menu-0 {
+0% {
+  -webkit-transform:translate(-100%,0)
+}
+
+100% {
+  -webkit-transform:translate(0,0)
+}
+
+}
+
+.d2l-menu-0 {
+  box-sizing:border-box;display:block;width:100%
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitem],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemcheckbox],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemradio],.d2l-menu-0 .d2l-menu-items.d2l-menu d2l-menu-item-return[role=menuitem].d2l-menu {
+  border:1px solid transparent;border-top-color:#e6eaf0;color:#565a5c
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitem],.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitemcheckbox],.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitemradio],.d2l-menu-0 .d2l-menu-items.d2l-menu d2l-menu-item-return[role=menuitem].d2l-menu {
+  border-top-color:transparent
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitem]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitem]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitemcheckbox]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitemcheckbox]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitemradio]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-first[role=menuitemradio]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitem]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitem]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemcheckbox]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemcheckbox]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemradio]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemradio]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu d2l-menu-item-return[role=menuitem].d2l-menu:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu d2l-menu-item-return[role=menuitem].d2l-menu:hover {
+  background-color:#e8f2f9;border-top:1px solid #29a6ff;border-bottom:1px solid #29a6ff;color:#006fbf
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-last[role=menuitem]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-last[role=menuitem]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-last[role=menuitemcheckbox]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-last[role=menuitemcheckbox]:hover,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-last[role=menuitemradio]:focus,.d2l-menu-0 .d2l-menu-items.d2l-menu > .d2l-menu-item-last[role=menuitemradio]:hover {
+  border-bottom-color:#29a6ff
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitem]:focus+[role=menuitem],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitem]:hover+[role=menuitem],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemcheckbox]:focus+[role=menuitemcheckbox],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemcheckbox]:hover+[role=menuitemcheckbox],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemradio]:focus+[role=menuitemradio],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemradio]:hover+[role=menuitemradio],.d2l-menu-0 .d2l-menu-items.d2l-menu-item-return-focus.d2l-menu > [role=menuitem]:first-child,.d2l-menu-0 .d2l-menu-items.d2l-menu-item-return-focus.d2l-menu > [role=menuitemcheckbox]:first-child,.d2l-menu-0 .d2l-menu-items.d2l-menu-item-return-focus.d2l-menu > [role=menuitemradio]:first-child,.d2l-menu-0 .d2l-menu-items.d2l-menu-item-return-hover.d2l-menu > [role=menuitem]:first-child,.d2l-menu-0 .d2l-menu-items.d2l-menu-item-return-hover.d2l-menu > [role=menuitemcheckbox]:first-child,.d2l-menu-0 .d2l-menu-items.d2l-menu-item-return-hover.d2l-menu > [role=menuitemradio]:first-child {
+  border-top-color:transparent
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > d2l-menu-item-separator {
+  border:0
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > d2l-menu-item-separator+[role=menuitem],.d2l-menu-0 .d2l-menu-items.d2l-menu > d2l-menu-item-separator+[role=menuitemcheckbox],.d2l-menu-0 .d2l-menu-items.d2l-menu > d2l-menu-item-separator+[role=menuitemradio] {
+  border-top:1px solid #b9c2d0
+}
+
+.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitem]:focus+d2l-menu-item-separator+[role=menuitem],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitem]:hover+d2l-menu-item-separator+[role=menuitem],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemcheckbox]:focus+d2l-menu-item-separator+[role=menuitemcheckbox],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemcheckbox]:hover+d2l-menu-item-separator+[role=menuitemcheckbox],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemradio]:focus+d2l-menu-item-separator+[role=menuitemradio],.d2l-menu-0 .d2l-menu-items.d2l-menu > [role=menuitemradio]:hover+d2l-menu-item-separator+[role=menuitemradio] {
+  border-top-color:transparent
+}</style><!-- Shady DOM styles for d2l-dropdown-menu --><style scope="d2l-dropdown-menu-0">.d2l-dropdown-menu-0 {
+  box-sizing:border-box;color:#565a5c;display:none;left:0;position:absolute;text-align:left;top:calc(100% + 20px);width:100%;z-index:1000
+}
+
+.d2l-dropdown-menu-0[opened] {
+  display:inline-block
+}
+
+.d2l-dropdown-menu-0[opened] {
+  -webkit-animation:d2l-dropdown-animation-d2l-dropdown-menu-0 .3s ease;animation:d2l-dropdown-animation-d2l-dropdown-menu-0 .3s ease
+}
+
+.d2l-dropdown-menu-0[opened-above] {
+  bottom:calc(100% + 20px);top:auto;-webkit-animation:d2l-dropdown-above-animation-d2l-dropdown-menu-0 .3s ease;animation:d2l-dropdown-above-animation-d2l-dropdown-menu-0 .3s ease
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-pointer.d2l-dropdown-menu {
+  position:absolute;display:inline-block;clip:rect(-5px,21px,8px,-3px);top:-7px;left:calc(50% - 7px);z-index:1
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-pointer.d2l-dropdown-menu>div.d2l-dropdown-menu {
+  background-color:#fff;border:1px solid #d3d9e3;border-radius:.1rem;box-shadow:-4px -4px 12px -5px rgba(86,90,92,.2);height:16px;width:16px;transform:rotate(45deg);-webkit-transform:rotate(45deg)
+}
+
+.d2l-dropdown-menu-0[opened-above] .d2l-dropdown-content-pointer.d2l-dropdown-menu {
+  top:auto;clip:rect(9px,21px,22px,-3px);bottom:-8px
+}
+
+.d2l-dropdown-menu-0[opened-above] .d2l-dropdown-content-pointer.d2l-dropdown-menu>div.d2l-dropdown-menu {
+  box-shadow:4px 4px 12px -5px rgba(86,90,92,.2)
+}
+
+.d2l-dropdown-menu-0[no-pointer] .d2l-dropdown-content-pointer.d2l-dropdown-menu {
+  display:none
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-position.d2l-dropdown-menu {
+  border-radius:.3rem;display:inline-block;position:absolute
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-width.d2l-dropdown-menu {
+  background-color:#fff;border:1px solid #d3d9e3;border-radius:.3rem;box-shadow:0 2px 12px 0 rgba(0,0,0,.15);box-sizing:border-box;min-width:70px;max-width:370px;position:absolute;width:100vw
+}
+
+.d2l-dropdown-menu-0[opened-above] .d2l-dropdown-content-width.d2l-dropdown-menu {
+  bottom:100%
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-container.d2l-dropdown-menu {
+  box-sizing:border-box;display:inline-block;max-width:100%;outline:0;padding:1rem
+}
+
+.d2l-dropdown-menu-0[no-padding] .d2l-dropdown-content-container.d2l-dropdown-menu {
+  padding:0
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-bottom.d2l-dropdown-menu,.d2l-dropdown-menu-0 .d2l-dropdown-content-top.d2l-dropdown-menu {
+  height:5px;position:relative;z-index:1
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-top.d2l-dropdown-menu {
+  border-top-left-radius:.3rem;border-top-right-radius:.3rem
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-bottom.d2l-dropdown-menu {
+  border-bottom-left-radius:.3rem;border-bottom-right-radius:.3rem
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-top-scroll.d2l-dropdown-menu {
+  box-shadow:0 3px 3px 0 rgba(0,0,0,.05)
+}
+
+.d2l-dropdown-menu-0 .d2l-dropdown-content-bottom-scroll.d2l-dropdown-menu {
+  box-shadow:0 -3px 3px 0 rgba(0,0,0,.05)
+}
+
+[dir=rtl] .d2l-dropdown-menu-0, .d2l-dropdown-menu-0[dir=rtl] {
+  left:auto;right:0;text-align:right
+}
+
+@keyframes d2l-dropdown-animation-d2l-dropdown-menu-0 {
+0% {
+  transform:translate(0,-10px);opacity:0
+}
+
+100% {
+  transform:translate(0,0);opacity:1
+}
+
+}
+
+@keyframes d2l-dropdown-above-animation-d2l-dropdown-menu-0 {
+0% {
+  transform:translate(0,10px);opacity:0
+}
+
+100% {
+  transform:translate(0,0);opacity:1
+}
+
+}
+
+@-webkit-keyframes d2l-dropdown-animation-d2l-dropdown-menu-0 {
+0% {
+  -webkit-transform:translate(0,-10px);opacity:0
+}
+
+100% {
+  -webkit-transform:translate(0,0);opacity:1
+}
+
+}
+
+@-webkit-keyframes d2l-dropdown-above-animation-d2l-dropdown-menu-0 {
+0% {
+  -webkit-transform:translate(0,10px);opacity:0
+}
+
+100% {
+  -webkit-transform:translate(0,0);opacity:1
+}
+
+}</style><!-- Shady DOM styles for d2l-loading-spinner --><style scope="d2l-loading-spinner-0">.d2l-loading-spinner-0 {
+  color:#006fbf;display:inline-block;text-align:initial
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-wrapper.d2l-loading-spinner {
+  height:120px;margin:auto;overflow:hidden;position:relative;width:120px
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-bg.d2l-loading-spinner,.d2l-loading-spinner-0 .d2l-loading-spinner-bg-blur.d2l-loading-spinner {
+  height:100%;position:absolute;top:0;width:100%;stroke:#006fbf
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-bg-stroke.d2l-loading-spinner {
+  stroke:#ededfa
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-bg-blur.d2l-loading-spinner {
+  opacity:.1;filter:blur(calc(120px / 10))
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-slice1.d2l-loading-spinner,.d2l-loading-spinner-0 .d2l-loading-spinner-slice2.d2l-loading-spinner,.d2l-loading-spinner-0 .d2l-loading-spinner-slice3.d2l-loading-spinner,.d2l-loading-spinner-0 .d2l-loading-spinner-slice4.d2l-loading-spinner,.d2l-loading-spinner-0 .d2l-loading-spinner-slice5.d2l-loading-spinner {
+  animation-duration:1.5s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.5,0,.5,1);height:50%;position:absolute;top:0;transform-origin:left bottom;left:50%;width:50%
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-slice1.d2l-loading-spinner {
+  animation-name:slicespin1-d2l-loading-spinner-0;transform:rotate(54deg)
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-slice2.d2l-loading-spinner {
+  animation-name:slicespin2-d2l-loading-spinner-0;transform:rotate(124deg)
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-slice3.d2l-loading-spinner {
+  animation-name:slicespin3-d2l-loading-spinner-0;transform:rotate(198deg)
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-slice4.d2l-loading-spinner {
+  animation-name:slicespin4-d2l-loading-spinner-0;transform:rotate(270deg)
+}
+
+.d2l-loading-spinner-0 .d2l-loading-spinner-slice5.d2l-loading-spinner {
+  animation-name:slicespin5-d2l-loading-spinner-0;transform:rotate(344deg)
+}
+
+@keyframes slicespin1-d2l-loading-spinner-0 {
+0% {
+  transform:rotate(54deg)
+}
+
+100%,80% {
+  transform:rotate(430deg)
+}
+
+}
+
+@keyframes slicespin2-d2l-loading-spinner-0 {
+0%,10% {
+  transform:rotate(124deg)
+}
+
+100%,80% {
+  transform:rotate(500deg)
+}
+
+}
+
+@keyframes slicespin3-d2l-loading-spinner-0 {
+0%,20% {
+  transform:rotate(198deg)
+}
+
+100%,80% {
+  transform:rotate(574deg)
+}
+
+}
+
+@keyframes slicespin4-d2l-loading-spinner-0 {
+0%,35% {
+  transform:rotate(270deg)
+}
+
+100%,80% {
+  transform:rotate(644deg)
+}
+
+}
+
+@keyframes slicespin5-d2l-loading-spinner-0 {
+,0%,60% {
+  transform:rotate(344deg)
+}
+
+100%,80% {
+  transform:rotate(720deg)
+}
+
+}</style><!-- Shady DOM styles for d2l-link --><!-- Shady DOM styles for d2l-dropdown-content --><style scope="d2l-dropdown-content-1">.d2l-dropdown-content-1 {
+  box-sizing:border-box;color:#565a5c;display:none;left:0;position:absolute;text-align:left;top:calc(100% + 0px);width:100%;z-index:1000
+}
+
+.d2l-dropdown-content-1[opened] {
+  display:inline-block
+}
+
+.d2l-dropdown-content-1[opened] {
+  -webkit-animation:d2l-dropdown-animation-d2l-dropdown-content-1 .3s ease;animation:d2l-dropdown-animation-d2l-dropdown-content-1 .3s ease
+}
+
+.d2l-dropdown-content-1[opened-above] {
+  bottom:calc(100% + 0px);top:auto;-webkit-animation:d2l-dropdown-above-animation-d2l-dropdown-content-1 .3s ease;animation:d2l-dropdown-above-animation-d2l-dropdown-content-1 .3s ease
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-pointer.d2l-dropdown-content {
+  position:absolute;display:inline-block;clip:rect(-5px,21px,8px,-3px);top:-7px;left:calc(50% - 7px);z-index:1
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-pointer.d2l-dropdown-content>div.d2l-dropdown-content {
+  background-color:#fff;border:1px solid #d3d9e3;border-radius:.1rem;box-shadow:-4px -4px 12px -5px rgba(86,90,92,.2);height:16px;width:16px;transform:rotate(45deg);-webkit-transform:rotate(45deg)
+}
+
+.d2l-dropdown-content-1[opened-above] .d2l-dropdown-content-pointer.d2l-dropdown-content {
+  top:auto;clip:rect(9px,21px,22px,-3px);bottom:-8px
+}
+
+.d2l-dropdown-content-1[opened-above] .d2l-dropdown-content-pointer.d2l-dropdown-content>div.d2l-dropdown-content {
+  box-shadow:4px 4px 12px -5px rgba(86,90,92,.2)
+}
+
+.d2l-dropdown-content-1[no-pointer] .d2l-dropdown-content-pointer.d2l-dropdown-content {
+  display:none
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-position.d2l-dropdown-content {
+  border-radius:.3rem;display:inline-block;position:absolute
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-width.d2l-dropdown-content {
+  background-color:#fff;border:1px solid #d3d9e3;border-radius:.3rem;box-shadow:0 2px 12px 0 rgba(0,0,0,.15);box-sizing:border-box;min-width:70px;max-width:370px;position:absolute;width:100vw
+}
+
+.d2l-dropdown-content-1[opened-above] .d2l-dropdown-content-width.d2l-dropdown-content {
+  bottom:100%
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-container.d2l-dropdown-content {
+  box-sizing:border-box;display:inline-block;max-width:100%;outline:0;padding:1rem
+}
+
+.d2l-dropdown-content-1[no-padding] .d2l-dropdown-content-container.d2l-dropdown-content {
+  padding:0
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-bottom.d2l-dropdown-content,.d2l-dropdown-content-1 .d2l-dropdown-content-top.d2l-dropdown-content {
+  height:5px;position:relative;z-index:1
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-top.d2l-dropdown-content {
+  border-top-left-radius:.3rem;border-top-right-radius:.3rem
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-bottom.d2l-dropdown-content {
+  border-bottom-left-radius:.3rem;border-bottom-right-radius:.3rem
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-top-scroll.d2l-dropdown-content {
+  box-shadow:0 3px 3px 0 rgba(0,0,0,.05)
+}
+
+.d2l-dropdown-content-1 .d2l-dropdown-content-bottom-scroll.d2l-dropdown-content {
+  box-shadow:0 -3px 3px 0 rgba(0,0,0,.05)
+}
+
+[dir=rtl] .d2l-dropdown-content-1, .d2l-dropdown-content-1[dir=rtl] {
+  left:auto;right:0;text-align:right
+}
+
+@keyframes d2l-dropdown-animation-d2l-dropdown-content-1 {
+0% {
+  transform:translate(0,-10px);opacity:0
+}
+
+100% {
+  transform:translate(0,0);opacity:1
+}
+
+}
+
+@keyframes d2l-dropdown-above-animation-d2l-dropdown-content-1 {
+0% {
+  transform:translate(0,10px);opacity:0
+}
+
+100% {
+  transform:translate(0,0);opacity:1
+}
+
+}
+
+@-webkit-keyframes d2l-dropdown-animation-d2l-dropdown-content-1 {
+0% {
+  -webkit-transform:translate(0,-10px);opacity:0
+}
+
+100% {
+  -webkit-transform:translate(0,0);opacity:1
+}
+
+}
+
+@-webkit-keyframes d2l-dropdown-above-animation-d2l-dropdown-content-1 {
+0% {
+  -webkit-transform:translate(0,10px);opacity:0
+}
+
+100% {
+  -webkit-transform:translate(0,0);opacity:1
+}
+
+}</style><!-- Shady DOM styles for d2l-menu-item-link --><style scope="d2l-menu-item-link">d2l-menu-item-link {
+  background-color:#fff;box-sizing:border-box;cursor:pointer;display:block;font-size:.8rem;outline:0;width:100%
+}
+
+d2l-menu-item-link[disabled],d2l-menu-item-link[disabled]:focus,d2l-menu-item-link[disabled]:hover {
+  cursor:default;opacity:.75
+}
+
+d2l-menu-item-link[hidden] {
+  display:none
+}
+
+d2l-menu-item-link {
+  display:block;padding:0
+}
+
+d2l-menu-item-link>a.d2l-menu-item-link {
+  color:inherit;display:block;line-height:1rem;outline:0;overflow-x:hidden;padding:.75rem 1rem;text-decoration:none;text-overflow:ellipsis;white-space:nowrap
+}</style><!-- Shady DOM styles for d2l-icon-button --><!-- Shady DOM styles for d2l-image-action-link --><!-- Shady DOM styles for d2l-image-action-group --><style scope="d2l-image-action-group">d2l-image-action-group {
+  display:inline-block;line-height:0
+}
+
+d2l-image-action-group >a[is=d2l-image-action-link],d2l-image-action-group >button[is=d2l-image-action] {
+  margin-right:1.2rem
+}
+
+d2l-image-action-group >a[is=d2l-image-action-link]:last-child,d2l-image-action-group >button[is=d2l-image-action]:last-child {
+  margin-right:0
+}
+
+[dir=rtl] d2l-image-action-group >a[is=d2l-image-action-link], d2l-image-action-group[dir=rtl] >a[is=d2l-image-action-link],[dir=rtl] d2l-image-action-group >button[is=d2l-image-action], d2l-image-action-group[dir=rtl] >button[is=d2l-image-action] {
+  margin-right:0;margin-left:1.2rem
+}
+
+[dir=rtl] d2l-image-action-group >a[is=d2l-image-action-link]:last-child, d2l-image-action-group[dir=rtl] >a[is=d2l-image-action-link]:last-child,[dir=rtl] d2l-image-action-group >button[is=d2l-image-action]:last-child, d2l-image-action-group[dir=rtl] >button[is=d2l-image-action]:last-child {
+  margin-left:0
+}</style><!-- Shady DOM styles for d2l-image-action --><!-- Shady DOM styles for d2l-icon-link --><!-- Shady DOM styles for iron-overlay-backdrop --><!-- Shady DOM styles for d2l-simple-overlay-close-button --><!-- Shady DOM styles for d2l-simple-overlay --><!-- Shady DOM styles for iron-a11y-announcer --><style scope="iron-a11y-announcer">iron-a11y-announcer {
+  display:inline-block;position:fixed;clip:rect(0,0,0,0)
+}</style><!-- Shady DOM styles for iron-input --><!-- Shady DOM styles for d2l-search-widget --><!-- Shady DOM styles for d2l-course-image --><style scope="d2l-course-image">d2l-course-image {
+  display:flex;align-items:center
+}
+
+.shown.d2l-course-image {
+  animation-name:shown;animation-duration:.5s;animation-fill-mode:forwards
+}
+
+@keyframes shown {
+0% {
+  opacity:0
+}
+
+100% {
+  opacity:1
+}
+
+}
+
+img.d2l-course-image {
+  min-height:100%;width:100%
+}</style><!-- Shady DOM styles for d2l-image-selector-tile --><!-- Shady DOM styles for d2l-image-tile-grid --><!-- Shady DOM styles for d2l-basic-image-selector --><!-- Shady DOM styles for iron-scroll-threshold --><style scope="iron-scroll-threshold">iron-scroll-threshold {
+  display:block
+}</style><!-- Shady DOM styles for iron-media-query --><!-- Shady DOM styles for d2l-floating-buttons --><!-- Shady DOM styles for d2l-dropdown-button --><style scope="d2l-dropdown-button">d2l-dropdown-button {
+  display:inline-block;outline:0;overflow:visible;position:relative
+}
+
+d2l-dropdown-button d2l-icon.d2l-dropdown-button {
+  height:.8rem;width:.8rem
+}
+
+d2l-dropdown-button button.d2l-dropdown-button>span.d2l-dropdown-button {
+  margin-right:.6rem
+}
+
+d2l-dropdown-button[primary] d2l-icon.d2l-dropdown-button {
+  color:#fff
+}
+
+[dir=rtl] d2l-dropdown-button button.d2l-dropdown-button>span.d2l-dropdown-button, d2l-dropdown-button[dir=rtl] button.d2l-dropdown-button>span.d2l-dropdown-button {
+  margin-left:.6rem;margin-right:0
+}</style><!-- Shady DOM styles for d2l-buttons-menu --><!-- Shady DOM styles for d2l-button-list --><!-- Shady DOM styles for d2l-button-group --><style scope="d2l-button-group">d2l-button-group {
+  display:block
+}
+
+.responsive-button-list.d2l-button-group {
+  position:relative
+}
+
+d2l-button-group .responsive-button-list.d2l-button-group,d2l-button-group[can-shrink] .responsive-button-list.d2l-button-group > d2l-button-list {
+  display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-align:stretch;-webkit-align-items:stretch;align-items:stretch
+}
+
+d2l-button-group .responsive-button-list.d2l-button-group {
+  -ms-flex-wrap:wrap;-webkit-flex-wrap:wrap;flex-wrap:wrap
+}
+
+d2l-button-group[can-shrink] .responsive-button-list.d2l-button-group,d2l-button-group[can-shrink] .responsive-button-list.d2l-button-group > d2l-button-list {
+  -ms-flex-wrap:nowrap;-webkit-flex-wrap:nowrap;flex-wrap:nowrap
+}
+
+d2l-button-group .responsive-button-list.d2l-button-group > d2l-button-list {
+  -ms-flex:0 1 auto;-webkit-flex:0 1 auto;flex:0 1 auto
+}</style><!-- Shady DOM styles for d2l-action-button-group --><style scope="d2l-action-button-group">d2l-action-button-group {
+  display:block
+}
+
+.responsive-button-list.d2l-action-button-group {
+  position:relative
+}
+
+d2l-action-button-group .responsive-button-list.d2l-action-button-group,d2l-action-button-group[can-shrink] .responsive-button-list.d2l-action-button-group > d2l-button-list {
+  display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-align:stretch;-webkit-align-items:stretch;align-items:stretch
+}
+
+d2l-action-button-group .responsive-button-list.d2l-action-button-group {
+  -ms-flex-wrap:wrap;-webkit-flex-wrap:wrap;flex-wrap:wrap
+}
+
+d2l-action-button-group[can-shrink] .responsive-button-list.d2l-action-button-group,d2l-action-button-group[can-shrink] .responsive-button-list.d2l-action-button-group > d2l-button-list {
+  -ms-flex-wrap:nowrap;-webkit-flex-wrap:nowrap;flex-wrap:nowrap
+}
+
+d2l-action-button-group .responsive-button-list.d2l-action-button-group > d2l-button-list {
+  -ms-flex:0 1 auto;-webkit-flex:0 1 auto;flex:0 1 auto
+}
+
+.responsive-button-list.d2l-action-button-group > d2l-button-list {
+  display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-align:stretch;-webkit-align-items:stretch;align-items:stretch;-ms-flex-wrap:wrap;-webkit-flex-wrap:wrap;flex-wrap:wrap
+}</style><!-- Shady DOM styles for d2l-dropdown-more --><!-- Shady DOM styles for iron-icon -->
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>31300-øvelse-nr3-modelling - 31300 Linear Control Design 1  / 2018 Spring / 13-weeks</title>
+		<script async="" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/adrum-ext.js"></script><script>(function(){'use strict';(function(){try { localStorage.setItem('XSRF.Token','una9aB7T7bP5o3vPBhoQiNStKooEHAuW');localStorage.setItem('Session.UserId','22424');} catch(e) {}})();
+		(function(){if(window['FontFace'] === undefined) { return; }new FontFace('Lato','url(https://s.brightspace.com/lib/fonts/0.4.0/assets/Lato-400.woff2) format("woff2"), url(https://s.brightspace.com/lib/fonts/0.4.0/assets/Lato-400.woff) format("woff")',{style:'normal',weight:'400'}).load();new FontFace('Lato','url(https://s.brightspace.com/lib/fonts/0.4.0/assets/Lato-700.woff2) format("woff2"), url(https://s.brightspace.com/lib/fonts/0.4.0/assets/Lato-700.woff) format("woff")',{style:'normal',weight:'700'}).load();})();
+		(function(){document.addEventListener('WebComponentsReady', function() { window.d2lWCRDispatched = true; });var onload = function() { if( !window.HTMLImports ) { document.dispatchEvent(new CustomEvent('WebComponentsReady', {bubbles: true} ));} };var webComponentsSupported = ('registerElement' in document && 'import' in document.createElement( 'link' ) && 'content' in document.createElement( 'template' ) );if( !webComponentsSupported ) { var script = document.createElement( 'script' ); script.async = true; script.src = 'https://s.brightspace.com/lib/webcomponentsjs/0.7.23-d2l.3/webcomponents-lite.min.js'; script.onload = onload; document.head.appendChild( script ); } else { onload(); }})();
+		})();</script><link rel="icon" href="https://hostedpages.brightspace.com/_favicons/c58c6536-ab04-4fbd-857b-51831c0efc2f/1.0.0/favicon.ico">
+		<link rel="import" href="https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/bsi.html">
+		<link rel="stylesheet" type="text/css" href="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/bsi.min.css">
+		<link rel="stylesheet" type="text/css" href="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/reset.css">
+		<link rel="stylesheet" type="text/css" href="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LP.Web.Desktop.default.css">
+		<link rel="stylesheet" type="text/css" href="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LE.Content.Web.Desktop.default.css">
+		<link rel="stylesheet" type="text/css" href="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LE.ToolIntegration.Content.default.css">
+		<link rel="stylesheet" type="text/css" href="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LP.Web.Desktop.Print.default.css" media="print">
+		<style type="text/css">
+		/*<![CDATA[*/
+			html { font-size:20px; }
+			.d2l_1_11_562 {margin:10px;}
+			.d2l_1_12_515 {width:500px;}
+			.d2l_1_13_193 {background-position:left top;}
+			.d2l_1_14_562 {padding:1em;}
+			.d2l_1_15_112 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier1/alert.svg');}
+			.d2l_1_16_192 {background-position:right top;}
+			.d2l_1_17_410 {padding-right:31px;}
+			.d2l_1_18_672 {min-height:18px;}
+			.d2l_1_19_141 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier1/check.svg');}
+			.d2l_1_20_979 {padding:3.4em;}
+			.d2l_1_21_123 {table-layout: Inherit;}
+			.d2l_1_22_703 {vertical-align:baseline;}
+			.d2l_1_23_405 {width:100%;}
+			.d2l_1_25_310 {margin-top:0.5em;margin-bottom:10px;}
+			@media (max-width: 1000px) {.d2l_1_26_313 {display:none}}
+			.d2l_1_27_630 {table-layout: Fixed;}
+			.d2l_1_33_192 {margin:0 5px;}
+			.d2l_1_38_380 {margin-left:10px;}
+			.d2l_1_39_793 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier1/chevron-left.svg');background-position:0 0;background-repeat:no-repeat;width:18px;height:18px;background-size:18px 18px;}
+			.d2l_1_40_12 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier1/chevron-right.svg');background-position:0 0;background-repeat:no-repeat;width:18px;height:18px;background-size:18px 18px;}
+			.d2l_1_41_416 {margin-bottom:10px;}
+			.d2l_1_44_949 {padding:20px 0 0 0;}
+			.d2l_1_45_886 {float:left;}
+			.d2l_1_46_75 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier1/reflection.svg');background-position:0 0;background-repeat:no-repeat;width:18px;height:18px;background-size:18px 18px;}
+			.d2l_1_47_132 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier1/download.svg');background-position:0 0;background-repeat:no-repeat;width:18px;height:18px;background-size:18px 18px;}
+			.d2l_1_48_860 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier1/print.svg');background-position:0 0;background-repeat:no-repeat;width:18px;height:18px;background-size:18px 18px;}
+			.d2l_1_49_76 {float:right;}
+			.d2l_1_50_636 {padding:20px 0;}
+			.d2l_1_53_270 {padding:10px;}
+			.d2l_1_54_739 {border-right:1px solid #DDD;border-bottom:1px solid #DDD;border-left:1px solid #DDD;}
+			.d2l_1_55_857 {padding:0 0 10px 0;}
+			.d2l_1_56_689 {background-image:url('https://s.brightspace.com/lib/bsi/10.7.9-daylight.13/images/tier2/dot.svg');}
+			.d2l_1_57_352 {padding-left:37px;}
+			.d2l_1_58_541 {min-height:24px;}
+		/*]]>*/
+		</style>
+	<style is="custom-style"></style><style is="custom-style">.d2l-button-spacing:not([style-scope]):not(.style-scope) {
+  margin-right:0.75rem
+}
+
+[dir=rtl]:not([style-scope]):not(.style-scope) .d2l-button-spacing:not([style-scope]):not(.style-scope) {
+  margin-left:0.75rem;margin-right:0
+}
+
+</style><style is="custom-style"></style><style is="custom-style"></style><style is="custom-style"></style><style is="custom-style"></style></head>
+	<body class="d2l-body d2l-typography vui-typography d2l-flag-f-13154-remove-confirmations-start-submit-quiz d2l-flag-us91146-fetch-cache-token-localstorage d2l-flag-daylight-dialog-scrolling daylight">
+		<a href="https://learn.inside.dtu.dk/d2l/le/content/13911/viewContent/2475/View#d2l_1_10_389" class="d2l-skipnav" id="d2l_skipnav">skip to main content</a>
+		<header><nav class="d2l-navigation-s d2l-navigation-s-has-branding d2l-navigation-s-has-title"><div class="d2l-navigation-s-band-color" style="background-color:#696969"></div><div class="d2l-navigation-s-header"><div class="d2l-navigation-s-centerer"><div class="d2l-navigation-s-gutters"><div class="d2l-navigation-s-header-container"><div class="d2l-navigation-s-header-open-button-wrapper"><button class="d2l-navigation-s-button-highlight" title="menu"><span class="d2l-navigation-s-highlight-bar"></span><d2l-icon icon="d2l-tier3:menu-hamburger" class="x-scope d2l-icon-0"><svg viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M28.5 9h-27C.67 9 0 8.33 0 7.5S.67 6 1.5 6h27c.828 0 1.5.67 1.5 1.5S29.328 9 28.5 9zM28.5 17h-27C.67 17 0 16.328 0 15.5S.67 14 1.5 14h27c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5zM28.5 25h-27C.67 25 0 24.328 0 23.5S.67 22 1.5 22h27c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-offscreen">menu</span></button></div><div class="d2l-navigation-s-header-logo-area d2l-navigation-s-header-no-home-icon"><span class="d2l-navigation-s-divider d2l-navigation-s-logo-divider"><d2l-icon icon="d2l-tier2:divider-big" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="12.5" cy="1.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="6.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="11.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="16.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="21.5" r="1.5" class="style-scope d2l-icon"></circle></g></svg></d2l-icon></span><div class="d2l-navigation-s-logo"><div class="d2l-navigation-s-logo-wrapper"><a class="d2l-navigation-s-logo-link" href="https://learn.inside.dtu.dk/d2l/lp/ouHome/defaultHome.d2l" title="My Home"><span class="d2l-navigation-s-highlight-bar"></span><img src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/view" alt="My Home"></a></div></div><span class="d2l-navigation-s-divider d2l-navigation-s-title-divider"><d2l-icon icon="d2l-tier2:divider-big" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="12.5" cy="1.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="6.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="11.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="16.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="21.5" r="1.5" class="style-scope d2l-icon"></circle></g></svg></d2l-icon></span><a class="d2l-navigation-s-link" href="https://learn.inside.dtu.dk/d2l/home/13911" title="31300 Linear Control Design 1  / 2018 Spring / 13-weeks">31300 Linear Control Design 1  / 2018 Spring / 13-weeks</a></div><div class="d2l-navigation-s-gutter"></div><div class="d2l-navigation-s-header-actions"><div class="d2l-navigation-s-course-menu"><d2l-dropdown no-auto-open=""><button class="d2l-navigation-s-button-highlight d2l-dropdown-opener" title="Select a course..." data-prl="/d2l/lp/courseSelector/13911/InitPartial" aria-haspopup="true"><span class="d2l-navigation-s-highlight-bar"></span><d2l-icon icon="d2l-tier3:classes" class="x-scope d2l-icon-0"><svg viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M2.668 21c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488H2.668zM3 23h4v4H3v-4zM2.668 1c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18V2.668c0-.462-.187-.878-.488-1.18C8.21 1.188 7.794 1 7.332 1H2.668zM3 3h4v4H3V3zM2.668 11c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488H2.668zM3 13h4v4H3v-4zM12.668 21c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM13 23h4v4h-4v-4zM12.668 1c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18V2.668c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM13 3h4v4h-4V3zM12.668 11c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM13 13h4v4h-4v-4zM22.668 21c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM23 23h4v4h-4v-4zM22.668 1c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18V2.668c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM23 3h4v4h-4V3zM22.668 11c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM23 13h4v4h-4v-4z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-offscreen">Select a course...</span></button><d2l-dropdown-content max-width="800" min-width="450" no-padding="" vertical-offset="0" d2l-dropdown-content="" class="x-scope d2l-dropdown-content-1"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-content"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-content" style="min-width: 450px; max-width: 800px;"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-content"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-content" style="min-width: 450px;"><template is="dom-if" class="style-scope d2l-dropdown-content"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-content"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-content"><div class="style-scope d2l-dropdown-content"></div></div></d2l-dropdown-content></d2l-dropdown></div><span class="d2l-navigation-s-divider d2l-navigation-s-course-menu-divider"><d2l-icon icon="d2l-tier2:divider-big" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="12.5" cy="1.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="6.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="11.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="16.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="21.5" r="1.5" class="style-scope d2l-icon"></circle></g></svg></d2l-icon></span><div class="d2l-navigation-s-notifications"><div class="d2l-navigation-s-notifications-wrapper"><div class="d2l-navigation-s-notification" data-category="messages" data-aria-message="You have new Messages"><d2l-dropdown no-auto-open=""><button class="d2l-navigation-s-button-highlight d2l-dropdown-opener" title="Message alerts" data-prl="/d2l/MiniBar/13911/ActivityFeed/GetAlertsDaylight?Category=2" aria-haspopup="true"><span class="d2l-navigation-s-highlight-bar"></span><d2l-icon icon="d2l-tier3:email" class="x-scope d2l-icon-0"><svg viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M27 6H3C1.35 6 0 7.35 0 9v12c0 1.65 1.35 3 3 3h24c1.65 0 3-1.35 3-3V9c0-1.65-1.35-3-3-3zm1 2l-13 8L2 8h26zm0 13c0 .54-.46 1-1 1H3c-.54 0-1-.46-1-1V10.35l11.95 7.35c.32.2.69.3 1.05.3s.73-.1 1.05-.3L28 10.35V21z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-offscreen">Message alerts</span><span class="d2l-navigation-s-notification-indicator"><d2l-icon icon="navigation-t1:notification-indicator" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="9" cy="9" r="8" fill="#e57231" stroke="#ffffff" stroke-width="2" class="style-scope d2l-icon"></circle></g></svg></d2l-icon><span class="d2l-offscreen">Message alerts - You have new alerts</span></span></button><d2l-dropdown-content no-padding="" vertical-offset="0" max-width="500" d2l-dropdown-content="" class="x-scope d2l-dropdown-content-1"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-content"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-content" style="max-width: 500px;"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-content"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-content"><template is="dom-if" class="style-scope d2l-dropdown-content"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-content"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-content"><div class="style-scope d2l-dropdown-content"></div></div></d2l-dropdown-content></d2l-dropdown></div><div class="d2l-navigation-s-notification" data-category="alerts" data-aria-message="You have new Subscriptions"><d2l-dropdown no-auto-open=""><button class="d2l-navigation-s-button-highlight d2l-dropdown-opener" title="Subscription alerts" data-prl="/d2l/MiniBar/13911/ActivityFeed/GetAlertsDaylight?Category=0" aria-haspopup="true"><span class="d2l-navigation-s-highlight-bar"></span><d2l-icon icon="d2l-tier3:discussions" class="x-scope d2l-icon-0"><svg viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M5 27.866V28M19.43 11c.86 0 1.57.71 1.57 1.57v8.86c0 .86-.71 1.57-1.57 1.57H11l-4 5v-5H3.57C2.71 23 2 22.29 2 21.43v-8.86c0-.86.71-1.57 1.57-1.57h15.86m0-2H3.57C1.602 9 0 10.6 0 12.57v8.86C0 23.398 1.602 25 3.57 25H5v3c0 .85.536 1.606 1.338 1.887.217.076.44.113.662.113.596 0 1.175-.267 1.562-.75l3.4-4.25h7.47C21.4 25 23 23.398 23 21.43v-8.86C23 10.6 21.397 9 19.43 9z" class="style-scope d2l-icon"></path><path d="M30 3.57v8.86C30 14.4 28.4 16 26.43 16H26c-.55 0-1-.45-1-1s.45-1 1-1h.43c.86 0 1.57-.71 1.57-1.57V3.57C28 2.71 27.29 2 26.43 2H10.57C9.71 2 9 2.71 9 3.57V6c0 .55-.45 1-1 1s-1-.45-1-1V3.57C7 1.6 8.6 0 10.57 0h15.86C28.4 0 30 1.6 30 3.57zM18.5 16h-14c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h14c.276 0 .5.224.5.5s-.224.5-.5.5zM14.5 19h-10c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h10c.276 0 .5.224.5.5s-.224.5-.5.5z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-offscreen">Subscription alerts</span><span class="d2l-navigation-s-notification-indicator"><d2l-icon icon="navigation-t1:notification-indicator" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="9" cy="9" r="8" fill="#e57231" stroke="#ffffff" stroke-width="2" class="style-scope d2l-icon"></circle></g></svg></d2l-icon><span class="d2l-offscreen">Subscription alerts - You have new alerts</span></span></button><d2l-dropdown-content no-padding="" vertical-offset="0" d2l-dropdown-content="" class="x-scope d2l-dropdown-content-1"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-content"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-content"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-content"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-content"><template is="dom-if" class="style-scope d2l-dropdown-content"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-content"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-content"><div class="style-scope d2l-dropdown-content"></div></div></d2l-dropdown-content></d2l-dropdown></div><div class="d2l-navigation-s-notification" data-category="grades" data-has-notifications="true" data-aria-message="You have new Updates"><d2l-dropdown no-auto-open=""><button class="d2l-navigation-s-button-highlight d2l-dropdown-opener" title="Update alerts" data-prl="/d2l/MiniBar/13911/ActivityFeed/GetAlertsDaylight?Category=1" aria-haspopup="true"><span class="d2l-navigation-s-highlight-bar"></span><d2l-icon icon="d2l-tier3:notification-bell" class="x-scope d2l-icon-0"><svg viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path fill="none" d="M25.532 23.71c-1.71-1.71-2.53-3.47-2.53-8.71 0-5.31-3.432-9-8.003-9s-8.004 3.69-8.004 9c0 5.24-.82 7-2.53 8.71-.11.1-.19.2-.25.29H25.78c-.058-.09-.138-.19-.248-.29z" class="style-scope d2l-icon"></path><path d="M9.34 20.974c.263.087.546-.054.634-.316.3-.903.36-1.605.36-3.195 0-3.065.418-4.508 2.52-6.61.195-.194.195-.51 0-.706-.195-.195-.512-.195-.707 0-2.323 2.323-2.814 4.01-2.814 7.317 0 1.484-.052 2.11-.308 2.88-.088.26.054.543.316.63z" class="style-scope d2l-icon"></path><path d="M26.942 22.29c-1.29-1.29-1.94-2.53-1.94-7.29 0-4.32-1.96-7.83-5-9.64V4C20 1.8 18.2 0 16 0h-2c-2.2 0-4 1.8-4 4v1.36C6.957 7.17 4.997 10.68 4.997 15c0 4.76-.65 6-1.94 7.29-1.51 1.51-1.51 3.71.7 3.71h6.34c.46 2.28 2.482 4 4.902 4s4.44-1.72 4.9-4h6.34c2.21 0 2.21-2.2.7-3.71zM12 4c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v.46c-.94-.3-1.95-.46-3-.46s-2.06.16-3 .46V4zm3 24c-1.3 0-2.41-.84-2.82-2h5.64c-.41 1.16-1.52 2-2.82 2zM4.218 24c.06-.09.14-.19.25-.29 1.71-1.71 2.53-3.47 2.53-8.71 0-5.31 3.43-9 8.002-9s8.002 3.69 8.002 9c0 5.24.82 7 2.53 8.71.11.1.19.2.25.29H4.22z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-offscreen">Update alerts</span><span class="d2l-navigation-s-notification-indicator"><d2l-icon icon="navigation-t1:notification-indicator" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="9" cy="9" r="8" fill="#e57231" stroke="#ffffff" stroke-width="2" class="style-scope d2l-icon"></circle></g></svg></d2l-icon><span class="d2l-offscreen">Update alerts - You have new alerts</span></span></button><d2l-dropdown-content no-padding="" vertical-offset="0" d2l-dropdown-content="" class="x-scope d2l-dropdown-content-1"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-content"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-content"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-content"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-content"><template is="dom-if" class="style-scope d2l-dropdown-content"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-content"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-content"><div class="style-scope d2l-dropdown-content"></div></div></d2l-dropdown-content></d2l-dropdown></div></div><div class="d2l-navigation-s-notifications-div"></div></div><span class="d2l-navigation-s-divider d2l-navigation-s-notifications-divider"><d2l-icon icon="d2l-tier2:divider-big" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="12.5" cy="1.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="6.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="11.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="16.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="21.5" r="1.5" class="style-scope d2l-icon"></circle></g></svg></d2l-icon></span><div class="d2l-navigation-s-personal-menu"><d2l-dropdown><button class="d2l-navigation-s-button-highlight d2l-dropdown-opener" aria-haspopup="true"><span class="d2l-navigation-s-highlight-bar"></span><span class="d2l-navigation-s-personal-menu-wrapper"><d2l-icon icon="navigation-42:profile" class="x-scope d2l-icon-0"><svg viewBox="0 0 42 42" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M34 0H8C3.6 0 0 3.6 0 8v26c0 4.4 3.6 8 8 8h26c4.4 0 8-3.6 8-8V8c0-4.4-3.6-8-8-8zm6 34c0 3.31-2.69 6-6 6H8c-3.31 0-6-2.69-6-6V8c0-3.31 2.69-6 6-6h26c3.31 0 6 2.69 6 6v26z" class="style-scope d2l-icon"></path><path d="M8.54 29.67c-.28.37-.45.82-.48 1.34l.04-.54c.07-.22.17-.43.3-.63.04-.06.08-.12.14-.17zM20.4 8.04c-1.29.18-2.53.89-3.47 1.92.89-1.01 2.09-1.77 3.47-1.92zM20.95 6c-.14 0-.29 0-.43.02.07-.01.14-.02.21-.02h.22zM21.4 8.02C21.28 8 21.17 8 21.05 8h.12c.08 0 .15.01.23.02zM24.19 6.79c-.72-.36-1.5-.62-2.31-.73.81.1 1.59.35 2.31.73zM25.16 7.38c-.31-.22-.64-.42-.97-.59.34.17.66.36.97.59zM27.62 27.88v.01c-.34-.05-.65-.1-.95-.14-.06-.01-.14-.02-.24-.03.09.01.17.02.22.02.31.04.63.1.97.14zM15.57 27.72c-.1.01-.18.02-.24.03-.3.04-.61.09-.95.14v-.01c.34-.04.66-.1.97-.14.05 0 .13-.01.22-.02zM17.81 6.79c-.33.17-.66.37-.97.59.31-.23.63-.42.97-.59zM20.12 6.06c-.81.11-1.59.37-2.31.73.72-.38 1.5-.63 2.31-.73zM20.95 8c-.12 0-.23 0-.35.02.08-.01.15-.02.23-.02h.12zM21.48 6.02C21.34 6 21.19 6 21.05 6h.22c.07 0 .14.01.21.02zM25.07 9.96c-.94-1.03-2.18-1.74-3.47-1.92 1.38.15 2.58.91 3.47 1.92zM33.94 31.01c-.03-.52-.2-.97-.48-1.34.06.05.1.11.14.17.13.2.23.41.3.63l.04.54z" class="style-scope d2l-icon"></path><path d="M35.27 28.74c-.54-.83-1.37-1.44-2.31-1.76-.11-.04-.23-.07-.35-.1-1.15-.3-2.3-.55-3.47-.76-.73-.14-1.47-.26-2.21-.36-.37-.05-1.94-.18-1.95-.25-.19-1.15.23-2.31.79-3.32.58-1.01 1.32-1.92 1.87-2.95 1.23-2.26 1.5-5.01.74-7.45-.15-.47-.34-.93-.57-1.37-.06-.11-.12-.23-.19-.34-.3-.51-.65-1-1.05-1.44-.16-.19-.34-.37-.53-.54-.28-.26-.57-.49-.87-.72h-.01c-.31-.22-.64-.42-.97-.59-.72-.36-1.5-.62-2.31-.73-.13-.02-.26-.04-.4-.04-.14-.02-.29-.02-.43-.02h-.1c-.14 0-.29 0-.43.02-.14 0-.27.02-.4.04-.81.11-1.59.37-2.31.73-.33.17-.66.37-.97.59h-.01c-.3.23-.59.46-.87.72-.18.17-.36.35-.53.54-.4.44-.75.93-1.05 1.44-.07.11-.13.23-.19.34-.23.44-.42.9-.57 1.37-.76 2.44-.49 5.19.74 7.45.55 1.03 1.29 1.94 1.87 2.95.56 1.01.98 2.17.79 3.32-.01.07-1.58.2-1.95.25-.74.1-1.48.22-2.21.36-1.17.21-2.32.46-3.47.76-.12.03-.24.06-.35.1-.94.32-1.77.93-2.31 1.76-.47.7-.72 1.55-.73 2.39V35c0 .56.45 1 1 1 .56 0 1-.44 1-1 0 0 0-2.89.06-3.99l.04-.54c.07-.22.17-.43.3-.63.04-.06.08-.12.14-.17.06-.1.15-.19.24-.25.09-.1.18-.17.28-.23.1-.07.2-.13.31-.18.1-.05.2-.09.31-.13l.04-.02.03-.01.04-.01c.04-.01.09-.02.13-.04 1.06-.27 2.12-.5 3.13-.68C15.21 29.92 17.98 31 21 31s5.79-1.08 7.95-2.88c1.01.18 2.07.41 3.13.68.04.02.09.03.13.04l.07.02c.12.04.24.09.35.15.11.05.21.11.31.18.1.06.19.13.28.23.09.06.18.15.24.25.06.05.1.11.14.17.13.2.23.41.3.63l.04.54C34 32.11 34 35 34 35c0 .56.44 1 1 1 .55 0 1-.44 1-1v-3.87c-.01-.84-.26-1.69-.73-2.39zM21 30c-2.47 0-4.75-.78-6.62-2.11v-.01c.34-.04.66-.1.97-.14.05 0 .13-.01.22-.02s.21-.02.32-.03c1.55-.17 2.89-.31 3.11-1.89.22-1.43-.12-2.97-1.03-4.59-.31-.55-.64-1.04-.96-1.52-.33-.48-.64-.94-.88-1.39-.98-1.79-1.2-3.99-.6-5.91.13-.41.31-.82.53-1.22.07-.12.14-.23.21-.35.11-.17.24-.35.37-.51.09-.12.19-.24.29-.35.89-1.01 2.09-1.77 3.47-1.92.07-.02.13-.02.2-.02.08-.01.15-.02.23-.02h.34c.08 0 .15.01.23.02.07 0 .14.01.2.02 1.38.15 2.58.91 3.47 1.92.1.11.2.23.29.35.13.17.26.34.37.51.07.12.14.23.21.35.22.38.4.79.53 1.22.6 1.92.38 4.12-.59 5.89-.25.47-.56.93-.89 1.41-.32.48-.65.97-.96 1.52-.91 1.62-1.25 3.16-1.03 4.59.22 1.58 1.56 1.72 3.11 1.89.11.01.23.02.32.03.09.01.17.02.22.02.31.04.63.1.97.14v.01C25.75 29.22 23.47 30 21 30z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-navigation-s-personal-menu-text">Irene Marie Malmkjær Danvy</span></span></button><d2l-dropdown-content min-width="300" no-padding="" vertical-offset="0" render-content="render-content" d2l-dropdown-content="" class="x-scope d2l-dropdown-content-1"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-content"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-content" style="min-width: 300px;"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-content"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-content" style="min-width: 300px;"><div>
+			<ul class="d2l-list">
+				<li>
+					<ul style="list-style:none;margin:10px;padding:0;">
+						<li>
+							<span style="white-space:nowrap;"><a class="d2l-link" href="https://learn.inside.dtu.dk/d2l/lp/profile/profile_edit.d2l?ou=13911" onclick="D2L.O(&quot;__g1&quot;,0)();">Profile</a>
+							</span></li>
+						<li>
+							<span style="white-space:nowrap;"><a class="d2l-link" href="https://learn.inside.dtu.dk/d2l/Notifications/Settings?ou=13911" onclick="D2L.O(&quot;__g1&quot;,1)();">Notifications</a>
+							</span></li>
+						<li>
+							<span style="white-space:nowrap;"><a class="d2l-link" href="https://learn.inside.dtu.dk/d2l/lp/preferences/preferences_main/preferences_main.d2l?ou=13911" onclick="D2L.O(&quot;__g1&quot;,2)();">Account Settings</a>
+							</span></li>
+					</ul>
+					<hr class="d2l-minibar-menu-separator"></li>
+				<li>
+					<ul style="list-style:none;margin:10px;padding:0;">
+						<li>
+							<span style="white-space:nowrap;"><a class="d2l-link" href="https://learn.inside.dtu.dk/d2l/le/userprogress/22424/13911/Summary?searchString=&amp;sortField=LastName&amp;sortDirection=0">Progress</a>
+							</span></li>
+					</ul>
+					<hr class="d2l-minibar-menu-separator"></li>
+				<li>
+					<span style="white-space:nowrap;"><a class="d2l-link d2l_1_11_562" href="javascript:void(0);" onclick="D2L.O(&quot;__g1&quot;,3)();return false;">Log Out</a>
+					</span></li>
+			</ul>
+		</div>
+		<template is="dom-if" class="style-scope d2l-dropdown-content"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-content"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-content"><div class="style-scope d2l-dropdown-content"></div></div></d2l-dropdown-content></d2l-dropdown></div></div></div></div></div></div><div class="d2l-navigation-s-main d2l-navigation-main-tb"><div class="d2l-navigation-s-centerer"><div class="d2l-navigation-s-gutters"><div class="d2l-navigation-s-main-wrapper" role="list"><div class="d2l-navigation-s-item" role="listitem"><d2l-dropdown><button class="d2l-navigation-s-group d2l-dropdown-opener" aria-haspopup="true"><span class="d2l-navigation-s-group-wrapper"><span class="d2l-navigation-s-group-text">My DTU Learn</span><d2l-icon icon="d2l-tier1:chevron-down" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M2.39 6.49a1.5 1.5 0 0 1 2.12-.1L9 10.47l4.49-4.08a1.5 1.5 0 0 1 2.02 2.22L10 13.62A1.474 1.474 0 0 1 9 14a1.523 1.523 0 0 1-1-.38L2.49 8.61a1.5 1.5 0 0 1-.1-2.12z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></span></button><d2l-dropdown-menu render-content="render-content" d2l-dropdown-content="" no-auto-focus="" no-padding="" class="x-scope d2l-dropdown-menu-0"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-menu" style="left: 71.5128px;"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-menu" style="width: 20px;"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-menu"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-menu" style="max-height: 646px; width: 18px;"><d2l-menu role="menu" aria-label="undefined" class="x-scope d2l-menu-0" style="height: 0px;"><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-link href="/d2l/lms/news/main.d2l?ou=13911" class="d2l-navigation-s-menu-item-root d2l-menu-item-first" text="Announcements" aria-label="Announcements" role="menuitem" tabindex="0"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/news/main.d2l?ou=13911">Announcements</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/userprogress/22424/13911/Summary?searchString=&amp;sortField=LastName&amp;sortDirection=0" class="d2l-navigation-s-menu-item-root" text="Class Progress" aria-label="Class Progress" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/userprogress/22424/13911/Summary?searchString=&amp;sortField=LastName&amp;sortDirection=0">Class Progress</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/grades/index.d2l?ou=13911" class="d2l-navigation-s-menu-item-root" text="Grades" aria-label="Grades" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/grades/index.d2l?ou=13911">Grades</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/group/group_list.d2l?ou=13911" class="d2l-navigation-s-menu-item-root" text="Groups" aria-label="Groups" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/group/group_list.d2l?ou=13911">Groups</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/calendar/13911" class="d2l-navigation-s-menu-item-root d2l-menu-item-last" text="Calendar" aria-label="Calendar" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/calendar/13911">Calendar</a></d2l-menu-item-link></div></d2l-menu><template is="dom-if" class="style-scope d2l-dropdown-menu"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-menu"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-menu"><div class="style-scope d2l-dropdown-menu"></div></div></d2l-dropdown-menu></d2l-dropdown></div>
+		<div class="d2l-navigation-s-item" role="listitem"><a href="https://learn.inside.dtu.dk/d2l/lms/classlist/classlist.d2l?ou=13911" class="d2l-navigation-s-link">Classlist</a></div>
+		<div class="d2l-navigation-s-item" role="listitem"><a href="https://learn.inside.dtu.dk/d2l/le/content/13911/Home" class="d2l-navigation-s-link">Content</a></div>
+		<div class="d2l-navigation-s-item" role="listitem"><d2l-dropdown><button class="d2l-navigation-s-group d2l-dropdown-opener" aria-haspopup="true"><span class="d2l-navigation-s-group-wrapper"><span class="d2l-navigation-s-group-text">Activities</span><d2l-icon icon="d2l-tier1:chevron-down" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M2.39 6.49a1.5 1.5 0 0 1 2.12-.1L9 10.47l4.49-4.08a1.5 1.5 0 0 1 2.02 2.22L10 13.62A1.474 1.474 0 0 1 9 14a1.523 1.523 0 0 1-1-.38L2.49 8.61a1.5 1.5 0 0 1-.1-2.12z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></span></button><d2l-dropdown-menu render-content="render-content" d2l-dropdown-content="" no-auto-focus="" no-padding="" class="x-scope d2l-dropdown-menu-0"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-menu" style="left: 49.4815px;"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-menu" style="width: 20px;"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-menu"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-menu" style="max-height: 646px; width: 18px;"><d2l-menu role="menu" aria-label="undefined" class="x-scope d2l-menu-0" style="height: 0px;"><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-link href="/d2l/lms/dropbox/dropbox.d2l?ou=13911" class="d2l-navigation-s-menu-item-root d2l-menu-item-first" text="Assignments" aria-label="Assignments" role="menuitem" tabindex="0"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/dropbox/dropbox.d2l?ou=13911">Assignments</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/quizzing/quizzing.d2l?ou=13911" class="d2l-navigation-s-menu-item-root" text="Quizzes" aria-label="Quizzes" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/quizzing/quizzing.d2l?ou=13911">Quizzes</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/13911/discussions/List" class="d2l-navigation-s-menu-item-root" text="Discussions" aria-label="Discussions" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/13911/discussions/List">Discussions</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/checklist/checklists.d2l?ou=13911" class="d2l-navigation-s-menu-item-root" text="Checklist" aria-label="Checklist" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/checklist/checklists.d2l?ou=13911">Checklist</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=13911&amp;type=lti&amp;rcode=dtu-20&amp;srcou=6606&amp;launchFramed=1&amp;framedName=Peergrade" class="d2l-navigation-s-menu-item-root d2l-menu-item-last" text="Peergrade" aria-label="Peergrade" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/common/dialogs/quickLink/quickLink.d2l?ou=13911&amp;type=lti&amp;rcode=dtu-20&amp;srcou=6606&amp;launchFramed=1&amp;framedName=Peergrade">Peergrade</a></d2l-menu-item-link></div></d2l-menu><template is="dom-if" class="style-scope d2l-dropdown-menu"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-menu"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-menu"><div class="style-scope d2l-dropdown-menu"></div></div></d2l-dropdown-menu></d2l-dropdown></div>
+		<div class="d2l-navigation-s-item" role="listitem"><d2l-dropdown><button class="d2l-navigation-s-group d2l-dropdown-opener" aria-haspopup="true"><span class="d2l-navigation-s-group-wrapper"><span class="d2l-navigation-s-group-text">Help</span><d2l-icon icon="d2l-tier1:chevron-down" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M2.39 6.49a1.5 1.5 0 0 1 2.12-.1L9 10.47l4.49-4.08a1.5 1.5 0 0 1 2.02 2.22L10 13.62A1.474 1.474 0 0 1 9 14a1.523 1.523 0 0 1-1-.38L2.49 8.61a1.5 1.5 0 0 1-.1-2.12z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></span></button><d2l-dropdown-menu render-content="render-content" d2l-dropdown-content="" no-auto-focus="" no-padding="" class="x-scope d2l-dropdown-menu-0"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-menu" style="left: 30.1918px;"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-menu" style="width: 20px;"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-menu"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-menu" style="max-height: 646px; width: 18px;"><d2l-menu role="menu" aria-label="undefined" class="x-scope d2l-menu-0" style="height: 0px;"><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item href="https://documentation.brightspace.com" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-menu-item-root d2l-navigation-s-link-popup d2l-menu-item-first" text="Search in the Guides" aria-label="Search in the Guides" role="menuitem" tabindex="0"><span class="style-scope d2l-menu-item">Search in the Guides</span></d2l-menu-item><d2l-menu-item href="https://www.youtube.com/channel/UCLSxTdOzKAFOCZjXav1aCRQ" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-menu-item-root d2l-navigation-s-link-popup" text="Video Tutorials" aria-label="Video Tutorials" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Video Tutorials</span></d2l-menu-item><d2l-menu-item href="https://www.inside.dtu.dk/da/undervisning/faglig/it-systemer-og-vaerktoejer/dtu-learn-hjaelp" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-menu-item-root d2l-navigation-s-link-popup" text="Report a problem" aria-label="Report a problem" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Report a problem</span></d2l-menu-item><d2l-menu-item href="https://community.desire2learn.com/d2l/lp/navbars/1796/customlinks/external/15394" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-menu-item-root d2l-navigation-s-link-popup" text="Submit a feature idea" aria-label="Submit a feature idea" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Submit a feature idea</span></d2l-menu-item><d2l-menu-item href="https://community.brightspace.com/s/topic/0TO610000000Jd2GAE/release-notes" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-menu-item-root d2l-navigation-s-link-popup d2l-menu-item-last" text="Documentation" aria-label="Documentation" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Documentation</span></d2l-menu-item></div></d2l-menu><template is="dom-if" class="style-scope d2l-dropdown-menu"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-menu"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-menu"><div class="style-scope d2l-dropdown-menu"></div></div></d2l-dropdown-menu></d2l-dropdown></div>
+		<div class="d2l-navigation-s-item d2l-navigation-s-more" role="listitem" data-hidden="1"><d2l-dropdown><button class="d2l-navigation-s-group d2l-dropdown-opener" aria-haspopup="true"><span class="d2l-navigation-s-group-wrapper"><span class="d2l-navigation-s-group-text">More</span><d2l-icon icon="d2l-tier1:chevron-down" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M2.39 6.49a1.5 1.5 0 0 1 2.12-.1L9 10.47l4.49-4.08a1.5 1.5 0 0 1 2.02 2.22L10 13.62A1.474 1.474 0 0 1 9 14a1.523 1.523 0 0 1-1-.38L2.49 8.61a1.5 1.5 0 0 1-.1-2.12z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></span></button><d2l-dropdown-menu render-content="render-content" d2l-dropdown-content="" no-auto-focus="" no-padding="" class="x-scope d2l-dropdown-menu-0"><div class="d2l-dropdown-content-position style-scope d2l-dropdown-menu" style="left: 0px;"><div class="d2l-dropdown-content-width style-scope d2l-dropdown-menu" style="width: 20px;"><div class="d2l-dropdown-content-top style-scope d2l-dropdown-menu"></div><div class="d2l-dropdown-content-container style-scope d2l-dropdown-menu" style="max-height: 540px; width: 18px;"><d2l-menu role="menu" aria-label="undefined" class="x-scope d2l-menu-0" style="height: 0px;"><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item class="d2l-navigation-s-menu-item-root d2l-menu-item-first d2l-hidden" text="My DTU Learn" aria-label="My DTU Learn" role="menuitem" tabindex="0" aria-haspopup="true"><span class="style-scope d2l-menu-item">My DTU Learn</span><d2l-menu label="My DTU Learn" role="menu" aria-label="My DTU Learn" class="x-scope d2l-menu-0" child-view=""><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-return role="menuitem" tabindex="0" aria-label="Returns to previous menu.  You are viewing My DTU Learn." text="My DTU Learn" class="style-scope d2l-menu d2l-menu-item-first"><d2l-icon icon="d2l-tier1:chevron-left" class="style-scope d2l-menu-item-return x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M9.39 15.51L4.38 10A1.524 1.524 0 0 1 4 9a1.474 1.474 0 0 1 .38-1l5.01-5.51a1.5 1.5 0 0 1 2.22 2.02L7.53 9l4.08 4.49a1.5 1.5 0 0 1-2.22 2.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span aria-hidden="" class="style-scope d2l-menu-item-return">My DTU Learn</span></d2l-menu-item-return><d2l-menu-item-link href="/d2l/lms/news/main.d2l?ou=13911" text="Announcements" aria-label="Announcements" role="menuitem" tabindex="-1" class=""><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/news/main.d2l?ou=13911">Announcements</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/userprogress/22424/13911/Summary?searchString=&amp;sortField=LastName&amp;sortDirection=0" text="Class Progress" aria-label="Class Progress" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/userprogress/22424/13911/Summary?searchString=&amp;sortField=LastName&amp;sortDirection=0">Class Progress</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/grades/index.d2l?ou=13911" text="Grades" aria-label="Grades" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/grades/index.d2l?ou=13911">Grades</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/group/group_list.d2l?ou=13911" text="Groups" aria-label="Groups" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/group/group_list.d2l?ou=13911">Groups</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/calendar/13911" text="Calendar" aria-label="Calendar" role="menuitem" tabindex="-1" class="d2l-menu-item-last"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/calendar/13911">Calendar</a></d2l-menu-item-link></div></d2l-menu><d2l-icon icon="d2l-tier1:chevron-right" class="style-scope d2l-menu-item x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M5.49 15.61a1.5 1.5 0 0 1-.1-2.12L9.47 9 5.39 4.51a1.5 1.5 0 1 1 2.22-2.02L12.62 8A1.474 1.474 0 0 1 13 9a1.524 1.524 0 0 1-.38 1l-5.01 5.51a1.5 1.5 0 0 1-2.12.1z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></d2l-menu-item><d2l-menu-item-link href="/d2l/lms/classlist/classlist.d2l?ou=13911" class="d2l-navigation-s-menu-item-root d2l-hidden" text="Classlist" aria-label="Classlist" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/classlist/classlist.d2l?ou=13911">Classlist</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/content/13911/Home" class="d2l-navigation-s-menu-item-root d2l-hidden" text="Content" aria-label="Content" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/content/13911/Home">Content</a></d2l-menu-item-link><d2l-menu-item class="d2l-navigation-s-menu-item-root d2l-hidden" text="Activities" aria-label="Activities" role="menuitem" tabindex="-1" aria-haspopup="true"><span class="style-scope d2l-menu-item">Activities</span><d2l-menu label="Activities" role="menu" aria-label="Activities" class="x-scope d2l-menu-0" child-view=""><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-return role="menuitem" tabindex="0" aria-label="Returns to previous menu.  You are viewing Activities." text="Activities" class="style-scope d2l-menu d2l-menu-item-first"><d2l-icon icon="d2l-tier1:chevron-left" class="style-scope d2l-menu-item-return x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M9.39 15.51L4.38 10A1.524 1.524 0 0 1 4 9a1.474 1.474 0 0 1 .38-1l5.01-5.51a1.5 1.5 0 0 1 2.22 2.02L7.53 9l4.08 4.49a1.5 1.5 0 0 1-2.22 2.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span aria-hidden="" class="style-scope d2l-menu-item-return">Activities</span></d2l-menu-item-return><d2l-menu-item-link href="/d2l/lms/dropbox/dropbox.d2l?ou=13911" text="Assignments" aria-label="Assignments" role="menuitem" tabindex="-1" class=""><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/dropbox/dropbox.d2l?ou=13911">Assignments</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/quizzing/quizzing.d2l?ou=13911" text="Quizzes" aria-label="Quizzes" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/quizzing/quizzing.d2l?ou=13911">Quizzes</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/13911/discussions/List" text="Discussions" aria-label="Discussions" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/13911/discussions/List">Discussions</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/checklist/checklists.d2l?ou=13911" text="Checklist" aria-label="Checklist" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/checklist/checklists.d2l?ou=13911">Checklist</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=13911&amp;type=lti&amp;rcode=dtu-20&amp;srcou=6606&amp;launchFramed=1&amp;framedName=Peergrade" text="Peergrade" aria-label="Peergrade" role="menuitem" tabindex="-1" class="d2l-menu-item-last"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/common/dialogs/quickLink/quickLink.d2l?ou=13911&amp;type=lti&amp;rcode=dtu-20&amp;srcou=6606&amp;launchFramed=1&amp;framedName=Peergrade">Peergrade</a></d2l-menu-item-link></div></d2l-menu><d2l-icon icon="d2l-tier1:chevron-right" class="style-scope d2l-menu-item x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M5.49 15.61a1.5 1.5 0 0 1-.1-2.12L9.47 9 5.39 4.51a1.5 1.5 0 1 1 2.22-2.02L12.62 8A1.474 1.474 0 0 1 13 9a1.524 1.524 0 0 1-.38 1l-5.01 5.51a1.5 1.5 0 0 1-2.12.1z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></d2l-menu-item><d2l-menu-item class="d2l-navigation-s-menu-item-root d2l-menu-item-last d2l-hidden" text="Help" aria-label="Help" role="menuitem" tabindex="-1" aria-haspopup="true"><span class="style-scope d2l-menu-item">Help</span><d2l-menu label="Help" role="menu" aria-label="Help" class="x-scope d2l-menu-0" child-view=""><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-return role="menuitem" tabindex="0" aria-label="Returns to previous menu.  You are viewing Help." text="Help" class="style-scope d2l-menu d2l-menu-item-first"><d2l-icon icon="d2l-tier1:chevron-left" class="style-scope d2l-menu-item-return x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M9.39 15.51L4.38 10A1.524 1.524 0 0 1 4 9a1.474 1.474 0 0 1 .38-1l5.01-5.51a1.5 1.5 0 0 1 2.22 2.02L7.53 9l4.08 4.49a1.5 1.5 0 0 1-2.22 2.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span aria-hidden="" class="style-scope d2l-menu-item-return">Help</span></d2l-menu-item-return><d2l-menu-item href="https://documentation.brightspace.com" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Search in the Guides" aria-label="Search in the Guides" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Search in the Guides</span></d2l-menu-item><d2l-menu-item href="https://www.youtube.com/channel/UCLSxTdOzKAFOCZjXav1aCRQ" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Video Tutorials" aria-label="Video Tutorials" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Video Tutorials</span></d2l-menu-item><d2l-menu-item href="https://www.inside.dtu.dk/da/undervisning/faglig/it-systemer-og-vaerktoejer/dtu-learn-hjaelp" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Report a problem" aria-label="Report a problem" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Report a problem</span></d2l-menu-item><d2l-menu-item href="https://community.desire2learn.com/d2l/lp/navbars/1796/customlinks/external/15394" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Submit a feature idea" aria-label="Submit a feature idea" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Submit a feature idea</span></d2l-menu-item><d2l-menu-item href="https://community.brightspace.com/s/topic/0TO610000000Jd2GAE/release-notes" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup d2l-menu-item-last" text="Documentation" aria-label="Documentation" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Documentation</span></d2l-menu-item></div></d2l-menu><d2l-icon icon="d2l-tier1:chevron-right" class="style-scope d2l-menu-item x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M5.49 15.61a1.5 1.5 0 0 1-.1-2.12L9.47 9 5.39 4.51a1.5 1.5 0 1 1 2.22-2.02L12.62 8A1.474 1.474 0 0 1 13 9a1.524 1.524 0 0 1-.38 1l-5.01 5.51a1.5 1.5 0 0 1-2.12.1z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></d2l-menu-item></div></d2l-menu><template is="dom-if" class="style-scope d2l-dropdown-menu"></template></div><div class="d2l-dropdown-content-bottom style-scope d2l-dropdown-menu"></div></div></div><div class="d2l-dropdown-content-pointer style-scope d2l-dropdown-menu"><div class="style-scope d2l-dropdown-menu"></div></div></d2l-dropdown-menu></d2l-dropdown></div>
+		</div></div></div></div><div class="d2l-navigation-s-mobile-menu" data-state="closed" data-cprl="/d2l/lp/courseSelector/13911/InitPartial"><div class="d2l-navigation-s-mobile-menu-mask"><div class="d2l-navigation-s-mobile-menu-focus-trap-start d2l-offscreen" tabindex="0">Menu Start</div><p class="d2l-navigation-s-mobile-menu-first d2l-offscreen" tabindex="-1">Menu Start</p><div class="d2l-navigation-s-mobile-menu-mask-close"><button class="d2l-navigation-s-button"><d2l-icon icon="d2l-tier1:close-large-thick" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M17.558 15.44a1.49 1.49 0 0 1 0 2.12 1.5 1.5 0 0 1-2.12 0L9 11.12l-6.438 6.44a1.5 1.5 0 0 1-2.12 0 1.49 1.49 0 0 1 0-2.12L6.88 9 .442 2.563a1.5 1.5 0 0 1 2.12-2.12L9 6.883l6.438-6.44a1.5 1.5 0 0 1 2.12 2.12L11.12 9z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-navigation-s-button-text">close</span></button></div></div><div class="d2l-navigation-s-mobile-menu-content" style="border-color:#696969"><div class="d2l-navigation-s-mobile-menu-header"><div class="d2l-navigation-s-mobile-menu-branded-header"><div class="d2l-navigation-s-header-logo-area d2l-navigation-s-header-no-home-icon"><span class="d2l-navigation-s-divider d2l-navigation-s-logo-divider"><d2l-icon icon="d2l-tier2:divider-big" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="12.5" cy="1.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="6.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="11.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="16.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="21.5" r="1.5" class="style-scope d2l-icon"></circle></g></svg></d2l-icon></span><div class="d2l-navigation-s-logo"><div class="d2l-navigation-s-logo-wrapper"><a class="d2l-navigation-s-logo-link" href="https://learn.inside.dtu.dk/d2l/lp/ouHome/defaultHome.d2l" title="My Home"><span class="d2l-navigation-s-highlight-bar"></span><img src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/view" alt="My Home"></a></div></div><span class="d2l-navigation-s-divider d2l-navigation-s-title-divider"><d2l-icon icon="d2l-tier2:divider-big" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><circle cx="12.5" cy="1.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="6.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="11.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="16.5" r="1.5" class="style-scope d2l-icon"></circle><circle cx="12.5" cy="21.5" r="1.5" class="style-scope d2l-icon"></circle></g></svg></d2l-icon></span><a class="d2l-navigation-s-link" href="https://learn.inside.dtu.dk/d2l/home/13911" title="31300 Linear Control Design 1  / 2018 Spring / 13-weeks">31300 Linear Control Design 1  / 2018 Spring / 13-weeks</a></div><div class="d2l-navigation-s-gutter"></div><div class="d2l-navigation-s-mobile-menu-course-selector"><button class="d2l-navigation-s-button-highlight" title="Select a course..."><span class="d2l-navigation-s-highlight-bar"></span><d2l-icon icon="d2l-tier3:classes" class="x-scope d2l-icon-0"><svg viewBox="0 0 30 30" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M2.668 21c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488H2.668zM3 23h4v4H3v-4zM2.668 1c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18V2.668c0-.462-.187-.878-.488-1.18C8.21 1.188 7.794 1 7.332 1H2.668zM3 3h4v4H3V3zM2.668 11c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488H2.668zM3 13h4v4H3v-4zM12.668 21c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM13 23h4v4h-4v-4zM12.668 1c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18V2.668c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM13 3h4v4h-4V3zM12.668 11c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM13 13h4v4h-4v-4zM22.668 21c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM23 23h4v4h-4v-4zM22.668 1c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18V2.668c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM23 3h4v4h-4V3zM22.668 11c-.462 0-.878.187-1.18.488-.3.302-.488.718-.488 1.18v4.664c0 .462.187.878.488 1.18.302.3.718.488 1.18.488h4.664c.462 0 .878-.187 1.18-.488.3-.302.488-.718.488-1.18v-4.664c0-.462-.187-.878-.488-1.18-.302-.3-.718-.488-1.18-.488h-4.664zM23 13h4v4h-4v-4z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-offscreen">Select a course...</span></button></div></div><div class="d2l-navigation-s-mobile-menu-header-course-menu"><button class="d2l-navigation-s-button"><d2l-icon icon="d2l-tier1:chevron-left" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M9.39 15.51L4.38 10A1.524 1.524 0 0 1 4 9a1.474 1.474 0 0 1 .38-1l5.01-5.51a1.5 1.5 0 0 1 2.22 2.02L7.53 9l4.08 4.49a1.5 1.5 0 0 1-2.22 2.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span class="d2l-navigation-s-button-text">31300 Linear Control Design 1  / 2018 Spring / 13-weeks</span></button><span>31300 Linear Control Design 1  / 2018 Spring / 13-weeks</span></div></div><div class="d2l-navigation-s-mobile-menu-title-bp"><a class="d2l-navigation-s-link" href="https://learn.inside.dtu.dk/d2l/home/13911" title="31300 Linear Control Design 1  / 2018 Spring / 13-weeks">31300 Linear Control Design 1  / 2018 Spring / 13-weeks</a></div><div class="d2l-navigation-s-mobile-menu-course-menu"></div><div class="d2l-navigation-s-mobile-menu-nav"><d2l-menu label="menu" role="menu" aria-label="menu" class="x-scope d2l-menu-0" style="height: 0px;"><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item text="My DTU Learn" aria-label="My DTU Learn" role="menuitem" tabindex="0" aria-haspopup="true" class="d2l-menu-item-first"><span class="style-scope d2l-menu-item">My DTU Learn</span><d2l-menu label="My DTU Learn" role="menu" aria-label="My DTU Learn" class="x-scope d2l-menu-0" child-view=""><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-return role="menuitem" tabindex="0" aria-label="Returns to previous menu.  You are viewing My DTU Learn." text="My DTU Learn" class="style-scope d2l-menu d2l-menu-item-first"><d2l-icon icon="d2l-tier1:chevron-left" class="style-scope d2l-menu-item-return x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M9.39 15.51L4.38 10A1.524 1.524 0 0 1 4 9a1.474 1.474 0 0 1 .38-1l5.01-5.51a1.5 1.5 0 0 1 2.22 2.02L7.53 9l4.08 4.49a1.5 1.5 0 0 1-2.22 2.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span aria-hidden="" class="style-scope d2l-menu-item-return">My DTU Learn</span></d2l-menu-item-return><d2l-menu-item-link href="/d2l/lms/news/main.d2l?ou=13911" text="Announcements" aria-label="Announcements" role="menuitem" tabindex="-1" class=""><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/news/main.d2l?ou=13911">Announcements</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/userprogress/22424/13911/Summary?searchString=&amp;sortField=LastName&amp;sortDirection=0" text="Class Progress" aria-label="Class Progress" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/userprogress/22424/13911/Summary?searchString=&amp;sortField=LastName&amp;sortDirection=0">Class Progress</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/grades/index.d2l?ou=13911" text="Grades" aria-label="Grades" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/grades/index.d2l?ou=13911">Grades</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/group/group_list.d2l?ou=13911" text="Groups" aria-label="Groups" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/group/group_list.d2l?ou=13911">Groups</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/calendar/13911" text="Calendar" aria-label="Calendar" role="menuitem" tabindex="-1" class="d2l-menu-item-last"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/calendar/13911">Calendar</a></d2l-menu-item-link></div></d2l-menu><d2l-icon icon="d2l-tier1:chevron-right" class="style-scope d2l-menu-item x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M5.49 15.61a1.5 1.5 0 0 1-.1-2.12L9.47 9 5.39 4.51a1.5 1.5 0 1 1 2.22-2.02L12.62 8A1.474 1.474 0 0 1 13 9a1.524 1.524 0 0 1-.38 1l-5.01 5.51a1.5 1.5 0 0 1-2.12.1z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></d2l-menu-item><d2l-menu-item-link href="/d2l/lms/classlist/classlist.d2l?ou=13911" text="Classlist" aria-label="Classlist" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/classlist/classlist.d2l?ou=13911">Classlist</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/content/13911/Home" text="Content" aria-label="Content" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/content/13911/Home">Content</a></d2l-menu-item-link><d2l-menu-item text="Activities" aria-label="Activities" role="menuitem" tabindex="-1" aria-haspopup="true"><span class="style-scope d2l-menu-item">Activities</span><d2l-menu label="Activities" role="menu" aria-label="Activities" class="x-scope d2l-menu-0" child-view=""><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-return role="menuitem" tabindex="0" aria-label="Returns to previous menu.  You are viewing Activities." text="Activities" class="style-scope d2l-menu d2l-menu-item-first"><d2l-icon icon="d2l-tier1:chevron-left" class="style-scope d2l-menu-item-return x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M9.39 15.51L4.38 10A1.524 1.524 0 0 1 4 9a1.474 1.474 0 0 1 .38-1l5.01-5.51a1.5 1.5 0 0 1 2.22 2.02L7.53 9l4.08 4.49a1.5 1.5 0 0 1-2.22 2.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span aria-hidden="" class="style-scope d2l-menu-item-return">Activities</span></d2l-menu-item-return><d2l-menu-item-link href="/d2l/lms/dropbox/dropbox.d2l?ou=13911" text="Assignments" aria-label="Assignments" role="menuitem" tabindex="-1" class=""><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/dropbox/dropbox.d2l?ou=13911">Assignments</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/quizzing/quizzing.d2l?ou=13911" text="Quizzes" aria-label="Quizzes" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/quizzing/quizzing.d2l?ou=13911">Quizzes</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/le/13911/discussions/List" text="Discussions" aria-label="Discussions" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/le/13911/discussions/List">Discussions</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/lms/checklist/checklists.d2l?ou=13911" text="Checklist" aria-label="Checklist" role="menuitem" tabindex="-1"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/lms/checklist/checklists.d2l?ou=13911">Checklist</a></d2l-menu-item-link><d2l-menu-item-link href="/d2l/common/dialogs/quickLink/quickLink.d2l?ou=13911&amp;type=lti&amp;rcode=dtu-20&amp;srcou=6606&amp;launchFramed=1&amp;framedName=Peergrade" text="Peergrade" aria-label="Peergrade" role="menuitem" tabindex="-1" class="d2l-menu-item-last"><a tabindex="-1" class="style-scope d2l-menu-item-link" href="https://learn.inside.dtu.dk/d2l/common/dialogs/quickLink/quickLink.d2l?ou=13911&amp;type=lti&amp;rcode=dtu-20&amp;srcou=6606&amp;launchFramed=1&amp;framedName=Peergrade">Peergrade</a></d2l-menu-item-link></div></d2l-menu><d2l-icon icon="d2l-tier1:chevron-right" class="style-scope d2l-menu-item x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M5.49 15.61a1.5 1.5 0 0 1-.1-2.12L9.47 9 5.39 4.51a1.5 1.5 0 1 1 2.22-2.02L12.62 8A1.474 1.474 0 0 1 13 9a1.524 1.524 0 0 1-.38 1l-5.01 5.51a1.5 1.5 0 0 1-2.12.1z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></d2l-menu-item><d2l-menu-item text="Help" aria-label="Help" role="menuitem" tabindex="-1" aria-haspopup="true" class="d2l-menu-item-last"><span class="style-scope d2l-menu-item">Help</span><d2l-menu label="Help" role="menu" aria-label="Help" class="x-scope d2l-menu-0" child-view=""><div class="d2l-menu-items d2l-hierarchical-view-content style-scope d2l-menu"><d2l-menu-item-return role="menuitem" tabindex="0" aria-label="Returns to previous menu.  You are viewing Help." text="Help" class="style-scope d2l-menu d2l-menu-item-first"><d2l-icon icon="d2l-tier1:chevron-left" class="style-scope d2l-menu-item-return x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M9.39 15.51L4.38 10A1.524 1.524 0 0 1 4 9a1.474 1.474 0 0 1 .38-1l5.01-5.51a1.5 1.5 0 0 1 2.22 2.02L7.53 9l4.08 4.49a1.5 1.5 0 0 1-2.22 2.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon><span aria-hidden="" class="style-scope d2l-menu-item-return">Help</span></d2l-menu-item-return><d2l-menu-item href="https://documentation.brightspace.com" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Search in the Guides" aria-label="Search in the Guides" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Search in the Guides</span></d2l-menu-item><d2l-menu-item href="https://www.youtube.com/channel/UCLSxTdOzKAFOCZjXav1aCRQ" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Video Tutorials" aria-label="Video Tutorials" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Video Tutorials</span></d2l-menu-item><d2l-menu-item href="https://www.inside.dtu.dk/da/undervisning/faglig/it-systemer-og-vaerktoejer/dtu-learn-hjaelp" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Report a problem" aria-label="Report a problem" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Report a problem</span></d2l-menu-item><d2l-menu-item href="https://community.desire2learn.com/d2l/lp/navbars/1796/customlinks/external/15394" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup" text="Submit a feature idea" aria-label="Submit a feature idea" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Submit a feature idea</span></d2l-menu-item><d2l-menu-item href="https://community.brightspace.com/s/topic/0TO610000000Jd2GAE/release-notes" data-popup-menubar="1" data-popup-toolbar="1" class="d2l-navigation-s-link-popup d2l-menu-item-last" text="Documentation" aria-label="Documentation" role="menuitem" tabindex="-1"><span class="style-scope d2l-menu-item">Documentation</span></d2l-menu-item></div></d2l-menu><d2l-icon icon="d2l-tier1:chevron-right" class="style-scope d2l-menu-item x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g mirror-in-rtl="true" class="style-scope d2l-icon"><path d="M5.49 15.61a1.5 1.5 0 0 1-.1-2.12L9.47 9 5.39 4.51a1.5 1.5 0 1 1 2.22-2.02L12.62 8A1.474 1.474 0 0 1 13 9a1.524 1.524 0 0 1-.38 1l-5.01 5.51a1.5 1.5 0 0 1-2.12.1z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></d2l-menu-item></div></d2l-menu></div></div><div class="d2l-navigation-s-mobile-menu-focus-trap-end d2l-offscreen" tabindex="0">Menu End</div></div><div class="d2l-navigation-s-shadow-drop-border"></div><div class="d2l-navigation-s-shadow-gradient"></div></nav></header><span class="d2l-fragment"><a name="d2l_1_10_389" tabindex="-1"></a></span>
+		<div class="d2l-page-message-container"><div class="d2l-page-message d2l_1_12_515" id="d2l_sessionExpiryWarning"><div style="display:none;" id="d2l_sessionExpiryAlert" role="alert"><div class="d2l-container-icon d2l_1_13_193 d2l_1_14_562">
+			<div class="d2l-container-icon-inner d2l_1_15_112 d2l_1_16_192 d2l_1_17_410 d2l_1_18_672">
+				<h2 class="d2l-heading vui-heading-2">Are You Still There?</h2>
+				<div class="d2l-textblock">Your session expires after 180 minutes of inactivity, which protects your information in case you've left your device without logging out.<br>
+<br>
+<strong>Hit a key or click anywhere to stay logged in.</strong></div>
+			</div>
+		</div>
+		</div><div style="display:none;" id="d2l_sessionExpiryCheck" role="alert"><div class="d2l-container-icon d2l_1_13_193 d2l_1_14_562">
+			<div class="d2l-container-icon-inner d2l_1_19_141 d2l_1_16_192 d2l_1_17_410 d2l_1_18_672">
+				<div class="d2l_1_20_979">
+					<h2 class="d2l-heading vui-heading-2 d2l-heading-none">Oh, There You Are!</h2>
+				</div>
+			</div>
+		</div>
+		</div></div>
+		</div>
+		<div class="d2l-page-bg">
+			<div>
+			</div>
+		</div>
+		<div class="d2l-page-main d2l-min-width d2l-max-width" role="main">
+			<div class="d2l-page-collapsepane-container" style="min-height: 620px; top: 242.727px;"><div class="d2l-page-collapsepane-shadow" title="Expand side panel"><div></div></div><div class="d2l-page-collapsepane d2l-page-collapsepane-de28536" data-openfirst="D2L.O(&quot;__g1&quot;,4)();"><span tabindex="-1" class="d2l-offscreen"></span><div class="d2l-page-collapsepane-handle"><h2 class="d2l-heading vui-offscreen">Side Panel</h2>
+			<a class="d2l-page-collapsepane-handle-link" tabindex="0" title="Expand side panel" role="button"><span class="d2l-page-collapsepane-handle-expand d2l-offscreen">Expand side panel</span><span class="d2l-page-collapsepane-handle-collapse d2l-offscreen">Collapse side panel</span></a></div><div class="d2l-page-collapsepane-content"><div class="d2l-page-collapsepane-content-inner d2l-scrollbar" style="max-height: 440px;"><div class="d2l-page-collapsepane-content-padding"><div id="ContentNavigator" class="d2l-placeholder d2l-placeholder-live" aria-live="assertive">
+				<div class="d2l-loading"><d2l-loading-spinner size="120" class="x-scope d2l-loading-spinner-0"><div class="d2l-loading-spinner-wrapper style-scope d2l-loading-spinner"><svg viewBox="0 0 42 42" class="d2l-loading-spinner-bg-blur style-scope d2l-loading-spinner" focusable="false"><g fill="none" fill-rule="evenodd" transform="translate(5 5)" class="style-scope d2l-loading-spinner"><circle stroke="none" fill="#000" cx="16" cy="16" r="14" class="style-scope d2l-loading-spinner"></circle></g></svg> <svg viewBox="0 0 42 42" class="d2l-loading-spinner-bg style-scope d2l-loading-spinner" focusable="false"><g fill="none" fill-rule="evenodd" transform="translate(5 5)" class="style-scope d2l-loading-spinner"><circle stroke-width="0.5" cx="16" cy="16" r="16" class="d2l-loading-spinner-bg-stroke style-scope d2l-loading-spinner"></circle><circle stroke="none" fill="#FFF" cx="16" cy="16" r="16" class="style-scope d2l-loading-spinner"></circle><circle stroke-width="2" cx="16" cy="16" r="11" class="style-scope d2l-loading-spinner"></circle></g></svg> <svg viewBox="0 0 42 42" class="d2l-loading-spinner-slice1 style-scope d2l-loading-spinner" focusable="false"><g fill="none" fill-rule="evenodd" class="style-scope d2l-loading-spinner"><path d="M24 42h8c0-17.673-14.327-32-32-32v8c1.105 0 2 .895 2 2s-.895 2-2 2v20h20c0-1.105.895-2 2-2s2 .895 2 2z" fill="#FFF" class="style-scope d2l-loading-spinner"></path><path d="M0 22c1.105 0 2-.895 2-2s-.895-2-2-2c13.255 0 24 10.745 24 24 0-1.105-.895-2-2-2s-2 .895-2 2c0-11.046-8.954-20-20-20z" fill="#E6EAF0" class="style-scope d2l-loading-spinner"></path></g></svg> <svg viewBox="0 0 42 42" class="d2l-loading-spinner-slice2 style-scope d2l-loading-spinner" focusable="false"><g fill="none" fill-rule="evenodd" class="style-scope d2l-loading-spinner"><path d="M24 42h8c0-17.673-14.327-32-32-32v8c1.105 0 2 .895 2 2s-.895 2-2 2v20h20c0-1.105.895-2 2-2s2 .895 2 2z" fill="#FFF" class="style-scope d2l-loading-spinner"></path><path d="M0 22c1.105 0 2-.895 2-2s-.895-2-2-2c13.255 0 24 10.745 24 24 0-1.105-.895-2-2-2s-2 .895-2 2c0-11.046-8.954-20-20-20z" fill="#E6EAF0" class="style-scope d2l-loading-spinner"></path></g></svg> <svg viewBox="0 0 42 42" class="d2l-loading-spinner-slice3 style-scope d2l-loading-spinner" focusable="false"><g fill="none" fill-rule="evenodd" class="style-scope d2l-loading-spinner"><path d="M24 42h8c0-17.673-14.327-32-32-32v8c1.105 0 2 .895 2 2s-.895 2-2 2v20h20c0-1.105.895-2 2-2s2 .895 2 2z" fill="#FFF" class="style-scope d2l-loading-spinner"></path><path d="M0 22c1.105 0 2-.895 2-2s-.895-2-2-2c13.255 0 24 10.745 24 24 0-1.105-.895-2-2-2s-2 .895-2 2c0-11.046-8.954-20-20-20z" fill="#E6EAF0" class="style-scope d2l-loading-spinner"></path></g></svg> <svg viewBox="0 0 42 42" class="d2l-loading-spinner-slice4 style-scope d2l-loading-spinner" focusable="false"><g fill="none" fill-rule="evenodd" class="style-scope d2l-loading-spinner"><path d="M24 42h8c0-17.673-14.327-32-32-32v8c1.105 0 2 .895 2 2s-.895 2-2 2v20h20c0-1.105.895-2 2-2s2 .895 2 2z" fill="#FFF" class="style-scope d2l-loading-spinner"></path><path d="M0 22c1.105 0 2-.895 2-2s-.895-2-2-2c13.255 0 24 10.745 24 24 0-1.105-.895-2-2-2s-2 .895-2 2c0-11.046-8.954-20-20-20z" fill="#E6EAF0" class="style-scope d2l-loading-spinner"></path></g></svg> <svg viewBox="0 0 42 42" class="d2l-loading-spinner-slice5 style-scope d2l-loading-spinner" focusable="false"><g fill="none" fill-rule="evenodd" class="style-scope d2l-loading-spinner"><path d="M24 42h8c0-17.673-14.327-32-32-32v8c1.105 0 2 .895 2 2s-.895 2-2 2v20h20c0-1.105.895-2 2-2s2 .895 2 2z" fill="#FFF" class="style-scope d2l-loading-spinner"></path><path d="M0 22c1.105 0 2-.895 2-2s-.895-2-2-2c13.255 0 24 10.745 24 24 0-1.105-.895-2-2-2s-2 .895-2 2c0-11.046-8.954-20-20-20z" fill="#E6EAF0" class="style-scope d2l-loading-spinner"></path></g></svg></div></d2l-loading-spinner><div class="d2l-textblock d2l-offscreen">Loading...</div>
+				</div>
+			</div>
+			</div></div></div><div class="d2l-page-collapsepane-end"></div><span tabindex="-1" class="d2l-offscreen"></span></div></div><div class="d2l-page-main-padding">
+				<div class="d2l-page-header d2l-header-responsive-collapse-layout">
+					<div class="d2l-box-layout d2l_1_21_123">
+						<div class="d2l-box d2l-box-v d2l-header-top d2l_1_22_703">
+							<div class="d2l-box-layout d2l_1_21_123">
+								<div class="d2l-box d2l-box-h d2l_1_23_405 d2l_1_22_703">
+									<nav aria-labelledby="d2l_1_24_53">
+										<h2 class="d2l-heading vui-offscreen" id="d2l_1_24_53">Breadcrumb:</h2>
+										<ol class="vui-breadcrumbs d2l_1_25_310 d2l_1_26_313" aria-labelledby="d2l_1_24_53">
+											<li><a class="d2l-link" href="javascript:void(0);" onclick="D2L.O(&quot;__g1&quot;,5)();return false;">Table of Contents</a>
+											</li><li><a class="d2l-link" href="https://learn.inside.dtu.dk/d2l/le/content/13911/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-1335">M3 Modelling</a>
+											</li><li><a class="d2l-link" href="https://learn.inside.dtu.dk/d2l/le/content/13911/Home?itemIdentifier=D2L.LE.Content.ContentObject.ModuleCO-2467">Lektion 3+4 øvelse</a>
+											</li><li class="d2l-page-breadcrumb-title"><span class="d2l-breadcrumb-text">31300-øvelse-nr3-modelling</span></li></ol>
+									</nav>
+								</div>
+							</div>
+						</div>
+						<div class="d2l-box d2l-box-v d2l-header-bottom-box-responsive d2l_1_22_703">
+							<div class="d2l-box-layout d2l_1_21_123">
+								<div class="d2l-box d2l-box-h d2l_1_23_405 d2l_1_22_703">
+									<div class="d2l-page-title-c"><div class="d2l-box-layout d2l_1_27_630">
+										<div class="d2l-box d2l-box-h d2l_1_23_405 d2l_1_22_703">
+											<h1 class="d2l-page-title d2l-heading vui-heading-1 bsi-set-solid">31300-øvelse-nr3-modelling</h1>
+											<div id="d2l_1_28_621" class="d2l-floating-container d2l-hidden vui-dropdown-menu d2l-floating-container-autoclose" role="menu" tabindex="-1">
+												<ul id="d2l_pageTitleActions" class="d2l-contextmenu" role="presentation">
+													<li id="d2l_1_29_603" class="d2l-contextmenu-item" role="presentation">
+														<a class=" vui-dropdown-menu-item-link" tabindex="-1" role="menuitem"><span>Reflect in ePortfolio</span></a>
+													</li>
+													<li id="d2l_1_30_296" class="d2l-contextmenu-item" role="presentation">
+														<a class=" vui-dropdown-menu-item-link" tabindex="-1" role="menuitem"><span>Download</span></a>
+													</li>
+													<li id="d2l_1_31_603" class="d2l-contextmenu-item" role="presentation">
+														<a class=" vui-dropdown-menu-item-link" tabindex="-1" role="menuitem"><span>View Metadata</span></a>
+													</li>
+												</ul>
+											</div><a id="d2l_1_0_980" class="d2l-contextmenu-ph" data-contextmenuid="d2l_pageTitleActions" role="button" aria-haspopup="true" title="Actions for &#39;31300-øvelse-nr3-modelling&#39;" aria-label="Actions for &#39;31300-øvelse-nr3-modelling&#39;" onclick="D2L.O(&quot;__g1&quot;,6)();return false;" href="javascript:void(0);">
+											</a>
+											<div class="d2l-clear"></div>
+											<div class="d2l-page-title-view"><h2 class="d2l-heading vui-offscreen">PDF document</h2>
+											</div></div>
+									</div>
+									</div></div>
+								<div class="d2l-box d2l-box-h d2l_1_22_703">
+									<div class="d2l-page-header-side">
+										<div class="d2l_1_33_192 d2l-inline">
+											<span class="d2l-toggle" id="d2l_1_34_355" tabindex="-1"><a class="d2l-imagelink" id="d2l_1_35_858" href="javascript:void(0);" onclick="return false;" title="Add Bookmark" aria-label="Add Bookmark" role="button"><d2l-icon icon="d2l-tier2:bookmark-hollow" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M17-.01H7.01c-1.65 0-3 1.35-3 3L4 22c0 .74.41 1.42 1.06 1.76.29.16.62.24.94.24.39 0 .77-.11 1.11-.34L12 20.4l4.89 3.26c.34.23.72.34 1.11.34.32 0 .65-.08.94-.24.65-.34 1.06-1.02 1.06-1.76V2.99c0-1.65-1.35-3-3-3zM18 22s-5.45-3.63-5.46-3.63c-.16-.1-.34-.16-.54-.16-.19 0-.37.05-.52.15C11.47 18.36 6 22 6 22l.01-19.01c0-.54.46-1 1-1H17c.54 0 1 .46 1 1V22z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></a>
+											<a class="d2l-imagelink d2l-hidden" id="d2l_1_36_686" href="javascript:void(0);" onclick="return false;" title="Remove Bookmark" aria-label="Remove Bookmark" role="button"><d2l-icon icon="d2l-tier2:bookmark-filled" class="x-scope d2l-icon-0"><svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M17 0H7.01a3.008 3.008 0 0 0-3 3L4 22a1.986 1.986 0 0 0 1.06 1.76 1.973 1.973 0 0 0 2.05-.1L12 20.4l4.89 3.26a1.973 1.973 0 0 0 2.05.1A1.986 1.986 0 0 0 20 22V3a3.008 3.008 0 0 0-3-3z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></a>
+											</span></div>
+										<a class="d2l-imagelink" id="d2l_1_37_540" href="javascript:void(0);" onclick="return false;" title="View content in new window" aria-label="View content in new window" role="button"><d2l-icon icon="d2l-tier1:fullscreen" class="x-scope d2l-icon-0"><svg viewBox="0 0 18 18" preserveAspectRatio="xMidYMid meet" focusable="false" class="style-scope d2l-icon" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope d2l-icon"><path d="M7.707 11.626l-3.29 3.265 1.29 1.282a1 1 0 0 1-.71 1.7H1a1 1 0 0 1-1-.993v-3.97a.98.98 0 0 1 .62-.914 1.006 1.006 0 0 1 1.09.208L3 13.48l3.29-3.264a1.012 1.012 0 0 1 1.418 0 .994.994 0 0 1 0 1.41zM10.293 11.625l3.29 3.265-1.29 1.28a1 1 0 0 0 .71 1.7h4a1 1 0 0 0 1-.992v-3.97a.98.98 0 0 0-.62-.913 1.006 1.006 0 0 0-1.09.208L15 13.48l-3.29-3.264a1.012 1.012 0 0 0-1.418 0 .992.992 0 0 0 0 1.41zM10.293 6.242l3.29-3.264-1.29-1.278a.99.99 0 0 1-.21-1.082A.987.987 0 0 1 13 0h4a1 1 0 0 1 1 .993v3.97a.98.98 0 0 1-.62.912 1.006 1.006 0 0 1-1.09-.208L15 4.387 11.712 7.65a1.012 1.012 0 0 1-1.42 0 .992.992 0 0 1 0-1.408zM7.707 6.242L4.42 2.977 5.71 1.7A1 1 0 0 0 5 0H1a1 1 0 0 0-1 .993v3.97a.98.98 0 0 0 .62.913 1.006 1.006 0 0 0 1.09-.208L3 4.388 6.288 7.65a1.012 1.012 0 0 0 1.42 0 .994.994 0 0 0 0-1.41zM11.8 20.93a.818.818 0 0 1 .07-.128.714.714 0 0 0-.09.2.183.183 0 0 1 .02-.07zM12.01 20.613c.01-.01.02-.01.03-.02a.644.644 0 0 0-.08.09.178.178 0 0 1 .05-.07z" class="style-scope d2l-icon"></path><path d="M11.8 20.93a.818.818 0 0 1 .07-.128.714.714 0 0 0-.09.2.183.183 0 0 1 .02-.07zM12.04 20.593a.644.644 0 0 0-.08.09.178.178 0 0 1 .05-.07c.01-.013.02-.013.03-.02z" class="style-scope d2l-icon"></path></g></svg></d2l-icon></a>
+										<div class="d2l_1_38_380 d2l-inline">
+											<div class="d2l-iterator">
+												<a class="d2l-iterator-button d2l-iterator-button-prev d2l-iterator-button-notext" role="button" href="https://learn.inside.dtu.dk/d2l/le/content/13911/navigateContent/165/Previous?pId=2467" title="Previous "><img class="d2l-image d2l_1_39_793" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/pixel.gif" alt=""><span class="d2l-offscreen">Previous </span>&nbsp;</a><a class="d2l-iterator-button d2l-iterator-button-next d2l-iterator-button-notext" role="button" href="https://learn.inside.dtu.dk/d2l/le/content/13911/navigateContent/165/Next?pId=2467" title="Next"><span class="d2l-offscreen">Next</span>&nbsp;<img class="d2l-image d2l_1_40_12" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/pixel.gif" alt=""></a></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="d2l-messagearea d2l_1_41_416" id="d2l_messagearea" role="alert" tabindex="0"></div><div id="ContentView" class="d2l-placeholder d2l-placeholder-live" aria-live="assertive">
+					<div id="d2l_le_content_printcontainer">
+						<div class="d2l-fileviewer"><div class="d2l-fileviewer-pdf-pdfjs" id="d2l_1_43_385" data-location="/content/enforced/13911-OFFERING-562685/lektion_3/31300-%c3%b8velse-nr3-modelling.pdf?d2lSessionVal=KxojCZUlIF2pkNp1z98MHDJtU&amp;ou=13911" data-title="31300-øvelse-nr3-modelling.pdf" data-culture="en-gb" data-is-always-fully-expanded="0"><div id="d2l_1_42_455" class="d2l-placeholder d2l-placeholder-live" aria-live="assertive">
+							</div>
+							<iframe class="d2l-fileviewer-rendered-pdf" scrolling="no" seamless="seamless" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/viewer.html" title="31300-øvelse-nr3-modelling.pdf" style="width: 100%; height: 620px;"></iframe></div></div>
+					</div>
+				</div>
+				<div class="d2l_1_44_949">
+					<div class="d2l_1_45_886">
+						<button class="d2l-button" id="d2l_1_2_758"><span class="d2l-icon-custom d2l_1_46_75"></span>Reflect in ePortfolio</button><button class="d2l-button" id="d2l_1_3_595"><span class="d2l-icon-custom d2l_1_47_132"></span>Download</button><button class="d2l-button d2l-hidden" id="d2l_1_4_249"><span class="d2l-icon-custom d2l_1_48_860"></span>Print</button></div>
+					<div class="d2l_1_49_76">
+						<div class="d2l_1_38_380 d2l-inline">
+							<div class="d2l-iterator">
+								<a class="d2l-iterator-button d2l-iterator-button-prev d2l-iterator-button-notext" role="button" href="https://learn.inside.dtu.dk/d2l/le/content/13911/navigateContent/165/Previous?pId=2467" title="Previous "><img class="d2l-image d2l_1_39_793" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/pixel.gif" alt=""><span class="d2l-offscreen">Previous </span>&nbsp;</a><a class="d2l-iterator-button d2l-iterator-button-next d2l-iterator-button-notext" role="button" href="https://learn.inside.dtu.dk/d2l/le/content/13911/navigateContent/165/Next?pId=2467" title="Next"><span class="d2l-offscreen">Next</span>&nbsp;<img class="d2l-image d2l_1_40_12" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/pixel.gif" alt=""></a></div>
+						</div>
+					</div>
+					<div class="d2l-clear"></div>
+				</div>
+				<div class="d2l_1_50_636">
+					<div id="AdditionalInfoPlaceholder" class="d2l-placeholder d2l-placeholder-live" aria-live="assertive">
+						<ul class="vui-tabmenu" role="tablist" id="d2l_1_51_652">
+							<li class="vui-tabmenu-item vui-tabmenu-item-select" role="presentation" style="width: 100%;">
+								<a id="d2l_1_52_476" href="javascript:void(0);" role="tab" aria-selected="true" tabindex="0" data-tabmenu-onclick="D2L.O(&quot;__g1&quot;,13)();">
+									Activity Details<span class="vui-tabmenu-item-blue">
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="d2l_1_53_270 d2l_1_54_739">
+						<div id="ActivityDetailsTabId">
+							<div class="d2l-box-layout d2l_1_21_123">
+								<div class="d2l-box d2l-box-h d2l_1_23_405 d2l_1_22_703">
+									<div class="d2l_1_55_857">
+										<div class=" d2l-inline">
+											<div id="d2l_1_5_259" class="d2l-placeholder d2l-placeholder-live" aria-live="assertive">
+												<form data-method="post" data-scope="" class="d2l-form d2l-form-primary" id="CompletionTaskForm" onsubmit="return false;">
+													<div class=" d2l-inline">
+														<div class="d2l-container-icon d2l_1_13_193 d2l_1_56_689 d2l_1_13_193 d2l_1_57_352 d2l_1_58_541">
+															<div class="d2l-textblock vui-emphasis">Task: View this topic</div>
+														</div>
+													</div>
+													<div class=" d2l-inline">
+													</div>
+												<input type="text" class="d2l-hidden"></form>
+											</div>
+										</div>
+									</div>
+									<h2 class="d2l-heading vui-offscreen">Description</h2>
+									<div class="d2l-htmlblock d2l-htmlblock-deferred"><p>Øvelsesvejledning til 14. og 21. februar.</p></div>
+								</div>
+							</div>
+						</div>
+						<div class=" d2l-hidden" id="ResultsDetailsTabId">
+							<div id="ResultDetails" class="d2l-placeholder d2l-placeholder-inner d2l-placeholder-live" aria-live="assertive">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="StatusPlaceholder" class="d2l-placeholder d2l-placeholder-live" aria-live="assertive">
+					<div class="d2l-textblock d2l-textblock-secondary vui-emphasis"></div>
+				</div>
+			</div>
+		</div>
+<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/jquery.min.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/bsi.min.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LP.Web.Desktop.default.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LE.Content.ContentViewer.default.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LE.Content.Web.Desktop.default.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/D2L.LE.ToolIntegration.Content.default.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+			window['adrum-app-key'] = 'AD-AAB-AAG-WNH';window['adrum-ext-url'] = 'https://s.brightspace.com/lib/adrum-ext/4.2.10-0/adrum-ext.js';window['adrum-xd-url'] = '';window['adrum-start-time'] = Date.now();
+			function addD2LDataToAdrum() {if( typeof ADRUM.command === 'function' ) {ADRUM.command('addUserData','isDaylightEnabled','True');ADRUM.command('addUserData','productVersion','10.7.9.0');}}
+		//]]>
+		</script>
+		<script async="async" onload="addD2LDataToAdrum()" type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/adrum.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/tock.min.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/ifvisible.min.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/d2l-nav-host-base.js"></script>
+		<script type="text/javascript" src="./31300-øvelse-nr3-modelling - 31300 Linear Control Design 1 _ 2018 Spring _ 13-weeks_files/d2l-nav-docked-host.js"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+			D2L.LP.Web.UI.Events.OnInit.AddListener( function() {
+D2L.O("__g1",14)();
+D2L.O("__g1",15)();
+D2L.O("__g1",16)();
+D2L.O("__g1",17)();
+D2L.O("__g1",18)();
+D2L.O("__g1",19)();
+D2L.O("__g1",20)();
+D2L.O("__g1",21)();
+D2L.O("__g1",22)();
+} );
+
+			D2L.LP.Web.UI.Events.OnLoad.AddListener( function() {
+D2L.O("__g1",23)();
+D2L.O("__g1",24)();
+D2L.O("__g1",25)();
+} );
+
+			D2L.OR={
+"__g1":{"0":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.ReturnPoints.Set\",\"P\":[\"D2L.UXP.Profile.22424\"]}",
+"1":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.ReturnPoints.Set\",\"P\":[\"D2L.LP.Notification.Settings.13911\"]}",
+"2":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.ReturnPoints.Set\",\"P\":[\"D2L.UXP.Preferences.13911\"]}",
+"3":"{\"_type\":\"func\",\"N\":\"D2L.PT.Auth.Logout\",\"P\":[\"\/d2l\/logout\"]}",
+"4":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialRender\",\"P\":[{\"_type\":\"id\",\"Value\":\"ContentNavigator\"},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Rpc.ConnectPartial\",\"P\":[{\"_type\":\"id\",\"Value\":\"ContentNavigator\"},\"GET\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/viewobject\/2475\/PartialNavigator?mId=2467\"},{\"_type\":\"D2L.LP.Util.Dictionary\"},{\"_type\":\"D2L.LP.Web.UI.Rpc.RpcOptions\",\"keepAlive\":true,\"includeXsrfHeader\":false}],\"D\":true},0,false],\"D\":true}",
+"5":"{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Navigate\",\"P\":[{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/Home?itemIdentifier=TOC\"}]}]}",
+"6":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.Controls.ContextMenu.Open\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_pageTitleActions\"},{\"_type\":\"id\",\"Value\":\"d2l_1_0_980\"},\"d2l_1_32_553\",null]}",
+"7":"{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_36_686\"},true]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_35_858\"},false]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Focus\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_36_686\"}]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Rpc.Connect\",\"P\":[\"POST\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/viewContent\/2475\/ToggleBookmark?bookmarkStatus=1\"}],\"D\":true}]}",
+"8":"{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_35_858\"},true]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_36_686\"},false]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Focus\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_35_858\"}]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Rpc.Connect\",\"P\":[\"POST\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/viewContent\/2475\/ToggleBookmark?bookmarkStatus=0\"}],\"D\":true}]}",
+"9":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.OpenWindow\",\"P\":[\"31300-\u00f8velse-nr3-modelling\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/fullscreen\/2475\/View\"},1280,800,false,false]}",
+"10":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.Open\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_2_758\"},{\"_type\":\"call\",\"N\":\"D2L.LP.Web.Mvc.RouteLocation.Create\",\"P\":[\"\/d2l\/ep\/contentReflection\/{orgUnitId}\/{action}\/{id}\",{\"_type\":\"D2L.LP.Util.Dictionary\"},{\"_type\":\"D2L.LP.Util.Dictionary\",\"action\":\"previewReflection\",\"orgUnitId\":13911,\"id\":{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.Open\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_2_758\"},{\"_type\":\"url\",\"Url\":\"\/d2l\/ep\/contentReflection\/13911\/CreateReflectionDialog?tag2=OFFERING-562685&tag3=31300-%c3%b8velse-nr3-modelling&tag1=Lektion+3%2b4+%c3%b8velse\"}],\"D\":true}}]}],\"D\":true}",
+"11":"{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.VS\",\"P\":[\"CheckTopicFileJSVariable\",{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Rpc.ConnectObject\",\"P\":[\"GET\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/topics\/files\/download\/2475\/CheckFileTopicInfo\"}],\"D\":true}]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.If\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.ObjectAccessor\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"CheckTopicFileJSVariable\"]},\"IsBroken\"]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.InlineDialog\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_0_980\"},null,\"Error\",\"Unable to download. The file associated with this content topic cannot be found.\",\"\",\"OK\",\"\",\"Close this Dialog\",\"d2l-dialog-inline-body-alert\",true,false,false],\"D\":true},true,{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.If\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.ObjectAccessor\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"CheckTopicFileJSVariable\"]},\"IsPackageable\"]},{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.VS\",\"P\":[\"DownloadProgressDialogResultJSVariable\",{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.Open\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_0_980\"},{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/2475\/startdownload\/InitiateTopicDownload?openerId=d2l_1_0_980\"}],\"D\":true}]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.If\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.CompareNumber\",\"P\":[5,{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"DownloadProgressDialogResultJSVariable\"]},0]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Navigate\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.Mvc.RouteLocation.Create\",\"P\":[\"\/d2l\/le\/content\/{orgUnitId}\/downloads\/{downloadType}\/{jobId}\/{action}\",{\"_type\":\"D2L.LP.Util.Dictionary\"},{\"_type\":\"D2L.LP.Util.Dictionary\",\"action\":\"Download\",\"orgUnitId\":13911,\"downloadType\":\"Topic\",\"jobId\":{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"DownloadProgressDialogResultJSVariable\"]}}]}]},true,null],\"D\":true}]},true,{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Navigate\",\"P\":[{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/topics\/files\/download\/2475\/DirectFileTopicDownload\"}]}],\"D\":true}],\"D\":true}]}",
+"12":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.Controls.FileViewer.TryPrint\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_le_content_printcontainer\"}]}",
+"13":"{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"ActivityDetailsTabId\"},true]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"EvaluationSummaryTabId\"},false]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"ResultsDetailsTabId\"},false]}]}",
+"14":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.Controls.FloatingContainer.Init\"}",
+"15":"{\"_type\":\"func\",\"N\":\"D2L.PT.Auth.SessionTimeout.Init\",\"P\":[\"22424\",180,5,{\"_type\":\"id\",\"Value\":\"d2l_sessionExpiryWarning\"},\"d2l_sessionExpiryAlert\",\"d2l_sessionExpiryCheck\",{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Rpc.ConnectObject\",\"P\":[\"POST\",{\"_type\":\"url\",\"Url\":\"\/d2l\/lp\/auth\/session\/extend\"}],\"D\":true},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.OpenHelper\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.Dom.GetActiveElement\"},{\"_type\":\"url\",\"Url\":\"\/d2l\/lp\/auth\/session\/Expired?isLogout=0&isUsernamePasswordLogin=0\"}],\"D\":true},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.OpenHelper\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.Dom.GetActiveElement\"},{\"_type\":\"url\",\"Url\":\"\/d2l\/lp\/auth\/session\/Expired?isLogout=1&isUsernamePasswordLogin=0\"}],\"D\":true},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.InlineDialog\",\"P\":[null,{\"_type\":\"id\",\"Value\":\"d2l_1_59_938\"},\"Warning\",\"New User Session\",\"The current user session has changed, so the links and content on this page may not behave as expected.\",\"OK\",\"\",\"Close this Dialog\",\"d2l-dialog-inline-body-warning\",true,false,false],\"D\":true},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.Inline.Abort\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_59_938\"}]}]}",
+"16":"{\"_type\":\"func\",\"N\":\"D2LMathML.DesktopInit\",\"P\":[\"https:\/\/s.brightspace.com\/lib\/mathjax\/2.6.1\/MathJax.js?config=MML_HTMLorMML\",\"https:\/\/s.brightspace.com\/lib\/mathjax\/2.6.1\/MathJax.js?config=TeX-AMS-MML_HTMLorMML%2cSafe\"]}",
+"17":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.Authentication.Xsrf.Init\",\"P\":[\"d2l_referrer\",\"una9aB7T7bP5o3vPBhoQiNStKooEHAuW\",-1796895652]}",
+"18":"{\"_type\":\"func\",\"N\":\"D2L.LP.ActivityBar.Init\",\"P\":[{\"_type\":\"url\",\"Url\":\"\/d2l\/activityFeed\/checkForNewAlerts\"},120,\"alert_bucket_{0}\",\"ab_status_{0}\"]}",
+"19":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Common.Controls.MessageArea.Init\",\"P\":[\"d2l_messagearea\",{\"_type\":\"url\",\"Url\":\"\/d2l\/lp\/validation\/errors\"}]}",
+"20":"{\"_type\":\"func\",\"N\":\"D2L.LP.Globalization.Locale.Init\",\"P\":[0,{\"_type\":\"anon\",\"DecimalSeparator\":\".\",\"GroupSeparator\":\",\",\"NumberNegativePattern\":1,\"PercentPositivePattern\":0,\"PercentNegativePattern\":0,\"PercentSymbol\":\"%\",\"NegativeSign\":\"-\",\"NativeDigits\":[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],\"UseNativeDigits\":false,\"GroupSizes\":[3],\"IntegerRegex\":\"^([\\\\(-]*(([01234567890123456789]?[01234567890123456789]?([01234567890123456789](,[01234567890123456789][01234567890123456789][01234567890123456789])*)?))[\\\\)-]*)$|^([\\\\(-]*[01234567890123456789]+[\\\\)-]*)$\",\"DecimalRegex\":\"^([\\\\(-]*(([01234567890123456789]?[01234567890123456789]?([01234567890123456789](,[01234567890123456789][01234567890123456789][01234567890123456789])*)))(\\\\.[01234567890123456789]+)?[\\\\)-]*)$|^([\\\\(-]*[01234567890123456789]*\\\\.?[01234567890123456789]+[\\\\)-]*)$\"},{\"_type\":\"anon\",\"InputDateFormat\":\"d\/M\/yyyy\",\"Is24HourClock\":false,\"NativeDigits\":[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],\"UseNativeDigits\":false,\"TimeFormat\":\"h:mm tt\",\"AmDesignator\":\"AM\",\"PmDesignator\":\"PM\",\"FirstDayOfWeek\":0,\"ShortMonthNames\":[\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\",\"\"],\"LongMonthNames\":[\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\",\"\"],\"ShortDayOfWeekNames\":[\"Sun\",\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\",\"Sat\"]},{\"_type\":\"anon\",\"TextDirection\":1},{\"_type\":\"anon\",\"Culture\":\"en-GB\"},{\"_type\":\"anon\",\"JustNow\":\"just now\",\"OneMinuteAgo\":\"1 minute ago\",\"TwoMinutesAgo\":\"2 minutes ago\",\"MinutesAgoMany\":\"[0] minutes ago\",\"OneHourAgo\":\"1 hour ago\",\"TwoHoursAgo\":\"2 hours ago\",\"ManyHoursAgo\":\"[0] hours ago\",\"YesterdayTime\":\"yesterday at [0]\",\"DayOfWeekTime\":\"[0] at [1]\",\"MonthDayTime\":\"[0] at [1]\",\"Now\":{\"_type\":\"D2L.LocalDateTime\",\"Year\":2018,\"Month\":2,\"Day\":14,\"Hour\":13,\"Minute\":30,\"Second\":54}},{\"_type\":\"anon\",\"Identifier\":\"Europe\/Copenhagen\",\"Name\":\"Denmark - Copenhagen\"}]}",
+"21":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Rpc.Initialize\",\"P\":[{\"_type\":\"url\",\"Url\":\"\/d2l\/login?target=%2fd2l%2fle%2fcontent%2f13911%2fviewContent%2f2475%2fView&sessionExpired=1\"},\"Error: unable to complete your request.\",{\"_type\":\"D2L.LP.Util.Dictionary\"},{\"_type\":\"D2L.LP.Util.Dictionary\",\"flash\":{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.FlashMessages.RpcReceivePayloadProvider\"},\"session\":{\"_type\":\"func\",\"N\":\"D2L.PT.Auth.SessionTimeout.RpcReceivePayloadProvider\"},\"messageArea\":{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Common.Controls.MessageArea.RpcReceivePayloadProvider\"},\"OR\":{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.ObjectRepository.RpcReceivePayloadProvider\"},\"JS\":{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.RpcReceiveJsPayloadProvider\"},\"CSS\":{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.RpcReceiveCssPayloadProvider\"},\"ariaMessages\":{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Aria.RpcReceivePayloadProvider\"}}]}",
+"22":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.Controls.InlineHelp.Init\",\"P\":[{\"_type\":\"url\",\"Url\":\"\/d2l\/lp\/inlineHelp\/13911\/help\"}]}",
+"23":"{\"_type\":\"func\",\"N\":\"D2L.LE.ViewContent.ContentViewer.OnLoad\",\"P\":[13911,2475,null,{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/viewContent\/2475\/28870b1d-47c9-4c08-999b-9fa863c74657\/TrackViewing\"},{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/viewContent\/2475\/28870b1d-47c9-4c08-999b-9fa863c74657\/FinalizeView\"},0,true]}",
+"24":"{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.SetIsDisplayed\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_4_249\"},{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Desktop.Controls.FileViewer.IsPrintable\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_le_content_printcontainer\"}]}]}]}",
+"25":"{\"_type\":\"func\",\"N\":\"D2L.LE.ToolIntegration.Content.CompletionStatusChanged.Actions.RegisterHandler\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialRender\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_5_259\"},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Rpc.ConnectPartial\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_5_259\"},\"GET\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/object\/2475\/UpdateCompletion\"},{\"_type\":\"D2L.LP.Util.Dictionary\"},{\"_type\":\"D2L.LP.Web.UI.Rpc.RpcOptions\",\"keepAlive\":true,\"includeXsrfHeader\":false}],\"D\":true},0,false],\"D\":true}]}"}
+,
+"ContentNavigator":{"0":"{\"_type\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialHtmlRenderContext\",\"HeadingLevel\":2,\"ValidClassNames\":[],\"Scope\":\"\"}"}
+,
+"d2l_1_29_603":{"0":"{\"_type\":\"D2L.LP.Util.Dictionary\",\"enabledIconCss\":\"\",\"disabledIconCss\":\"\",\"onClick\":{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.Open\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_0_980\"},{\"_type\":\"call\",\"N\":\"D2L.LP.Web.Mvc.RouteLocation.Create\",\"P\":[\"\/d2l\/ep\/contentReflection\/{orgUnitId}\/{action}\/{id}\",{\"_type\":\"D2L.LP.Util.Dictionary\"},{\"_type\":\"D2L.LP.Util.Dictionary\",\"action\":\"previewReflection\",\"orgUnitId\":13911,\"id\":{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.Open\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_0_980\"},{\"_type\":\"url\",\"Url\":\"\/d2l\/ep\/contentReflection\/13911\/CreateReflectionDialog?tag2=OFFERING-562685&tag3=31300-%c3%b8velse-nr3-modelling&tag1=Lektion+3%2b4+%c3%b8velse\"}],\"D\":true}}]}],\"D\":true}}"}
+,
+"d2l_1_30_296":{"0":"{\"_type\":\"D2L.LP.Util.Dictionary\",\"enabledIconCss\":\"\",\"disabledIconCss\":\"\",\"onClick\":{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.VS\",\"P\":[\"CheckTopicFileJSVariable\",{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Rpc.ConnectObject\",\"P\":[\"GET\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/topics\/files\/download\/2475\/CheckFileTopicInfo\"}],\"D\":true}]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.If\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.ObjectAccessor\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"CheckTopicFileJSVariable\"]},\"IsBroken\"]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.InlineDialog\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_0_980\"},null,\"Error\",\"Unable to download. The file associated with this content topic cannot be found.\",\"\",\"OK\",\"\",\"Close this Dialog\",\"d2l-dialog-inline-body-alert\",true,false,false],\"D\":true},true,{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.If\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.ObjectAccessor\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"CheckTopicFileJSVariable\"]},\"IsPackageable\"]},{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.VS\",\"P\":[\"DownloadProgressDialogResultJSVariable\",{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Desktop.MasterPages.Dialog.Open\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_1_0_980\"},{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/2475\/startdownload\/InitiateTopicDownload?openerId=d2l_1_0_980\"}],\"D\":true}]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.If\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.UI.Html.JavaScript.CompareNumber\",\"P\":[5,{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"DownloadProgressDialogResultJSVariable\"]},0]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Navigate\",\"P\":[{\"_type\":\"call\",\"N\":\"D2L.LP.Web.Mvc.RouteLocation.Create\",\"P\":[\"\/d2l\/le\/content\/{orgUnitId}\/downloads\/{downloadType}\/{jobId}\/{action}\",{\"_type\":\"D2L.LP.Util.Dictionary\"},{\"_type\":\"D2L.LP.Util.Dictionary\",\"action\":\"Download\",\"orgUnitId\":13911,\"downloadType\":\"Topic\",\"jobId\":{\"_type\":\"call\",\"N\":\"D2L.VG\",\"P\":[\"DownloadProgressDialogResultJSVariable\"]}}]}]},true,null],\"D\":true}]},true,{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Navigate\",\"P\":[{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/topics\/files\/download\/2475\/DirectFileTopicDownload\"}]}],\"D\":true}],\"D\":true}]}}"}
+,
+"d2l_1_31_603":{"0":"{\"_type\":\"D2L.LP.Util.Dictionary\",\"enabledIconCss\":\"\",\"disabledIconCss\":\"\",\"onClick\":{\"_type\":\"pipe\",\"P\":[{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.ReturnPoints.Set\",\"P\":[\"D2L.Core.Metadata.Web.Navigation.GetViewEditMetadataReturnPointKey\",{\"_type\":\"url\",\"Url\":\"\/d2l\/le\/content\/13911\/viewContent\/2475\/View\"}]},{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Html.Dom.Navigate\",\"P\":[{\"_type\":\"url\",\"Url\":\"\/d2l\/lp\/metadata\/view.d2l?fp=mc&ou=13911&type=2&objectId=2475\"}]}]}}"}
+,
+"d2l_1_28_621":{"onClose":"{\"_type\":\"func\",\"N\":\"D2L.LP.Web.UI.Desktop.Controls.ContextMenu.OnCloseHandler\",\"P\":[{\"_type\":\"id\",\"Value\":\"d2l_pageTitleActions\"}]}"}
+,
+"d2l_pageTitleActions":{"Context":"{\"_type\":\"D2L.LP.Util.Dictionary\",\"floatingContainerId\":{\"_type\":\"id\",\"Value\":\"d2l_1_28_621\"}}"}
+,
+"ContentView":{"0":"{\"_type\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialHtmlRenderContext\",\"HeadingLevel\":2,\"ValidClassNames\":[],\"Scope\":\"\"}"}
+,
+"d2l_1_42_455":{"0":"{\"_type\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialHtmlRenderContext\",\"HeadingLevel\":2,\"ValidClassNames\":[],\"Scope\":\"\"}"}
+,
+"AdditionalInfoPlaceholder":{"0":"{\"_type\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialHtmlRenderContext\",\"HeadingLevel\":2,\"ValidClassNames\":[],\"Scope\":\"\"}"}
+,
+"d2l_1_5_259":{"0":"{\"_type\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialHtmlRenderContext\",\"HeadingLevel\":2,\"ValidClassNames\":[],\"Scope\":\"\"}"}
+,
+"ResultDetails":{"0":"{\"_type\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialHtmlRenderContext\",\"HeadingLevel\":2,\"ValidClassNames\":[],\"Scope\":\"\"}"}
+,
+"StatusPlaceholder":{"0":"{\"_type\":\"D2L.LP.Web.UI.Html.PartialRendering.PartialHtmlRenderContext\",\"HeadingLevel\":2,\"ValidClassNames\":[],\"Scope\":\"\"}"}
+
+};
+
+		//]]>
+		</script>
+	
+<div class="d2l-aria-log d2l-offscreen" role="alert" aria-live="assertive">You have new Updates</div></body></html>
