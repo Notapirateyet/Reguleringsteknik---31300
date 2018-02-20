@@ -24,3 +24,4 @@ xlabel('time [s]');
 set(gca,'FontSize',12);
 grid on     % show major grid (for left axis)
 grid MINOR  % show also fine grid
+
