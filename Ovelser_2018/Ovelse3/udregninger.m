@@ -16,9 +16,19 @@ data = load('data_sutten.txt');
 Ia = (sum(data(206:506,5)))/(300);
 Va = 3; %V
 Ra = 4; %Ohm
+G = 9.68; %gear
+rw = 0.03; %m
 Vemf = Va - Ra*Ia;
 
 omega = ((sum(data(206:506,5)))/(300)) * G/rw;
 
 Kemf = Vemf/omega;
+Ktau = Kemf;
+
+Bm = (Ia*Ktau)/omega;
+
+Ra = (Va-Vemf)/Ia;
+
+
+
 
