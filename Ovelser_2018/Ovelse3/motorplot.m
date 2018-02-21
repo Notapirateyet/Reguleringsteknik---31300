@@ -11,6 +11,13 @@ hold off    % repaint plot
 plot(data(:,1), data(:,7),'-g','linewidth',2) %m/s
 hold on  % keep previous plots
 plot(data(:,1), data(:,5),'-r','linewidth',2) %A
+%% Plot sim
+%run("regbot_freja_model");
+plot(model.time, model.data(:,2),'-y','linewidth',2) %m/s
+plot(model.time, model.data(:,1),'-b','linewidth',2) %A
+
+%% Plot Voltage
+
 ylabel('velocity and current')
 hold on
 axis([0,1,-1,10])
@@ -20,7 +27,7 @@ plot(data(:,1), data(:,3),'--m','linewidth',2) %V
 axis([0,1,-1,10]) % axis limits [x-min, x-max, ymin, ymax]
 ylabel('motorsp?nding');
 %
-legend('Hastighed [m/s]', 'Motorstr?m [A]', 'Motorsp?nding [V]');
+legend('Hastighed [m/s]', 'Motorstrøm [A]', 'Hastighed_{sim} [m/s]', 'Motorstrøm_{sim} [A]', 'Motorspænding [V]');
 xlabel('time [s]');
 set(gca,'FontSize',12);
 grid on     % show major grid (for left axis)

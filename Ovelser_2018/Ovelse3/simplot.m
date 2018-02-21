@@ -9,10 +9,11 @@ hold on  % keep previous plots
 plot(model.time, model.data(:,1),'-r','linewidth',2) %A
 ylabel('velocity and current')
 hold on
+axis([0,1,-1,10]);
 yyaxis right
 hold off % repaint plots
 plot(model.time, model.data(:,3),'--m','linewidth',2) %V
-axis([0,1,0,5]) % axis limits [x-min, x-max, ymin, ymax]
+axis([0,1,-1,10]) % axis limits [x-min, x-max, ymin, ymax]
 ylabel('motorsp?nding')
 %
 legend('Hastighed [m/s]', 'Motorstr?m [A]', ...
