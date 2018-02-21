@@ -27,6 +27,8 @@ Ra = 4; %Ohm
 G = 9.68; %gear
 rw = 0.03; %m
 Vemf = Va - Ra*Ia;
+%Jm = 5e-6; % intertimoment for motor [Kgm^2]
+Jm = 5e-7;
 
 omega3v = (sum(data(d_start_3v:d_end_3v,7)))/(d_end_3v - d_start_3v) * G/rw;
 
@@ -55,7 +57,6 @@ Ktau6v = Kemf6v;
 
 % Måske
 Bm6v = (Ia*Ktau6v)/omega6v;
-
 Ra6v = (Va-Vemf6v)/Ia;
 
 
@@ -72,12 +73,19 @@ deltaI = ((sum(data(d_start_6v:d_end_6v,5)))/(d_end_6v - d_start_6v)) - ((sum(da
 Bm_v1 = deltaI*Ktau/deltaOmega;
 Bm_v2 = -(deltaI*Kemf*Ktau) / (deltaI*Ra-deltaV);
 
-%% Udregning af 
+%% Udregning af La
 
+% Fundet i maple
+La = 0.008578220224;
 
+%% Udregning af statisk strøm
+
+% Fundet ved at sætte en spænding på motoren der er lige præcis for lille
+% til at få den til at køre, og måle strømmen.
+Istat = 0.11;
 
 %% Output
-fprintf("K_emf = %e\nBm_v1 = %e \tBm_v2 = %e\n", [Kemf, Bm_v1,Bm_v2]);
+fprintf("K_emf = %e\nBm_v1 = %e \tBm_v2 = %e\nLa = \t%e\n", [Kemf, Bm_v1,Bm_v2,La]);
 
 
 
