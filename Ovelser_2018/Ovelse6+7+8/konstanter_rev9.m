@@ -64,3 +64,16 @@ legend('power in [kW]', 'pressure out [Atm]')
 xlabel('seconds');
 ylabel('power in kW, pressure in Atm')
 grid on
+%% Model
+step_in_offset=mean(power_in.data(1300:1499));
+step_ud_offset=mean(tryk_out.data(1300:1499));
+step_in=power_in.data(1400:end)-step_in_offset;
+step_ud=tryk_out.data(1400:end)-step_ud_offset;
+figure(60);
+plot(step_ud);
+
+linSample=iddata(step_ud,step_in,0.1);
+sys_20=tfest(linSample,1,0)
+sys_30=tfest(linSample,2,0)
+sys_31=tfest(linSample,3,1)
+sys_42=tfest(linSample,4,2)
