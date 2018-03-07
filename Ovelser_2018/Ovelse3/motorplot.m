@@ -27,8 +27,13 @@ plot(data(:,1), data(:,3),'--m','linewidth',2) %V
 axis([0,1,-1,10]) % axis limits [x-min, x-max, ymin, ymax]
 ylabel('motorsp?nding');
 %
+<<<<<<< Updated upstream
 legend('Hastighed [m/s]', 'Motorstrøm [A]', 'Hastighed_{sim} [m/s]', 'Motorstrøm_{sim} [A]', 'Motorspænding [V]');
 xlabel('time [s]');
+=======
+legend('Hastighed [m/s]', 'Motorstr?m [A]', 'Motorsp?nding [V]');
+Xlabel('time [s]');
+>>>>>>> Stashed changes
 set(gca,'FontSize',12);
 grid on     % show major grid (for left axis)
 grid MINOR  % show also fine grid

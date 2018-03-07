@@ -9,3 +9,5 @@ Kemf = Ktau; % Motorkonstant [Vs]
 La = 0.02; % rotor (anker) induktans [Henry]
 Bm = 2e-6; % viskos friktion [Nms]
 Jm = 5e-6; % intertimoment for motor [Kgm^2]
+
+%Bedre konstanter, der passer til robotten, er udregnet i udregninger.m
