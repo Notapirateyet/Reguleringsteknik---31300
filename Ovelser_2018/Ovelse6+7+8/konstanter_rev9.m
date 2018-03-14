@@ -1,6 +1,8 @@
 % Dampmaskine konstanter
 %
 clear
+
+
 %% el varmelegeme
 inputSW = -1; % step input for simulation
 CthV1 = 5; % varmekapacitet - varmetrÃ¥d [Joule per kelvin]
@@ -73,15 +75,18 @@ figure(60);
 plot(step_ud);
 
 linSample=iddata(step_ud,step_in,0.1);
-sys_20=tfest(linSample,1,0);
-sys_30=tfest(linSample,2,0);
-sys_31=tfest(linSample,3,1);
+% sys_20=tfest(linSample,1,0);
+% sys_30=tfest(linSample,2,0);
+% sys_31=tfest(linSample,3,1);
 sys_42=tfest(linSample,4,2);
+figure;
 bode(sys_42);
+grid on
 
 % Vi vælger sys_42
 %% Sammenlign
 
+figure;
 tv=0:0.1:100;
 [y_42,t_42]=step(sys_42, tv);
 plot(t_42+150,-y_42*50,':c','linewidth',5);
@@ -91,5 +96,7 @@ legend('Estimeret','Målt')
 xlabel('seconds');
 ylabel('Tryk [Atm]')
 grid on
+
+
 
 
