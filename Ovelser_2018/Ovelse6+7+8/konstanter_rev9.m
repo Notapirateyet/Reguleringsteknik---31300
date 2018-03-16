@@ -58,7 +58,7 @@ polPrRad = 13/(2*pi);
 tau_i = 32.05;
 Kp = 3.3603e+03;
 %% simulering
-sim('dampmaskine_rev9', 500);
+sim('dampmaskine_rev9', 1000);
 %% plot tryk
 figure(100)
 hold off
@@ -74,20 +74,44 @@ step_in_offset=mean(power_in.data(1300:1499));
 step_ud_offset=mean(tryk_out.data(1300:1499));
 step_in=power_in.data(1400:end)-step_in_offset;
 step_ud=tryk_out.data(1400:end)-step_ud_offset;
-figure(60);
-plot(step_ud);
+% figure(60);
+% plot(step_ud);
 
 linSample=iddata(step_ud,step_in,0.1);
-% sys_20=tfest(linSample,1,0);
-% sys_30=tfest(linSample,2,0);
-% sys_31=tfest(linSample,3,1);
-%sys_42=tfest(linSample,4,2);
-sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
-figure;
-bode(sys_42);
-grid on
+% sys_20=tfest(linSample,1,0)
+% sys_30=tfest(linSample,2,0)
+% sys_31=tfest(linSample,3,1)
+% sys_42=tfest(linSample,4,2)
+% sys_43=tfest(linSample,4,3)
+sys_44=tfest(linSample,4,4)
+%sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
+% figure;
+% bode(sys_44);
+% grid on
 
-% Vi vælger sys_42
+% Vi vælger sys_44
+
+%% Frekvens analyse
+fstep_in_offset=mean(power_in.data(3000:4999));
+fstep_ud_offset=mean(gen_frq.data(3000:4999));
+fstep_in=power_in.data(4000:end)-fstep_in_offset;
+fstep_ud=gen_frq.data(4000:end)-fstep_ud_offset;
+
+flinSample=iddata(fstep_ud,fstep_in,0.1);
+
+figure(69);
+plot(fstep_ud);
+% frq_41=tfest(flinSample,4,1)
+% frq_42=tfest(flinSample,4,2)
+% frq_43=tfest(flinSample,4,3)
+frq_44=tfest(flinSample,4,4)
+figure(44);
+% hold on
+% bode(frq_41)
+% bode(frq_42)
+% bode(frq_43)
+bode(frq_44)
+% Vi vælger frq_44
 %% Sammenlign
 % 
 % figure;
@@ -106,4 +130,8 @@ plot(tryk_out);
 xlabel('Tid [s]')
 ylabel('Tryk [ATM]')
 
+figure;
+plot(gen_frq);
+xlabel('Tid [s]')
+ylabel('Frekvens [Hz]')
 
