@@ -110,7 +110,7 @@ figure(44);
 % bode(frq_41)
 % bode(frq_42)
 % bode(frq_43)
-bode(frq_44)
+margin(frq_44)
 % Vi vælger frq_44
 %% Sammenlign
 % 
