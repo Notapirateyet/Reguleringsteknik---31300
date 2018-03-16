@@ -12,12 +12,12 @@ phi = -180 + 60 - phi_i;
 omega_c = 0.156;
 tau_i = Ni/omega_c;
 Gi = tf([tau_i 1],[tau_i 0]);
-[M,P] = bode(Gi*sys_42,omega_c);
-Kp = 1/M;
+[M,P] = bode(Gi,S
 %% Konstanter til regulering
 
 stepsize = 1;
 
+Kp = 1000;
 % I skal ændres manuelt i modellen
 
 
