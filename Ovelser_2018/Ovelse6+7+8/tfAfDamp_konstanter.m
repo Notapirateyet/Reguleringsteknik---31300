@@ -3,6 +3,10 @@
 %   
 % --------------------
 
+%% Analyse a system
+
+bode(
+
 %% Konstanter til regulering
 
 stepsize = 1;
