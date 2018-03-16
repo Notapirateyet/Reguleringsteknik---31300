@@ -28,4 +28,3 @@ figure;
 plot(tryk_app);
 xlabel('Tid [s]');
 ylabel('Tryk i guess [atm]');
-

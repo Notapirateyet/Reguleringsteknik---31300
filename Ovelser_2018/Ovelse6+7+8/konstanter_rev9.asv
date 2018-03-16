@@ -58,7 +58,7 @@ polPrRad = 13/(2*pi);
 tau_i = 32.05;
 Kp = 3.3603e+03;
 %% simulering
-sim('dampmaskine_rev9', 500);
+sim('dampmaskine_rev9', 250);
 %% plot tryk
 figure(100)
 hold off
@@ -101,9 +101,6 @@ grid on
 % ylabel('Tryk [Atm]')
 % grid on
 
-figure;
-plot(tryk_out);
-xlabel('Tid [s]')
-ylabel('Tryk [ATM]')
+fi
 
 
