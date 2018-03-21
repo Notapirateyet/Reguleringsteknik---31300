@@ -44,7 +44,7 @@ Bm = 2e-6;
 % Jm=m*r^2, m=2*r*pi*w*t*jern
 Jmm = (2*0.039*pi*0.015*0.002*jernMassefylde)*0.039^2;
 % motor + generator + kæde - ca. cylinder r=1.5cm h=3cm jern I=0.5*m*R^2
-Jm = Jmm + 0.5 * (0.015^2 * pi * 0.03 * jernMassefylde) * 0.015^2
+Jm = Jmm + 0.5 * (0.015^2 * pi * 0.03 * jernMassefylde) * 0.015^2;
 % friktion der ikke er afhængig af omdrejningstal
 startFriction = 0.005;
 %
