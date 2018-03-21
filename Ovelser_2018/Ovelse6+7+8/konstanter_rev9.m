@@ -55,6 +55,11 @@ voltPerRad = voltPerRPM*60/2/pi;
 generatorpoler = 13;
 polPrRad = 13/(2*pi);
 %% Regulering
+% Til bestemmelse af reguleringsting, udkommenter
+% hvis regulering fjernes.
+
+% sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
+
 tau_i = 32.05;
 Kp = 3.3603e+03;
 %% simulering
@@ -69,29 +74,47 @@ legend('power in [kW]', 'pressure out [Atm]')
 xlabel('seconds');
 ylabel('power in kW, pressure in Atm')
 grid on
+hold off
 %% Model
-step_in_offset=mean(power_in.data(1300:1499));
-step_ud_offset=mean(tryk_out.data(1300:1499));
-step_in=power_in.data(1400:end)-step_in_offset;
-step_ud=tryk_out.data(1400:end)-step_ud_offset;
+% % Følgende er brugt til at finde en overføringsfunktion 
+% % for systemet uden regulering, og skal ikke bruges
+% % så længe der er regulering på modellen.
+% 
+% step_in_offset=mean(power_in.data(1300:1499));
+% step_ud_offset=mean(tryk_out.data(1300:1499));
+% step_in=power_in.data(1400:2500)-step_in_offset;
+% step_ud=tryk_out.data(1400:2500)-step_ud_offset;
 % figure(60);
 % plot(step_ud);
-
-linSample=iddata(step_ud,step_in,0.1);
-% sys_20=tfest(linSample,1,0)
-% sys_30=tfest(linSample,2,0)
-% sys_31=tfest(linSample,3,1)
-% sys_42=tfest(linSample,4,2)
-% sys_43=tfest(linSample,4,3)
-sys_44=tfest(linSample,4,4)
-%sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
-% figure;
-% bode(sys_44);
 % grid on
-
-% Vi vælger sys_44
+% ylabel('Pressure in atm');
+% xlabel('Time in seconds')
+% title('Step ud, offset by 1400');
+% 
+% linSample=iddata(step_ud,step_in,0.1);
+% % sys_20=tfest(linSample,1,0)
+% % sys_30=tfest(linSample,2,0)
+% % sys_31=tfest(linSample,3,1)
+% sys_42=tfest(linSample,4,2)
+% % sys_43=tfest(linSample,4,3)
+% % sys_44=tfest(linSample,4,4)
+% %sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
+% figure(61)
+% bode(sys_42);
+% grid on
+% title('Bode af sys 42')
+% 
+% % Vi vælger sys_42
 
 %% Frekvens analyse
+% plot freq
+figure(70)
+plot(gen_frq)
+grid on
+title('Generator frequency')
+xlabel('Time [s]')
+ylabel('Frequency [Hz]')
+
 fstep_in_offset=mean(power_in.data(3000:4999));
 fstep_ud_offset=mean(gen_frq.data(3000:4999));
 fstep_in=power_in.data(4000:end)-fstep_in_offset;
@@ -101,6 +124,10 @@ flinSample=iddata(fstep_ud,fstep_in,0.1);
 
 figure(69);
 plot(fstep_ud);
+title('Step ud for valve shift')
+xlabel('Time')
+ylabel('Frequency')
+
 % frq_41=tfest(flinSample,4,1)
 % frq_42=tfest(flinSample,4,2)
 % frq_43=tfest(flinSample,4,3)
