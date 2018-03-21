@@ -133,12 +133,14 @@ ylabel('Frequency')
 % frq_43=tfest(flinSample,4,3)
 frq_44=tfest(flinSample,4,4)
 figure(44);
-% hold on
+hold on
 % bode(frq_41)
 % bode(frq_42)
 % bode(frq_43)
 margin(frq_44)
+hold off
 % Vi vælger frq_44
+
 %% Sammenlign
 % 
 % figure;
