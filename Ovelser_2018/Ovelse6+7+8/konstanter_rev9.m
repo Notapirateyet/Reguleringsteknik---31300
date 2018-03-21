@@ -44,7 +44,7 @@ Bm = 2e-6;
 % Jm=m*r^2, m=2*r*pi*w*t*jern
 Jmm = (2*0.039*pi*0.015*0.002*jernMassefylde)*0.039^2;
 % motor + generator + kÃ¦de - ca. cylinder r=1.5cm h=3cm jern I=0.5*m*R^2
-Jm = Jmm + 0.5 * (0.015^2 * pi * 0.03 * jernMassefylde) * 0.015^2
+Jm = Jmm + 0.5 * (0.015^2 * pi * 0.03 * jernMassefylde) * 0.015^2;
 % friktion der ikke er afhÃ¦ngig af omdrejningstal
 startFriction = 0.005;
 %
@@ -115,9 +115,9 @@ title('Generator frequency')
 xlabel('Time [s]')
 ylabel('Frequency [Hz]')
 
-fstep_in_offset=mean(power_in.data(3000:4999));
-fstep_ud_offset=mean(gen_frq.data(3000:4999));
-fstep_in=power_in.data(4000:end)-fstep_in_offset;
+fstep_in_offset=mean(ventil.data(4000:4999));
+fstep_ud_offset=mean(gen_frq.data(4000:4999));
+fstep_in=ventil.data(4000:end)-fstep_in_offset;
 fstep_ud=gen_frq.data(4000:end)-fstep_ud_offset;
 
 flinSample=iddata(fstep_ud,fstep_in,0.1);
@@ -127,21 +127,51 @@ plot(fstep_ud);
 title('Step ud for valve shift')
 xlabel('Time')
 ylabel('Frequency')
-
-% frq_41=tfest(flinSample,4,1)
-% frq_42=tfest(flinSample,4,2)
-% frq_43=tfest(flinSample,4,3)
-frq_44=tfest(flinSample,4,4)
-figure(44);
-hold on
+% frq_20=tfest(flinSample,2,0);
+% frq_30=tfest(flinSample,3,0);
+% frq_31=tfest(flinSample,3,1);
+% frq_41=tfest(flinSample,4,1);
+% frq_42=tfest(flinSample,4,2);
+% frq_43=tfest(flinSample,4,3);
+% frq_44=tfest(flinSample,4,4);
+% figure(44);
+% hold on
+% bode(frq_20)
+% bode(frq_30)
+% bode(frq_31)
 % bode(frq_41)
 % bode(frq_42)
 % bode(frq_43)
-margin(frq_44)
-hold off
-% Vi vælger frq_44
+% bode(frq_44)
+% legend
+% hold off
 
-%% Sammenlign
+% Vi vælger frq_43 ud fra
+% at bodeplottet ikke er 360+ grader forskudt
+% og steppet ser godt ud (se næste blok)
+frq_43 = tf([52.64 5.011 3.724 0.05889],[1 0.5271 0.1421 0.03397 0.0004442]);
+figure(45)
+bode(frq_43)
+title('Bodeplot for frq 43')
+
+%% Sammenlign frekvens
+% 
+% figure(46);
+% tv=0:0.1:600;
+% [y_44,t_44]=step(frq_43, tv);
+% plot(t_44+500,y_44*0.1,':c','linewidth',5);
+% hold on
+% plot(gen_frq.time(4000:end),fstep_ud,'k','linewidth',2)
+% legend('Estimeret','Målt')
+% xlabel('seconds');
+% ylabel('Freq [Hz]')
+% title('Sammenligning af målt step og estimeret step')
+% grid on
+% hold off
+
+
+%% Sammenlign tryk
+
 % 
 % figure;
 % tv=0:0.1:100;
@@ -153,14 +183,4 @@ hold off
 % xlabel('seconds');
 % ylabel('Tryk [Atm]')
 % grid on
-
-figure;
-plot(tryk_out);
-xlabel('Tid [s]')
-ylabel('Tryk [ATM]')
-
-figure;
-plot(gen_frq);
-xlabel('Tid [s]')
-ylabel('Frekvens [Hz]')
 
