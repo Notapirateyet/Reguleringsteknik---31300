@@ -62,6 +62,10 @@ polPrRad = 13/(2*pi);
 
 tau_i = 32.05;
 Kp = 3.3603e+03;
+tauf_i = 4*0.4651;
+tauf_d = 0.5200;
+Kpf = 0.0328;
+alphaf = 0.2;
 %% simulering
 sim('dampmaskine_rev9', 1000);
 %% plot tryk
@@ -122,11 +126,11 @@ fstep_ud=gen_frq.data(4000:end)-fstep_ud_offset;
 
 flinSample=iddata(fstep_ud,fstep_in,0.1);
 
-figure(69);
-plot(fstep_ud);
-title('Step ud for valve shift')
-xlabel('Time')
-ylabel('Frequency')
+% figure(69);
+% plot(fstep_ud);
+% title('Step ud for valve shift')
+% xlabel('Time')
+% ylabel('Frequency')
 % frq_20=tfest(flinSample,2,0);
 % frq_30=tfest(flinSample,3,0);
 % frq_31=tfest(flinSample,3,1);

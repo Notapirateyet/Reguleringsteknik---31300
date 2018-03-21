@@ -16,8 +16,8 @@ title('Ikke reguleret');
 omegaf_c = 4.3;
 tauf_i = Nif/omegaf_c;
 Ci = tf([tauf_i 1],[tauf_i 0]);
-tau_d = 1/(sqrt(alphaf)*omegaf_c);
-Cd = tf([tau_d 1],[alphaf*tau_d 1]);
+tauf_d = 1/(sqrt(alphaf)*omegaf_c);
+Cd = tf([tauf_d 1],[alphaf*tauf_d 1]);
 %Kpf er så:
 [M,P] = bode(Ci*Cd*G, omegaf_c);
 Kpf = 1/M;
