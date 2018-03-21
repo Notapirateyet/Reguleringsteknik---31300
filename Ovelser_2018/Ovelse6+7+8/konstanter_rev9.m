@@ -171,6 +171,7 @@ title('Bodeplot for frq 43')
 
 
 %% Sammenlign tryk
+
 % 
 % figure;
 % tv=0:0.1:100;

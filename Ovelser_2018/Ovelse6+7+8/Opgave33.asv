@@ -1,0 +1,12 @@
+%%
+% Vi har valgt frq_44
+
+G = tf([0.2191 3.988 0.3878 0.2822 0.004053],[1 5.225 4.758 0.7295 0.009386]);
+
+gamma_m = 60;
+alpha = 0.02;
+Ni = 3;
+phi_i = atan(-1/Ni)*180/pi;
+phi_m = asin((1-alpha)/(1+alpha));
+fG = -180 - phi_i - phi_m + gamma_m
+bode(G)
