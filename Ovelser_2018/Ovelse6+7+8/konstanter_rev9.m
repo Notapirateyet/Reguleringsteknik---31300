@@ -64,9 +64,9 @@ tau_i = 62.695924764890280;
 tau_d = 14.019234968650721;
 Kp = 1.547488592879247e+03;
 alpha = 0.2;
-tauf_i = 4*0.4651;
-tauf_d = 0.5200;
-Kpf = 0.0328;
+tauf_i = 0.1311;
+tauf_d = 0.2931;
+Kpf = 0.0459;
 alphaf = 0.2;
 %% simulering
 sim('dampmaskine_rev9', 1000);
