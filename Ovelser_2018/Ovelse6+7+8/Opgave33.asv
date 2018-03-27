@@ -13,8 +13,10 @@ Nif =1;
 phi_i = atan(-1/Nif)*180/pi;
 phi_m = asin((1-alphaf)/(1+alphaf))*180/pi;
 fG = -180 - phi_i - phi_m + gamma_m
-figure(1)
-bode(G)
+% figure(1)
+% bode(G)
+% title('Ikke reguleret');
+
 
 omegaf_c = 7.63;
 tauf_i = Nif/omegaf_c;
@@ -34,10 +36,11 @@ margin(G);
 grid();
 legend("Open loop","Ureguleret");
 hold off
- 
-% figure(5);
-% step(G);
-% grid();
+
+figure(5);
+step(G);
+grid();
+=======
 title('Reguleret, åben sløjfe');
 grid;
 
@@ -51,3 +54,4 @@ figure(5);
 step(Gl);
 title('step, lukket sløjfe');
 grid;
+>>>>>>> a89ccd2d8bf1f18f82041d1e8a33b7fe31a8386d
