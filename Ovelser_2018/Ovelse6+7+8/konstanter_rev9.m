@@ -60,8 +60,10 @@ polPrRad = 13/(2*pi);
 
 % sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
 
-tau_i = 32.05;
-Kp = 3.3603e+03;
+tau_i = 31.347962382445140;
+tau_d = 14.019234968650721;
+Kp = 1.547488592879247e+03;
+alpha = 0.2;
 tauf_i = 4*0.4651;
 tauf_d = 0.5200;
 Kpf = 0.0328;
@@ -99,7 +101,7 @@ hold off
 % % sys_20=tfest(linSample,1,0)
 % % sys_30=tfest(linSample,2,0)
 % % sys_31=tfest(linSample,3,1)
-% sys_42=tfest(linSample,4,2)
+% % sys_42=tfest(linSample,4,2)
 % % sys_43=tfest(linSample,4,3)
 % % sys_44=tfest(linSample,4,4)
 % %sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
