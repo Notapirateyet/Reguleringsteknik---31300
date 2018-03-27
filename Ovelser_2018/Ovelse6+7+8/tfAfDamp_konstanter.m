@@ -8,6 +8,8 @@ sys_42 = tf([1.003e-05 1.248e-05 3.282e-06],[1 1.439 0.5805 0.085 0.00393]);
 
 gamma_m = 60;
 alpha = 0.2;
+Ni = 10;
+phi_i = atan(-1/Ni);
 phi_m = asin((1-alpha)/(1+alpha));
 phi = -180 + gamma_m - phi_i - phi_m
 figure(10)
