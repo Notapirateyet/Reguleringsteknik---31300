@@ -189,4 +189,3 @@ title('Bodeplot for frq 43')
 % xlabel('seconds');
 % ylabel('Tryk [Atm]')
 % grid on
-

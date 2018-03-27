@@ -9,9 +9,9 @@ Nif = 2;
 phi_i = atan(-1/Nif)*180/pi;
 phi_m = asin((1-alphaf)/(1+alphaf));
 fG = -180 - phi_i - phi_m + gamma_m
-figure(1)
-bode(G)
-title('Ikke reguleret');
+% figure(1)
+% bode(G)
+% title('Ikke reguleret');
 
 omegaf_c = 4.3;
 tauf_i = Nif/omegaf_c;
@@ -24,15 +24,14 @@ Kpf = 1/M;
 % Hvilket giver et åbensløjfe system:
 Go = Kpf*G*Ci*Cd;
 figure(3);
+hold on
 margin(Go);
-title('Reguleret, åben sløjfe');
-
 Gl = Kpf*G*Ci*Cd/(1+Kpf*G*Ci*Cd);
-figure(4);
-margin(Gl);
-title('Reguleret, lukket sløjfe');
+margin(G);
+grid();
+legend("Open loop","Ureguleret");
+hold off
 
 figure(5);
-step(Gl);
-title('step, lukket sløjfe');
-
+step(G);
+grid();
