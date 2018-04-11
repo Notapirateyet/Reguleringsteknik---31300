@@ -1,6 +1,11 @@
 # Store ting
 *.mp4
 
+# Matlab autosaves
+*.autosave
+*.asv
+*.r2017a
+
 # c ting, bare for sjov
 # Prerequisites
 *.d

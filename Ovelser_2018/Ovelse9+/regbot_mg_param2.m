@@ -27,24 +27,25 @@ pushDist = 0.1;
 %% Hastighedsregulator
 
 Kp_speed = 200;
+tau_i = 0.0928;
+tau_d = 0.09278;
+alpha = 0.5;
 
 %% simulering af model i 2 sekunder
-sim('regbot_1mg', 2);
+sim('regbot_2mg', 2);
 %
+%% Plots
+
+% figure(1)
+% plot(speed_out);
+
+
 %% linearisering i arbejdspunkt (startvinkel)
 startAngle = 30; % in degrees
 % linmod forventer her at model har netop et input og et output
 [A,B,C,D] = linmod('regbot_1mg');
 [num,den] = ss2tf(A,B,C,D);
-% overføringsfunktion fra motorspænding til hjulhastighed
-Gwv = minreal(tf(num,den))
-%% Se p� tf
-figure(1)
-bode(Gwv)
-figure(2)
-step(Gwv)
-
-figure(3)
-pzmap(Gwv)
+% overføringsfunktion fra hastighed til pitch
+Gsp = minreal(tf(num,den))
 
 
