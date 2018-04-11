@@ -26,10 +26,11 @@ pushDist = 0.1;
 %
 %% Hastighedsregulator
 
-Kp_speed = 200;
-tau_i = 0.0928;
-tau_d = 0.09278;
-alpha = 0.5;
+Kp_speed = 51.2;
+tau_i = 0.025;
+tau_d = 0.0091;
+alpha = 0.3;
+beta = 4;
 
 %% simulering af model i 2 sekunder
 sim('regbot_2mg', 2);
