@@ -38,13 +38,40 @@ startAngle = 30; % in degrees
 [num,den] = ss2tf(A,B,C,D);
 % overføringsfunktion fra motorspænding til hjulhastighed
 Gwv = minreal(tf(num,den))
-%% Se p� tf
-figure(1)
-bode(Gwv)
-figure(2)
-step(Gwv)
+%%
+% Gwv;
+% figure(10)
+% margin(Gwv)
+% grid()
+% figure(11)
+% step(Gwv/(1+Gwv))
 
-figure(3)
-pzmap(Gwv)
+Ni = 5;
+a = 0.3;
+gamma_m = 60;
+phi_i = atan(-1/Ni)*180/pi;
+phi_m = asin((1-a)/(1+a))*180/pi;
+-180 - phi_i - phi_m + gamma_m
 
+omega_c = 200;
 
+tau_i = Ni/omega_c;
+tau_d = 1/(omega_c*sqrt(a));
+
+beta = 4;
+Gi = tf([tau_i 1],[tau_i 1/beta]);
+Gd = tf([tau_d 1],[a*tau_d 1]);
+
+[M,P] = bode(Gi*Gd*Gwv,omega_c);
+Kp = 1/M;
+Go = Gi*Gwv*Kp;
+Gc = Go/(1+Gd*Go);
+
+figure(15)
+step(Gc)
+
+figure(16)
+margin(Go)
+grid
+
+stepinfo(Gc)
