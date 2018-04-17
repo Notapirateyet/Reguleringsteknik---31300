@@ -46,6 +46,12 @@ Gwv = minreal(tf(num,den))
 % figure(11)
 % step(Gwv/(1+Gwv))
 
+%% Se på tf
+figure(1)
+bode(Gwv)
+figure(2)
+step(Gwv)
+
 Ni = 5;
 a = 0.3;
 gamma_m = 60;
@@ -75,3 +81,65 @@ margin(Go)
 grid
 
 stepinfo(Gc)
+
+%% plotting stuff
+figure(1);
+bode(Gwv);
+movegui('northwest');
+figure(2);
+nyquist(-1*Gwv)
+movegui('southwest');
+hold on
+nyquist(-8*Gwv)
+figure(3);
+step(Gwv)
+axis([0 150*10^(-3) 0 1])
+%% PI-regulator:
+Ni = 9;
+%alpha = 0.2;
+gammaM = 60 * pi/180;
+
+phi_i = atan(-1/Ni);
+
+angleG = (-pi + gammaM-phi_i) * (180/pi) %-108.6901
+omega_c = 97;
+tau_i = Ni/omega_c;
+
+Gi = tf([tau_i, 1],[tau_i,0]);
+
+[M,P] = bode(Gi*Gwv,omega_c);
+Kp = 1/M;
+
+figure(4);
+Gpi = (Gwv*Gi*Kp)/(1+Gwv*Gi*Kp);
+step(Gpi);
+stepinfo(Gpi)
+
+%% %% PID-regulator:
+Ni = 1;
+alpha = 0.2;
+gammaM = 80 * pi/180;
+
+phi_i = atan(-1/Ni);
+phi_m = asin((1-alpha)/(1+alpha));
+phi_mi = phi_i + phi_m;
+
+angleG = (-pi + gammaM - phi_mi) * (180/pi)
+
+omega_c = 103;
+tau_i = Ni/omega_c;
+tau_d = 1/(omega_c * sqrt(alpha));
+
+Gi = tf([tau_i, 1],[tau_i,0]);
+Gd = tf([tau_d,1],[alpha*tau_d,1]);
+
+[M,P] = bode(Gi*Gd*Gwv,omega_c);
+Kp = 1/M;
+
+figure(5);
+Gpid = (Gwv*Gi*Kp)/(1+Gwv*Gd*Gi*Kp);
+step(Gpid);
+stepinfo(Gpid)
+
+figure(6);
+bode(Gpid)
