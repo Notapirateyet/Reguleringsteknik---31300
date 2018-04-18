@@ -53,30 +53,37 @@ pzmap(Gsp);
 
 %% En cmosgulator
 % Vi har en hump ved 7.06 rad/s
+% I regulator
 Ni = 5;
 tau_ib = Ni/7.06;
 gi = tf([tau_ib 1],[tau_ib 0]);
-
-
+% D-regulator
 alpha_b = 0.01;
 omega_c = 7.06;
 tau_db = 1/(omega_c*sqrt(alpha_b));
 gd = tf([tau_db 1],1);
 [M,P] = bode(Gsp*gi*gd,omega_c);
 Kp_b = -8;
-
+% Post regulator
+tau_ibp = 0.1;
+if (tau_ibp ~= 0)
+    gip = tf([tau_ibp 1],[tau_ibp 0]);
+else
+    gip = 1;
+end
+% Plots
 figure(5)
-nyquist(gd*Kp_b*Gsp*gi);
+nyquist(gd*Kp_b*Gsp*gi*gip);
 figure(7)
-bode(Kp_b*Gsp*gi);
+bode(Kp_b*Gsp*gi*gip);
 
-Gcl = (Gsp*gi*Kp_b)/(1+gd*Gsp*gi*Kp_b);
+Gcl = (Gsp*gi*Kp_b*gip)/(1+gd*Gsp*gi*Kp_b*gip);
 figure(6)
 step(Gcl)
 
 %% simulering af model i 2 sekunder
 sim('regbot_3mg', 2);
-%
+
 %% Plots
 
 figure(1)
