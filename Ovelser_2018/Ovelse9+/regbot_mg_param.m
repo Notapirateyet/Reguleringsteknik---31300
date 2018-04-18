@@ -143,3 +143,28 @@ stepinfo(Gpid)
 
 figure(6);
 bode(Gpid)
+%% Vi laver en ny med Kp mellem 10 og 20
+Gwv;
+figure(10)
+margin(15*Gwv)
+grid()
+
+omega_c = 32.3;
+Ni = -1.562955952;
+alpha = 0.08151440018;
+
+tau_i = Ni/omega_c;
+tau_d = 1/(omega_c * sqrt(alpha));
+
+Gi = tf([tau_i, 1],[tau_i,0]);
+Gd = tf([tau_d,1],[alpha*tau_d,1]);
+
+Kp = 15;
+
+figure(5);
+Go = Gwv*Gi*Kp
+Gc = Go/(1+Go*Gd)
+step(Gc);
+
+figure(6)
+nyquist(Go)

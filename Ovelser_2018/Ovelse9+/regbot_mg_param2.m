@@ -133,7 +133,7 @@ tau_ib = tau_ib1; %ændre tallet for at vælge en anden regulator
 tau_db = tau_db1;
 Kp_b = Kp_b1;
 %% simulering af model i 2 sekunder
-sim('regbot_3mg', 2);
+sim('regbot_3mg', 30);
 
 %% Plots
 
