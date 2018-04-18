@@ -32,16 +32,6 @@ tau_d = 0.0091;
 alpha = 0.3;
 beta = 4;
 
-%% simulering af model i 2 sekunder
-sim('regbot_3mg', 2);
-%
-%% Plots
-
-figure(1)
-plot(speed_out);
-figure(2)
-plot(pitchout);
-
 %% linearisering i arbejdspunkt (startvinkel)
 startAngle = 30; % in degrees
 % linmod forventer her at model har netop et input og et output
@@ -84,6 +74,15 @@ Gcl = (Gsp*gi*Kp_b)/(1+gd*Gsp*gi*Kp_b);
 figure(6)
 step(Gcl)
 
+%% simulering af model i 2 sekunder
+sim('regbot_3mg', 2);
+%
+%% Plots
+
+figure(1)
+plot(speed_out);
+figure(2)
+plot(pitchout);
 
 
 
