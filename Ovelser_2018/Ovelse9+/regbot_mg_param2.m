@@ -49,4 +49,17 @@ startAngle = 30; % in degrees
 % overføringsfunktion fra hastighed til pitch
 Gsp = minreal(tf(num,den))
 
+%% Datasjov
+close all
+
+Kpp = 1;
+tauip = 0.2;
+Gi = tf([tauip 1],[tauip 0]);
+
+
+figure(2)
+nyquist(Kpp*Gsp*Gi)
+hold on
+nyquist(Gsp*Kpp);
+
 
