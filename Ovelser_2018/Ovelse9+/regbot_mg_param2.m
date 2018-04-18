@@ -63,3 +63,34 @@ hold on
 nyquist(Gsp*Kpp);
 
 
+%% En Frederegulator
+
+Ni = 5;
+a = 0.01;
+gamma_m = 80;
+phi_i = atan(-1/Ni)*180/pi;
+phi_m = asin((1-a)/(1+a))*180/pi;
+-180 - phi_i - phi_m + gamma_m
+
+omega_c = 3.51e3;
+tau_i = Ni/omega_c;
+tau_d = 1/(omega_c*sqrt(a));
+
+Gi = tf([tau_i 1],[tau_i 0]);
+Gd = tf([tau_d 1],[a*tau_d 1]);
+
+[M,P] = bode(Gi*Gd*Gsp,omega_c);
+Kp = 1/M;
+Go = Gi*Gsp*Kp;
+Gc = Go/(1+Gd*Go);
+
+figure(15)
+step(Gc)
+
+figure(16)
+margin(Go)
+grid
+figure(17)
+nyquist(Gc)
+
+stepinfo(Gc)
