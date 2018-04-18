@@ -56,10 +56,11 @@ pzmap(Gsp);
 % I regulator
 Ni = 5;
 alpha_b = 0.01;
-omega1 = 100;
-omega2 = 2*omega1;
+omega1 = 100; %Ændre i den her
+omega2 = 2*omega1; %giver fire frekvenser med steps på den valgte omega1
 omega3 = 3*omega1;
 omega4 = 4*omega1;
+%4 regulatorer laves fra valgte frekvenser:
 %i led laves
 tau_ib1 = Ni/omega1;
 gi1 = tf([tau_ib1 1],[tau_ib1 0]);
@@ -99,6 +100,8 @@ Kp_b3 = -1/M3;
 [M4,P4] = bode(Gsp*gi4*gd4,omega4);
 Kp_b4 = -1/M4;
 
+%nyquist, bode og step laves fra valgte frekvenser
+
 figure(5) %plot nyquist
 hold on
 nyquist(gd1*Kp_b1*Gsp*gi1);
@@ -125,8 +128,8 @@ step(Gcl3)
 step(Gcl4)
 hold off
 
-%% Vælg den bedste
-tau_ib = tau_ib1;
+%% Vælg den bedste, kør forrige blok først
+tau_ib = tau_ib1; %ændre tallet for at vælge en anden regulator
 tau_db = tau_db1;
 Kp_b = Kp_b1;
 %% simulering af model i 2 sekunder
