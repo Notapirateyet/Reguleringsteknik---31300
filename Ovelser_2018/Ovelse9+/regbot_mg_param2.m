@@ -26,10 +26,10 @@ pushDist = 0.1;
 %
 %% Hastighedsregulator
 
-Kp_speed = 51.2;
-tau_i = 0.025;
-tau_d = 0.0091;
-alpha = 0.3;
+Kp_speed = 11;
+tau_i = 0.02183;
+tau_d = 0.0437;
+alpha = 1;
 beta = 4;
 
 %% linearisering i arbejdspunkt (startvinkel)
@@ -51,7 +51,7 @@ grid
 figure(4)
 pzmap(Gsp);
 
-%% En cmosgulator
+%% En regulator
 % Vi har en hump ved 7.06 rad/s
 % I regulator
 Ni = 5;
