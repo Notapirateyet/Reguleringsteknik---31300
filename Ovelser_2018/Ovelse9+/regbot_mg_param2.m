@@ -26,11 +26,10 @@ pushDist = 0.1;
 %
 %% Hastighedsregulator
 
-Kp_speed = 11;
-tau_i = 0.02183;
-tau_d = 0.0437;
-alpha = 1;
-beta = 4;
+Kp_speed = 15.9831;
+tau_i = 0.2;
+tau_d = 0.0283;
+alpha = 0.5;
 
 %% linearisering i arbejdspunkt (startvinkel)
 startAngle = 30; % in degrees
@@ -55,8 +54,8 @@ pzmap(Gsp);
 % Vi har en hump ved 7.06 rad/s
 % I regulator
 Ni = 5;
-alpha_b = 0.01;
-omega1 = 100; %Ændre i den her
+alpha_b = 0.07;
+omega1 = 20; %Ændre i den her
 omega2 = 2*omega1; %giver fire frekvenser med steps på den valgte omega1
 omega3 = 3*omega1;
 omega4 = 4*omega1;
@@ -89,7 +88,7 @@ gd4 = tf([tau_db4 1],1);
 
 %Kp findes
 [M1,P1] = bode(Gsp*gi1*gd1,omega1);
-Kp_b1 = -1/M1;
+Kp_b1 = 1/M1;
 
 [M2,P2] = bode(Gsp*gi2*gd2,omega2);
 Kp_b2 = -1/M2;
@@ -143,9 +142,38 @@ figure(2)
 plot(pitchout);
 
 
+%% Ny regulator
+% figure()
+% margin(Gsp)
+% grid
+omega_c = 45;
+Ni = 7;
+alphab = 0.1;
 
+tau_ib = Ni/omega_c;
+tau_db = 1/(omega_c * sqrt(alpha));
 
+Gib = tf([tau_ib, 1],[tau_ib,0]);
+Gdb = tf([tau_db,1],[alphab*tau_db,1]);
 
+[M,P] = bode(Gib*Gsp*Gdb,omega_c);
+Kpb = -1/M;
 
+figure(5);
+Gob = Gsp*Gib*Kpb
+Gcb = Gob/(1+Gob*Gdb)
+step(Gcb);
+grid();
 
+% figure(6)
+% nyquist(Gob)
 
+%%
+figure(7)
+margin(Gcb)
+
+figure(8)
+margin(Gob)
+
+%% simulering i 2 sekunder
+sim('regbot_3mg', 30);

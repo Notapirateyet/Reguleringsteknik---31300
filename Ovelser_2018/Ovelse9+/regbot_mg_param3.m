@@ -26,15 +26,15 @@ pushDist = 0.1;
 %
 %% Hastighedsregulator
 
-Kp_speed = 11;
-tau_i = 0.0218;
-%tau_d = 0.0437;
-alpha = 1;
+Kp_speed = 15.9831;
+tau_i = 0.2;
+tau_d = 0.0283;
+alpha = 0.5;
 
-Kp_b = -2.6863;
-tau_db = 0.1;
-tau_ib = 0.05;
-alpha_b = 0.01;
+Kpb = -4.6724;
+tau_db = 0.0314;
+tau_ib = 0.1556;
+alpha_b = 0.1;
 
 %% simulering af model i 2 sekunder
 sim('regbot_4mg', 2);
@@ -42,7 +42,45 @@ sim('regbot_4mg', 2);
 %% linearisering i arbejdspunkt (startvinkel)
 startAngle = 30; % in degrees
 % linmod forventer her at model har netop et input og et output
-[A,B,C,D] = linmod('regbot_4mg');
+[A,B,C,D] = linmod('regbot_3mg');
 [num,den] = ss2tf(A,B,C,D);
 % overføringsfunktion fra motorspænding til hjulhastighed
 Gwv = minreal(tf(num,den))
+%% Vi regner med den
+figure(10);
+Kph = 0.21;
+margin(Kph*Gwv);
+grid();
+%%
+
+
+omega_c = 1.3;
+Ni = 12;
+alpha_h = 0.8;
+
+tau_ih = Ni/omega_c;
+tau_dh = 1/(omega_c * sqrt(alpha_h));
+
+Gih = tf([tau_ih, 1],[tau_ih,0]);
+Gdh = tf([tau_dh,1],[alpha_h*tau_dh,1]);
+[Mh,Ph] = bode(Gih*Gwv*Gdh,omega_c);
+
+
+
+figure(5);
+Goh = Gwv*Gih*Kph
+Gch = Goh/(1+Goh*Gdh)
+step(Gch);
+
+figure()
+nyquist(Goh)
+%%
+figure(12);
+margin(Gch);
+grid();
+%% simulering af model i 2 sekunder
+sim('regbot_4mg', 30);
+
+%%
+figure(13)
+pzplot(Gch)

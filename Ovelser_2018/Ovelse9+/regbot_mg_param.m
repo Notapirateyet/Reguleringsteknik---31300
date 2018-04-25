@@ -145,28 +145,25 @@ figure(6);
 bode(Gpid)
 %% Vi laver en ny med Kp mellem 10 og 20
 Gwv;
-Kp = 11;
 figure(10)
-margin(Kp*Gwv)
+margin(Gwv)
 grid()
 %%
 
-omega_c = 22.9;
-Ni = 5;
-alpha = 1;
+omega_c = 50;
+Ni = 10;
+alpha = 0.5;
 
 tau_i = Ni/omega_c;
 tau_d = 1/(omega_c * sqrt(alpha));
 
 Gi = tf([tau_i, 1],[tau_i,0]);
 Gd = tf([tau_d,1],[alpha*tau_d,1]);
-
+[M,P] = bode(Gi*Gwv*Gd,omega_c);
+Kp = 1/M;
 figure(5);
 Go = Gwv*Gi*Kp
 Gc = Go/(1+Go*Gd)
 step(Gc);
-axis([0 1 0 10]);
 grid();
-
-%figure(6)
-%nyquist(Go)
+axis([0 0.5 0 1.3]);
