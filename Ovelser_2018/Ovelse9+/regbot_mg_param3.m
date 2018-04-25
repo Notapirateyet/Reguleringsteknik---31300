@@ -26,147 +26,23 @@ pushDist = 0.1;
 %
 %% Hastighedsregulator
 
-Kp_speed = 200;
+Kp_speed = 11;
+tau_i = 0.0218;
+%tau_d = 0.0437;
+alpha = 1;
+
+Kp_b = -2.6863;
+tau_db = 0.1;
+tau_ib = 0.05;
+alpha_b = 0.01;
 
 %% simulering af model i 2 sekunder
-sim('regbot_1mg', 2);
+sim('regbot_4mg', 2);
 %
 %% linearisering i arbejdspunkt (startvinkel)
 startAngle = 30; % in degrees
 % linmod forventer her at model har netop et input og et output
-[A,B,C,D] = linmod('regbot_1mg');
+[A,B,C,D] = linmod('regbot_4mg');
 [num,den] = ss2tf(A,B,C,D);
 % overføringsfunktion fra motorspænding til hjulhastighed
 Gwv = minreal(tf(num,den))
-%%
-% Gwv;
-% figure(10)
-% margin(Gwv)
-% grid()
-% figure(11)
-% step(Gwv/(1+Gwv))
-
-%% Se p� tf
-figure(1)
-bode(Gwv)
-figure(2)
-step(Gwv)
-
-Ni = 5;
-a = 0.3;
-gamma_m = 60;
-phi_i = atan(-1/Ni)*180/pi;
-phi_m = asin((1-a)/(1+a))*180/pi;
--180 - phi_i - phi_m + gamma_m
-
-omega_c = 200;
-
-tau_i = Ni/omega_c;
-tau_d = 1/(omega_c*sqrt(a));
-
-beta = 4;
-Gi = tf([tau_i 1],[tau_i 1/beta]);
-Gd = tf([tau_d 1],[a*tau_d 1]);
-
-[M,P] = bode(Gi*Gd*Gwv,omega_c);
-Kp = 1/M;
-Go = Gi*Gwv*Kp;
-Gc = Go/(1+Gd*Go);
-
-figure(15)
-step(Gc)
-
-figure(16)
-margin(Go)
-grid
-
-stepinfo(Gc)
-
-%% plotting stuff
-figure(1);
-bode(Gwv);
-movegui('northwest');
-figure(2);
-nyquist(-1*Gwv)
-movegui('southwest');
-hold on
-nyquist(-8*Gwv)
-figure(3);
-step(Gwv)
-axis([0 150*10^(-3) 0 1])
-%% PI-regulator:
-Ni = 9;
-%alpha = 0.2;
-gammaM = 60 * pi/180;
-
-phi_i = atan(-1/Ni);
-
-angleG = (-pi + gammaM-phi_i) * (180/pi) %-108.6901
-omega_c = 97;
-tau_i = Ni/omega_c;
-
-Gi = tf([tau_i, 1],[tau_i,0]);
-
-[M,P] = bode(Gi*Gwv,omega_c);
-Kp = 1/M;
-
-figure(4);
-Gpi = (Gwv*Gi*Kp)/(1+Gwv*Gi*Kp);
-step(Gpi);
-stepinfo(Gpi)
-
-%% %% PID-regulator:
-Ni = 1;
-alpha = 0.2;
-gammaM = 80 * pi/180;
-
-phi_i = atan(-1/Ni);
-phi_m = asin((1-alpha)/(1+alpha));
-phi_mi = phi_i + phi_m;
-
-angleG = (-pi + gammaM - phi_mi) * (180/pi)
-
-omega_c = 103;
-tau_i = Ni/omega_c;
-tau_d = 1/(omega_c * sqrt(alpha));
-
-Gi = tf([tau_i, 1],[tau_i,0]);
-Gd = tf([tau_d,1],[alpha*tau_d,1]);
-
-[M,P] = bode(Gi*Gd*Gwv,omega_c);
-Kp = 1/M;
-
-figure(5);
-Gpid = (Gwv*Gi*Kp)/(1+Gwv*Gd*Gi*Kp);
-step(Gpid);
-stepinfo(Gpid)
-
-figure(6);
-bode(Gpid)
-%% Vi laver en ny med Kp mellem 10 og 20
-Gwv;
-Kp = 11;
-figure(10)
-margin(Kp*Gwv)
-grid()
-%%
-
-omega_c = 22.9;
-Ni = 5;
-alpha = 1;
-
-tau_i = Ni/omega_c;
-tau_d = 1/(omega_c * sqrt(alpha));
-
-Gi = tf([tau_i, 1],[tau_i,0]);
-Gd = tf([tau_d,1],[alpha*tau_d,1]);
-
-figure(5);
-Go = Gwv*Gi*Kp
-Gc = Go/(1+Go*Gd)
-step(Gc);
-axis([0 1 0 10]);
-grid();
-
-%figure(6)
-%nyquist(Go)
