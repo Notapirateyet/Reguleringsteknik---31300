@@ -173,7 +173,7 @@ figure(7)
 margin(Gcb)
 
 figure(8)
-margin(Gob)
+nyquist(Gob)
 
 %% simulering i 2 sekunder
 sim('regbot_3mg', 30);
