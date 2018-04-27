@@ -53,82 +53,8 @@ pzmap(Gsp);
 % I regulator
 Ni = 5;
 alpha_b = 0.07;
-omega1 = 20; %Ændre i den her
-omega2 = 2*omega1; %giver fire frekvenser med steps på den valgte omega1
-omega3 = 3*omega1;
-omega4 = 4*omega1;
-%4 regulatorer laves fra valgte frekvenser:
-%i led laves
-tau_ib1 = Ni/omega1;
-gi1 = tf([tau_ib1 1],[tau_ib1 0]);
 
-tau_ib2 = Ni/omega2;
-gi2 = tf([tau_ib2 1],[tau_ib2 0]);
 
-tau_ib3 = Ni/omega3;
-gi3 = tf([tau_ib3 1],[tau_ib3 0]);
-
-tau_ib4 = Ni/omega4;
-gi4 = tf([tau_ib4 1],[tau_ib4 0]);
-
-%lead led laves:
-tau_db1 = 1/(omega1*sqrt(alpha_b));
-gd1 = tf([tau_db1 1],1);
-
-tau_db2 = 1/(omega2*sqrt(alpha_b));
-gd2 = tf([tau_db2 1],1);
-
-tau_db3 = 1/(omega3*sqrt(alpha_b));
-gd3 = tf([tau_db3 1],1);
-
-tau_db4 = 1/(omega4*sqrt(alpha_b));
-gd4 = tf([tau_db4 1],1);
-
-%Kp findes
-[M1,P1] = bode(Gsp*gi1*gd1,omega1);
-Kp_b1 = 1/M1;
-
-[M2,P2] = bode(Gsp*gi2*gd2,omega2);
-Kp_b2 = -1/M2;
-
-[M3,P3] = bode(Gsp*gi3*gd3,omega3);
-Kp_b3 = -1/M3;
-
-[M4,P4] = bode(Gsp*gi4*gd4,omega4);
-Kp_b4 = -1/M4;
-
-%nyquist, bode og step laves fra valgte frekvenser
-
-figure(5) %plot nyquist
-hold on
-nyquist(gd1*Kp_b1*Gsp*gi1);
-nyquist(gd2*Kp_b2*Gsp*gi2);
-nyquist(gd3*Kp_b3*Gsp*gi3);
-nyquist(gd4*Kp_b4*Gsp*gi4);
-hold off
-figure(7) %plot bode
-hold on
-bode(Kp_b1*gd1*Gsp*gi1);
-bode(Kp_b2*gd2*Gsp*gi2);
-bode(Kp_b3*gd3*Gsp*gi3);
-bode(Kp_b4*gd4*Gsp*gi4);
-hold off
-Gcl1 = (Gsp*gi1*Kp_b1)/(1+gd1*Gsp*gi1*Kp_b1);
-Gcl2 = (Gsp*gi2*Kp_b2)/(1+gd2*Gsp*gi2*Kp_b2);
-Gcl3 = (Gsp*gi3*Kp_b3)/(1+gd3*Gsp*gi3*Kp_b3);
-Gcl4 = (Gsp*gi4*Kp_b4)/(1+gd4*Gsp*gi4*Kp_b4);
-figure(6) %plot step
-hold on
-step(Gcl1)
-step(Gcl2)
-step(Gcl3)
-step(Gcl4)
-hold off
-
-%% Vælg den bedste, kør forrige blok først
-tau_ib = tau_ib1; %ændre tallet for at vælge en anden regulator
-tau_db = tau_db1;
-Kp_b = Kp_b1;
 %% simulering af model i 2 sekunder
 sim('regbot_3mg', 30);
 
