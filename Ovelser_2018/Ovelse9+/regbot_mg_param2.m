@@ -67,37 +67,43 @@ plot(pitchout);
 
 
 %% Ny regulator
-% figure()
-% margin(Gsp)
-% grid
-omega_c = 45;
+ figure(4)
+ margin(Gsp)
+ grid
+omega_c = 35;
 Ni = 7;
-alphab = 0.1;
+omega_c2 = 15;
+Ni2 = 7;
+omega_c3 = 50;
+alphab = 0.5;
+
 
 tau_ib = Ni/omega_c;
-tau_db = 1/(omega_c * sqrt(alpha));
+tau_db = 1/(omega_c3 * sqrt(alphab));
+
+tau_ib2 = Ni2/omega_c;
 
 Gib = tf([tau_ib, 1],[tau_ib,0]);
-Gdb = tf([tau_db,1],[alphab*tau_db,1]);
+Gib2 = tf([tau_ib2, 1],[tau_ib2,0]);
+Gdb = tf([tau_db,0],1);
 
-[M,P] = bode(Gib*Gsp*Gdb,omega_c);
-Kpb = -1/M;
+Kpb = -1.5;
 
-figure(5);
-Gob = Gsp*Gib*Kpb
-Gcb = Gob/(1+Gob*Gdb)
-nyquist(Gcb);
-grid();
-
-% figure(6)
-% nyquist(Gob)
-
-%%
 figure(7)
-margin(Gcb)
+hold off
+Gob2 = Gsp*Gib*Gib2*Kpb;
+bode(Gob2)
+ title('regulede med 2 i-led');
+ hold on
+ Gob3 = Gsp*Gib*Gib2*Gdb*Kpb;
+bode(Gob3)
+ hold off
 
-figure(8)
-nyquist(Gob)
+figure(8);
+nyquist(Gob2)
+title('regulede med 2 i-led');
+axis([-6 2 -2 2]);
+movegui('southeast')
 
 %% simulering i 2 sekunder
 sim('regbot_3mg', 30);
