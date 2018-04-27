@@ -30,14 +30,11 @@ Kp_speed = 12;
 tau_i = 0.0714;
 
 Kpb = -1.5;
-tau_db = 0.0283;
+tau_db = 0.05;
 alpha_b = 0.07;
 
-tau_ib = 0.2;
-tau_ib2 =
-
-
-
+tau_ib = 0.0429;
+tau_ib2 = 0.200;
 
 %% simulering af model i 2 sekunder
 sim('regbot_4mg', 2);
@@ -55,15 +52,17 @@ Kph = 0.21;
 margin(Kph*Gwv);
 grid();
 %%
+figure(11);
+margin(Gwv);
 
 
-omega_c = 1.3;
-Ni = 12;
-alpha_h = 0.8;
+omega_c = 3;
+Ni = 3;
+alpha_h = 1.2;
 
 tau_ih = Ni/omega_c;
 tau_dh = 1/(omega_c * sqrt(alpha_h));
-
+Kp = -0.21;
 Gih = tf([tau_ih, 1],[tau_ih,0]);
 Gdh = tf([tau_dh,1],[alpha_h*tau_dh,1]);
 [Mh,Ph] = bode(Gih*Gwv*Gdh,omega_c);
@@ -75,8 +74,13 @@ Goh = Gwv*Gih*Kph
 Gch = Goh/(1+Goh*Gdh)
 step(Gch);
 
-figure()
+figure(6);
 nyquist(Goh)
+axis([-2 2 -2 2])
+
+%figure(7);
+%pzplot(Gwv)
+%margin(Gwv*Gih*Kph*Gdh);
 %%
 figure(12);
 margin(Gch);
