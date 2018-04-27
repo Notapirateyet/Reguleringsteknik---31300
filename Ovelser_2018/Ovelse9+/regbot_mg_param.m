@@ -149,9 +149,10 @@ figure(10)
 margin(Gwv)
 grid()
 %%
-
-omega_c = 50;
-Ni = 10;
+figure(4)
+bode(Gwv);
+omega_c = 70;
+Ni = 5;
 alpha = 0.5;
 
 tau_i = Ni/omega_c;
@@ -159,11 +160,16 @@ tau_d = 1/(omega_c * sqrt(alpha));
 
 Gi = tf([tau_i, 1],[tau_i,0]);
 Gd = tf([tau_d,1],[alpha*tau_d,1]);
-[M,P] = bode(Gi*Gwv*Gd,omega_c);
-Kp = 1/M;
-figure(5);
+[M,P] = bode(Gi*Gwv,omega_c);
+Kp = 12;
+figure(7);
 Go = Gwv*Gi*Kp
-Gc = Go/(1+Go*Gd)
+Gc = Go/(1+Go)
 step(Gc);
+title('omega_c = 50,Ni = 10,alpha=0.5')
 grid();
 axis([0 0.5 0 1.3]);
+
+
+
+

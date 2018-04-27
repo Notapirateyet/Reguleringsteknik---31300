@@ -26,10 +26,8 @@ pushDist = 0.1;
 %
 %% Hastighedsregulator
 
-Kp_speed = 15.9831;
-tau_i = 0.2;
-tau_d = 0.0283;
-alpha = 0.5;
+Kp_speed = 12;
+tau_i = 0.0714;
 
 %% linearisering i arbejdspunkt (startvinkel)
 startAngle = 30; % in degrees
@@ -162,7 +160,7 @@ Kpb = -1/M;
 figure(5);
 Gob = Gsp*Gib*Kpb
 Gcb = Gob/(1+Gob*Gdb)
-step(Gcb);
+nyquist(Gcb);
 grid();
 
 % figure(6)
