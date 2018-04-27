@@ -70,18 +70,18 @@ plot(pitchout);
  figure(4)
  margin(Gsp)
  grid
-omega_c = 35;
-Ni = 7;
+omega_c = 70;
+Ni = 3;
 omega_c2 = 15;
-Ni2 = 7;
-omega_c3 = 50;
-alphab = 0.5;
+Ni2 = 3;
+omega_c3 = 20;
+alphab = 1;
 
 
 tau_ib = Ni/omega_c;
 tau_db = 1/(omega_c3 * sqrt(alphab));
 
-tau_ib2 = Ni2/omega_c;
+tau_ib2 = Ni2/omega_c2;
 
 Gib = tf([tau_ib, 1],[tau_ib,0]);
 Gib2 = tf([tau_ib2, 1],[tau_ib2,0]);
@@ -100,10 +100,11 @@ bode(Gob3)
  hold off
 
 figure(8);
-nyquist(Gob2)
+nyquist(Gob3)
 title('regulede med 2 i-led');
-axis([-6 2 -2 2]);
+axis([-2 2 -3 3]);
+grid on;
 movegui('southeast')
 
 %% simulering i 2 sekunder
-sim('regbot_3mg', 30);
+sim('regbot_3mg', 5);
