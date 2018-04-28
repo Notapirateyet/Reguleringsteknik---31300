@@ -40,11 +40,12 @@ startAngle = 30; % in degrees
 Gwv = minreal(tf(num,den))
 %%
 % Gwv;
-% figure(10)
-% margin(Gwv)
-% grid()
-% figure(11)
-% step(Gwv/(1+Gwv))
+close all
+figure(10)
+margin(Gwv)
+grid()
+figure(11)
+pzmap(Gwv)
 
 %% Se på tf
 figure(1)
@@ -87,7 +88,7 @@ figure(1);
 bode(Gwv);
 movegui('northwest');
 figure(2);
-nyquist(-1*Gwv)
+nyqui   st(-1*Gwv)
 movegui('southwest');
 hold on
 nyquist(-8*Gwv)
@@ -169,7 +170,11 @@ step(Gc);
 title('omega_c = 50,Ni = 10,alpha=0.5')
 grid();
 axis([0 0.5 0 1.3]);
-
-
+figure(99)
+nyquist(Go);
+grid()
+figure(98)
+margin(Go)
+grid
 
 
