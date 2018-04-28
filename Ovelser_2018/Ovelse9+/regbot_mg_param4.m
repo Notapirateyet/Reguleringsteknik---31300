@@ -36,55 +36,36 @@ alpha_b = 0.07;
 tau_ib = 0.0429;
 tau_ib2 = 0.200;
 
+Kph = 0.001;
+tau_ih = 0.01667;
+tau_dh = 3.1623;
+alpha_h = 0.1;
+
 %% linearisering i arbejdspunkt (startvinkel)
 startAngle = 30; % in degrees
 % linmod forventer her at model har netop et input og et output
-[A,B,C,D] = linmod('regbot_3mg');
+[A,B,C,D] = linmod('regbot_4mg');
 [num,den] = ss2tf(A,B,C,D);
 % overføringsfunktion fra motorspænding til hjulhastighed
 Gwv = minreal(tf(num,den))
-%% Vi regner med den
-figure(10);
-margin(Gwv);
-grid();
 %%
-figure(11);
-margin(Gwv);
+figure(1)
+margin(Gwv)
 %%
+omega_pos = 0.831;
+Ni = 15;
+alpha = 1;
+tau_ipos = Ni/omega_pos;
+tau_dpos = 1/(sqrt(alpha) * omega_pos);
 
-omega_c = 1;
-Ni = 5;
-alpha_h = 0.1;
-omega_i = 300;
-tau_ih = Ni/omega_i;
-tau_dh = 1/(omega_c * sqrt(alpha_h));
-Gih = tf([tau_ih, 1],[tau_ih,0]);
-Gdh = tf([tau_dh,1],[alpha_h*tau_dh,1]);
-[Mh,Ph] = bode(Gwv*Gih*Gdh,omega_c);
-Kph = 1/Mh;
+Gipos = tf([tau_ipos, 1],[tau_ipos,0]);
+Gdpos = tf([tau_dpos, 1],[tau_dpos*alpha,1]);
+[Mh,Ph] = bode(Gwv*Gipos*Gdpos,omega_pos);
+Kpos = 1/Mh;
 
 
 figure(5);
-Goh = Gwv*Kph*Gih
-Gch = Goh/(1+Goh*Gdh)
-step(Gch);
-%%
-figure(6);
-nyquist(Goh*Gdh)
-axis([-2 2 -2 2])
-figure(7);
-margin(Goh*Gdh)
+Gopos = Gwv*Kpos*Gipos
+Gcpos = Gopos/(1+Gopos*Gdpos)
+step(Gcpos);
 
-%figure(7);
-%pzplot(Gwv)
-%margin(Gwv*Gih*Kph*Gdh);
-%%
-figure(12);
-margin(Gch);
-grid();
-%% simulering af model i 2 sekunder
-sim('regbot_4mg', 30);
-
-%%
-figure(13)
-pzplot(Gch)
