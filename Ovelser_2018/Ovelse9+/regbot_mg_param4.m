@@ -52,20 +52,20 @@ Gwv = minreal(tf(num,den))
 figure(1)
 margin(Gwv)
 %%
-omega_pos = 0.831;
-Ni = 15;
-alpha = 1;
+omega_pos = 10;
+Ni = 5;
+alpha = 0.001;
 tau_ipos = Ni/omega_pos;
 tau_dpos = 1/(sqrt(alpha) * omega_pos);
 
 Gipos = tf([tau_ipos, 1],[tau_ipos,0]);
 Gdpos = tf([tau_dpos, 1],[tau_dpos*alpha,1]);
-[Mh,Ph] = bode(Gwv*Gipos*Gdpos,omega_pos);
-Kpos = 1/Mh;
-
+[Mpos,Ppos] = bode(Gwv*Gipos*Gdpos,omega_pos);
+Kpos = 1/Mpos;
 
 figure(5);
 Gopos = Gwv*Kpos*Gipos
 Gcpos = Gopos/(1+Gopos*Gdpos)
 step(Gcpos);
-
+figure(6);
+margin(Gopos);
