@@ -51,14 +51,14 @@ figure(10);
 Kph = 0.21;
 margin(Kph*Gwv);
 grid();
-%%
+%% Den nedenstående regulator virker ikke.
 figure(11);
 margin(Gwv);
 
 
 omega_c = 3;
-Ni = 3;
-alpha_h = 1.2;
+Ni = 12;
+alpha_h = 0.9;
 
 tau_ih = Ni/omega_c;
 tau_dh = 1/(omega_c * sqrt(alpha_h));
@@ -75,12 +75,12 @@ Gch = Goh/(1+Goh*Gdh)
 step(Gch);
 
 figure(6);
-nyquist(Goh)
+nyquist(Gwv*Gih*Kph*Gdh);
 axis([-2 2 -2 2])
 
-%figure(7);
+figure(7);
 %pzplot(Gwv)
-%margin(Gwv*Gih*Kph*Gdh);
+margin(Gwv*Gih*Kph*Gdh);
 %%
 figure(12);
 margin(Gch);
