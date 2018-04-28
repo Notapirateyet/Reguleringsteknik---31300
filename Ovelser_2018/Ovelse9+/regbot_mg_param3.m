@@ -56,7 +56,7 @@ margin(Gwv);
 omega_c = 1;
 Ni = 5;
 alpha_h = 0.1;
-omega_i = 150;
+omega_i = 350;
 tau_ih = Ni/omega_i;
 tau_dh = 1/(omega_c * sqrt(alpha_h));
 Gih = tf([tau_ih, 1],[tau_ih,0]);
@@ -73,6 +73,8 @@ step(Gch);
 figure(6);
 nyquist(Goh)
 axis([-2 2 -2 2])
+figure(7);
+margin(Goh)
 
 %figure(7);
 %pzplot(Gwv)
