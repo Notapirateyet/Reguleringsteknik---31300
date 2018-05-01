@@ -24,7 +24,7 @@ startAngle = 30; % in degrees
 % forstyrrelse - skub position (Z)
 pushDist = 0.1;
 %
-%% Hastighedsregulator
+%% Hastigheds- og balanceregulator
 
 Kp_speed = 12;
 tau_i = 0.0714;
@@ -51,6 +51,7 @@ grid();
 %% Den nedenst�ende regulator virker ikke.
 figure(11);
 margin(Gwv);
+nyquist(Gwv);
 %%
 
 omega_c = 1;
