@@ -177,4 +177,12 @@ figure(98)
 margin(Go)
 grid
 
+%% Get plot
+
+sim('regbot_2mg.slx',1);
+figure(69); % nice
+plot(speed_out);
+
+
+
 
