@@ -1,35 +1,40 @@
 close all
 clear
-data = load('balance_log.txt');
 %% logfile from robot Freja (4)
 % Freja (4)
-%  1    time 0.013 sec
-%  2 11 ctrl balance, ref=0, m=0.435206, m2=0.419413, uf=0, r2=0, ep=0.62912,up=0.62912, ui=0.204522, u1=0.833642, u=0.884556
-
-%% plotting the balance - hopefully
-
+%  1    time 0.008 sec
+%  2  3  4  5 Pose x,y,h,tilt [m,m,rad,rad]: 0.00162272 -5.30893e-07 0 0.451635
+%% plotting the balance - 10 s 
+data = load('10s_tilt_log.txt');
 figure(100)
-plot(data(:,1),data(:,2))
-hold on
-plot(data(:,1),data(:,3))
-hold on
-plot(data(:,1),data(:,4))
-hold on
 plot(data(:,1),data(:,5))
-hold on
-plot(data(:,1),data(:,6))
-hold on
-plot(data(:,1),data(:,7))
-hold on
-plot(data(:,1),data(:,8))
+xlabel('Time [s]')
+ylabel('Tilt [rad]')
+axis([0 10.4 -0.2 0.5]);
+
+%% plotting the balance - 30 s with extrenet input
+
+data = load('30s_tilt_m_ekstern_forstyrrese.txt');
+figure(110)
+yyaxis left
+plot(data(:,1),data(:,5))
+xlabel('Time [s]')
+ylabel('Tilt [rad]')
 hold on 
-plot(data(:,1),data(:,9))
-hold on
-plot(data(:,1),data(:,10))
-hold on
-plot(data(:,1),data(:,11))
-legend('ref=0', 'm=0.435206', 'm2=0.419413', 'uf=0', 'r2=0', 'ep=0.62912','up=0.62912', 'ui=0.204522', 'u1=0.833642', 'u=0.884556');
+yyaxis right
+plot(data(:,1),data(:,2));
+ylabel('x[m]')
+legend('Tilt','Position in x-direction')
 hold off
 
-%Efter visuel inspektion... har jeg stadig ingen ide om hvilken en af de
-%her er ti
+figure(112)
+plot(data(:,2),data(:,3),'r');
+xlabel('x[m]')
+ylabel('y[m]')
+color('r');
+%% plotting simulated data - I hope
+
+figure(120)
+plot(pitchout.Time,pitchout.Data)
+xlabel('Time [s]')
+ylabel('Tilt [rad]')
