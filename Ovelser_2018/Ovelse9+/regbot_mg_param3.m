@@ -65,11 +65,14 @@ Gdh = tf([tau_dh,1],[alpha_h*tau_dh,1]);
 [Mh,Ph] = bode(Gwv*Gih*Gdh,omega_c);
 Kph = 1/Mh;
 
+%%
 
 figure(5);
 Goh = Gwv*Kph*Gih
 Gch = Goh/(1+Goh*Gdh)
 step(Gch);
+figure(7);
+margin(Goh*Gdh)
 %%
 figure(6);
 nyquist(Gwv*Gih*Kph*Gdh);
@@ -81,10 +84,12 @@ margin(Gwv*Gih*Kph*Gdh);
 %%
 figure(12);
 margin(Gch);
-grid();
+
 %% simulering af model i 2 sekunder
-sim('regbot_4mg', 30);
+sim('regbot_4mg', 120);
 
 %%
-figure(13)
-pzplot(Gch)
+figure(100)
+plot(pitchout)
+figure(101)
+plot(speed_out)

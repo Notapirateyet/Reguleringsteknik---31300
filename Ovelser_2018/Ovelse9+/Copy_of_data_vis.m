@@ -5,7 +5,7 @@
 %  6  7  8  9 Pose x,y,h,tilt [m,m,rad,rad]: 0 0 0 -3.0872
 %% Load data
 
-data = load('hastigregdata_1.txt');
+data = load('hastighed_og_balance.txt');
 
 %%
 sim('regbot_2mg.slx',1);
@@ -15,20 +15,22 @@ sim('regbot_2mg.slx',1);
 close all
 figure(1)
 hold on
-plot(data(:,1),data(:,4));
+plot(data(:,1),data(:,2));
 plot(speed_out);
 legend('Measurement', 'Simulation')
 title(' ');
-axis([0, 0.4, -0.2, 1.2]);
+ylabel('velocity');
+axis([0, 31, -1.6, 1.6]);
 hold off
 
 figure(2)
 hold on
-plot(data(:,1),data(:,2));
-plot(motor_voltage_out);
+plot(data(:,1),data(:,7));
+plot(pitchout);
 legend('Measurement', 'Simulation')
 title(' ');
-axis([0, 0.4, 0, 10]);
+ylabel('pitch');
+axis([0, 31,-0.2, 0.6]);
 hold off
 
 
