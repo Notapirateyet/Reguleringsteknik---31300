@@ -167,11 +167,10 @@ figure(7);
 Go = Gwv*Gi*Kp
 Gc = Go/(1+Go)
 step(Gc);
-title('omega_c = 50,Ni = 10,alpha=0.5')
 grid();
-axis([0 0.5 0 1.3]);
+axis([0 0.15 0 1.3]);
 figure(99)
-nyquist(Go);
+nyquist(Go);$
 grid()
 figure(98)
 margin(Go)

@@ -25,7 +25,6 @@ startAngle = 30; % in degrees
 pushDist = 0.1;
 %
 %% Hastighedsregulator
-
 Kp_speed = 12;
 tau_i = 0.0714;
 
@@ -52,9 +51,9 @@ Gwv = minreal(tf(num,den))
 sim('regbot_5mg', 80);
 %%
 figure(1)
-margin(Gwv)
+pzplot(Gwv)
 %%
-omega_pos = 10;
+omega_pos = 1;
 Ni = 5;
 alpha = 0.001;
 tau_ipos = Ni/omega_pos;
@@ -63,11 +62,14 @@ tau_dpos = 1/(sqrt(alpha) * omega_pos);
 Gipos = tf([tau_ipos, 1],[tau_ipos,0]);
 Gdpos = tf([tau_dpos, 1],[tau_dpos*alpha,1]);
 [Mpos,Ppos] = bode(Gwv*Gipos*Gdpos,omega_pos);
-Kpos = 1/Mpos;
-
+Kpos = (1/Mpos);
+Kpos =1;
 figure(5);
 Gopos = Gwv*Kpos*Gipos
-Gcpos = Gopos/(1+Gopos*Gdpos)
+Gcpos = Gopos/(1+Gopos)
 step(Gcpos);
 figure(6);
 margin(Gopos);
+
+figure(7);
+nyquist(Gopos);

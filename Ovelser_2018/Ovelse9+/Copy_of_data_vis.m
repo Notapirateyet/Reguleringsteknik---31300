@@ -8,7 +8,7 @@
 data = load('hastighed_og_balance.txt');
 
 %%
-sim('regbot_4mg.slx',1);
+sim('regbot_4mg.slx',85);
 
 
 %%
@@ -19,7 +19,7 @@ plot(data(:,1),data(:,2));
 plot(speed_out);
 legend('Measurement', 'Simulation')
 title(' ');
-ylabel('velocity');
+ylabel('Velocity [m/s]');
 axis([0, 31, -1.6, 1.6]);
 hold off
 
@@ -29,7 +29,7 @@ plot(data(:,1),data(:,7));
 plot(pitchout);
 legend('Measurement', 'Simulation')
 title(' ');
-ylabel('pitch');
+ylabel('Pitch [rad]');
 axis([0, 31,-0.2, 0.6]);
 hold off
 
