@@ -86,8 +86,10 @@ figure(12);
 margin(Gch);
 
 %% simulering af model i 2 sekunder
-sim('regbot_4mg', 30);
+sim('regbot_4mg', 120);
 
 %%
-figure(13)
-pzplot(Gch)
+figure(100)
+plot(pitchout)
+figure(101)
+plot(speed_out)
