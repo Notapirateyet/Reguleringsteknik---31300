@@ -8,7 +8,7 @@
 data = load('hastighed_og_balance.txt');
 
 %%
-sim('regbot_2mg.slx',1);
+sim('regbot_4mg.slx',1);
 
 
 %%
