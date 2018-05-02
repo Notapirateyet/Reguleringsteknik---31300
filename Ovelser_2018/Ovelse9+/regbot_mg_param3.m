@@ -64,14 +64,15 @@ Gih = tf([tau_ih, 1],[tau_ih,0]);
 Gdh = tf([tau_dh,1],[alpha_h*tau_dh,1]);
 [Mh,Ph] = bode(Gwv*Gih*Gdh,omega_c);
 Kph = 1/Mh;
-figure(7);
-margin(Goh*Gdh)
+
 %%
 
 figure(5);
 Goh = Gwv*Kph*Gih
 Gch = Goh/(1+Goh*Gdh)
 step(Gch);
+figure(7);
+margin(Goh*Gdh)
 %%
 figure(6);
 nyquist(Gwv*Gih*Kph*Gdh);
