@@ -90,14 +90,14 @@ Gdb = tf([tau_db,0],1);
 Kpb = -1.5;
 
 figure(7)
-hold off
-Gob2 = Gsp*Gib*Gib2*Kpb;
-bode(Gob2)
- title('regulede med 2 i-led');
- hold on
+%hold off
+%Gob2 = Gsp*Gib*Gib2*Kpb;
+%bode(Gob2)
+% title('regulede med 2 i-led');
+% hold on
  Gob3 = Gsp*Gib*Gib2*Gdb*Kpb;
-bode(Gob3)
- hold off
+margin(Gob3)
+% hold off
 
 figure(8);
 nyquist(Gob3)
@@ -106,5 +106,8 @@ axis([-2 2 -3 3]);
 grid on;
 movegui('southeast')
 
+figure(9);
+step(Gsp*Gib*Gib2*Kpb/(1+Gsp*Gib*Gib2*Gdb*Kpb));
+
 %% simulering i 2 sekunder
-sim('regbot_3mg', 5);
+sim('regbot_3mg', 10);

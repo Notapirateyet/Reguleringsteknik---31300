@@ -24,7 +24,7 @@ startAngle = 30; % in degrees
 % forstyrrelse - skub position (Z)
 pushDist = 0.1;
 %
-%% Hastighedsregulator
+%% Hastigheds- og balanceregulator
 
 Kp_speed = 12;
 tau_i = 0.0714;
@@ -45,17 +45,19 @@ startAngle = 30; % in degrees
 Gwv = minreal(tf(num,den))
 %% Vi regner med den
 figure(10);
-margin(Gwv);
+Kph = 0.21;
+margin(Kph*Gwv);
 grid();
-%%
+%% Den nedenst�ende regulator virker ikke.
 figure(11);
 margin(Gwv);
+nyquist(Gwv);
 %%
 
 omega_c = 1;
 Ni = 5;
 alpha_h = 0.1;
-omega_i = 300;
+omega_i = 150;
 tau_ih = Ni/omega_i;
 tau_dh = 1/(omega_c * sqrt(alpha_h));
 Gih = tf([tau_ih, 1],[tau_ih,0]);
@@ -72,13 +74,12 @@ Gch = Goh/(1+Goh*Gdh)
 step(Gch);
 %%
 figure(6);
-nyquist(Goh*Gdh)
+nyquist(Gwv*Gih*Kph*Gdh);
 axis([-2 2 -2 2])
 
-
-%figure(7);
+figure(7);
 %pzplot(Gwv)
-%margin(Gwv*Gih*Kph*Gdh);
+margin(Gwv*Gih*Kph*Gdh);
 %%
 figure(12);
 margin(Gch);

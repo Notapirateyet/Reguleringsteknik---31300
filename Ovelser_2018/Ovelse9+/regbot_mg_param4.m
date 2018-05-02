@@ -48,6 +48,8 @@ startAngle = 30; % in degrees
 [num,den] = ss2tf(A,B,C,D);
 % overføringsfunktion fra motorspænding til hjulhastighed
 Gwv = minreal(tf(num,den))
+%% simulering af model i 30 sekunder
+sim('regbot_5mg', 80);
 %%
 figure(1)
 margin(Gwv)
