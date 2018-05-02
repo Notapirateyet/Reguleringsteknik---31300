@@ -13,25 +13,25 @@ ylabel('Tilt [rad]')
 axis([0 10.4 -0.2 0.5]);
 
 %% plotting the balance - 30 s with extrenet input
-
+close all
 data = load('30s_tilt_m_ekstern_forstyrrese.txt');
 figure(110)
-yyaxis left
+%yyaxis left
 plot(data(:,1),data(:,5))
 xlabel('Time [s]')
 ylabel('Tilt [rad]')
 hold on 
-yyaxis right
-plot(data(:,1),data(:,2));
-ylabel('x[m]')
-legend('Tilt','Position in x-direction')
+%yyaxis right
+%plot(data(:,1),data(:,2));
+%ylabel('x[m]')
+legend('Tilt')%,'Position in x-direction')
 hold off
 
 figure(112)
 plot(data(:,2),data(:,3),'r');
 xlabel('x[m]')
 ylabel('y[m]')
-color('r');
+%color('r');
 %% plotting simulated data - I hope
 
 figure(120)
