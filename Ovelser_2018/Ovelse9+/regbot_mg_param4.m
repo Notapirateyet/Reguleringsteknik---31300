@@ -52,20 +52,39 @@ sim('regbot_5mg', 80);
 %%
 figure(1)
 pzplot(Gwv)
+figure(2)
+nyquist(Gwv)
+grid
+figure(3)
+margin(Gwv)
+grid
 %%
-omega_pos = 1;
 Ni = 5;
+Ni2 = 5;
 alpha = 0.001;
-tau_ipos = Ni/omega_pos;
 tau_dpos = 1/(sqrt(alpha) * omega_pos);
+phi_i = atan(-1/Ni) * 180/pi;
+phi_i2 = atan(-1/Ni2) * 180/pi;
+gamma_m = 60;
+phaase_margin = -180 + gamma_m - phi_i - phi_i2
+
+figure(3)
+bode(Gwv)
+
+%%
+omega_pos = 0.05;
+
+tau_ipos = Ni/omega_pos;
+tau_ipos2 = Ni2/omega_pos;
 
 Gipos = tf([tau_ipos, 1],[tau_ipos,0]);
 Gdpos = tf([tau_dpos, 1],[tau_dpos*alpha,1]);
-[Mpos,Ppos] = bode(Gwv*Gipos*Gdpos,omega_pos);
+Gipos2 = tf([tau_ipos2, 1],[tau_ipos2,0]);
+[Mpos,Ppos] = bode(Gwv*Gipos*Gipos2,omega_pos);
 Kpos = (1/Mpos);
-Kpos =1;
+Kpos = Kpos/2;
 figure(5);
-Gopos = Gwv*Kpos*Gipos
+Gopos = Gwv*Kpos*Gipos*Gipos2
 Gcpos = Gopos/(1+Gopos)
 step(Gcpos);
 figure(6);
