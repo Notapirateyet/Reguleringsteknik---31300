@@ -1,0 +1,47 @@
+Hej Alle
+Mange føler dette emne har været berørt for lidt, så derfor er her en kort (ekstra) forklaring:
+ 
+Et ulineært udtryk består ofte af flere led (summation), enkelte af disse led kan være ulineært, dvs. hvor de variable ikke står alene i første potens sammen med en (eller flere) konstant(er).
+For Regulering 1 vil der normalt være 2 variable (output og input, vi kan jo kalde dem x og y) og eventuelt de afledede af dem.
+
+Et ulinært udtryk med flere led kunne så være:
+2 y'' + 4xy = sin(x') + 25 y^2
+Det første led 2y'' er lineært da variablen (her afledt 2 gange) y'' kun står sammen med en konstant.
+Det andet led xy er ulineært, da det bidrag en ændring af den ene variabel giver ikke er konstant (afhænger af den anden).
+Det tredje (sin(x)) er ulineært, da det bidrag udtrykket giver for en ændring af variablen (x) ikke er konstant.
+Det fjerede led ulineært af samme grund.
+
+Der lineariseres i et arbejdspunkt, dvs. der skal findes den konstant (eller den hældning) hvert led har i arbejdspunktet.
+Derfor skal arbejdspunktet findes. Hvis det er i steady state må arbejdspunktet for alle afledte være 0.
+
+Hvis vi siger arbejdspunktet er i steady state og y=2 må x i arbejdspunktet kunne findes ud fra:
+
+2 * 0 + 4 * x * 2 = sin(0) + 25 * 2^2
+8x=25*4
+x = 100/8
+x = 12.5
+værdier i arbejdspunkt kaldes normalt x0, y0, x'0, y''0 osv.
+
+Linearisering går så ud på at finde hældning i arbejdspunkt for de ulineære led:
+
+4xy: hældning for variation af x:  d/dx 4xy = 4y eller 8, da y i arbejdspunkt er 2.
+4xy: hældning for variation af y:  d/dy 4xy = 4x eller 50, da x i arbejdspunkt er 12.5.
+sin(x'): hældning for variation i x': d/dx' sin(x') = cos(x') eller 1 da x' i arbejdspunkt er 0.
+25 y^2: hældning for variation i y: d/dy 25 y^2 = 25*2 y eller 25*2*2 = 100 da y i arbejdspunkt er 2
+
+Variable er nu ændring fra arbejdspunkt x bliver til delta x (delta x = x - x0), y bliver til delta y, y' til delta y' osv.
+
+Det lineære udtryk er så (hvor variable nu er variation fra arbejdspunkt):
+
+2 y'' + 8x + 50 y = x' + 100 y, eller
+2 y'' + 50 y - 100 y = x' - 8x, eller i Laplace
+2 y s^2 - 50 y = xs - 8x, eller
+
+y(2 s^2 - 100) = x(s - 8) eller som overføringsfunktion
+y/x = (s - 8)/(2 s^2 - 100)
+
+ 
+
+Jeg håber det er rimeligt forståeligt.
+mvh
+Christian
